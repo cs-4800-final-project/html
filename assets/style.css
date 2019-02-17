@@ -1,0 +1,90 @@
+@font-face
+{
+	src:url(font.otf);
+	font-family:myfont;
+}
+
+#uni
+{
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	left: 0px;
+	top: 0px;
+	font-family: myfont;
+}
+
+#menubar
+{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	font-size: 30px;
+	font-color: FFFFFF;
+	text-align:center
+	float: left;
+}
+
+#menubar a
+{
+	font-size: 24px;
+	padding: 10px 20px 10px 20px 10px 20px;
+	text-decoration: none;
+	display: inline-block;
+}
+
+#menubar a:hover
+{
+	color: #727272;
+	background: white; 
+}
+
+#footer
+{	
+	width: 94%
+	padding: 3%;
+	background-color: #333;
+	font-size: 30px;
+}
+
+#content
+{
+	width: 96%;
+	padding: 2%;
+	font-size: 20px;
+	background-color: #DEB887;
+	min-height: 700px;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
