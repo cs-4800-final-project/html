@@ -17,6 +17,14 @@ Logs page under Construction
   ?>
 </div>
 
+
+<button class="collapsible">Log 0: Feb 1,2019</button>
+<div class="content">
+  <?php
+  	include('logs/day0.php');
+  ?>
+</div>
+
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
