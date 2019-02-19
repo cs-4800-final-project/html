@@ -39,4 +39,4 @@
   </tr>
 </table>
 
-<p>Notes: None. Getting everyone on Github with permissions. </p>
+<p>Notes: None. Getting everyone on Github with permissions. Discussing how to update the webserver and what javascript. </p>
