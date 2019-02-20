@@ -1,5 +1,5 @@
-<p>Meeting at: </p>
-<p>Meeting Objective: </p>
+<p>Meeting at: Remote Voice Call </p>
+<p>Meeting Objective: Updating individual status</p>
 <table style="width:100%">
   <tr>
     <th>Name</th>
@@ -9,34 +9,34 @@
   </tr>
   <tr>
     <td>Chloe Stabinsky</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Converted srs files</td>
+    <td>Updated Contact page and create logo</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Andrew So</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Fixed html/php formating</td>
+    <td>Setup git push web feature to webserver. Setup sql database.</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Dylan Chung</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Edited part of SRS</td>
+    <td>Researching Technologies: Backend</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Nowndale Sale</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Edited part of SRS</td>
+    <td>Researching Technologies: Backend.</td>
+    <td>Yes</td>
   </tr>
   <tr>
     <td>Mohammed Khan</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Edited part of SRS</td>
+    <td>Researching Technologies: Java Scripts</td>
+    <td>Yes</td>
   </tr>
 </table>
 
-<p>Notes: </p>
+<p>Notes: None. Waiting for SRS proposal approval. </p>
