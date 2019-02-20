@@ -19,7 +19,7 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #505050;
+	background-color: #FFFF00;
 	font-size: 30px;
 	font-color: #FFFFFF;
 	text-align:center
@@ -53,7 +53,7 @@
 	width: 96%;
 	padding: 2%;
 	font-size: 20px;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	min-height: 700px;
 }
 
@@ -77,7 +77,7 @@
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #F1F1F1;
+  background-color: #EEEEEE;
 }
 
 table, th, td {
