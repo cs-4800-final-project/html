@@ -87,7 +87,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
+
+<?php
+include('header.php');
+?>
 <div class="wrapper">
     <h2>Login</h2>
     <p>Please fill in your credentials to login.</p>
@@ -108,3 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
     </form>
 </div>    
+<?php
+include('footer.php');
+?>
+</div>
