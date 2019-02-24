@@ -1,4 +1,4 @@
-session_start();
+
 <div id="menubar">
 	<a href="index.php">
   		<img src="assets/nufu.png" alt="Home" style="width:42px;height:42px;border:0">
@@ -9,6 +9,7 @@ session_start();
 	<a href="index.php?page=member">Members</a>
 	<a href="index.php?page=contact">Contact Us</a>
 	<?php 
+	session_start();
 	if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
 	{
 		?>
