@@ -88,6 +88,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+
+<title> NuFu Login</title>
+<link rel="stylesheet" href="assets/style.css">
+
+<div id='uni'>
 <?php
 include('header.php');
 ?>

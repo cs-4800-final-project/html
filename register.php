@@ -92,6 +92,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+
+<title> Register </title>
+<link rel="stylesheet" href="assets/style.css">
+
+<div id='uni'>
+
 <?php
 include('header.php');
 ?>
