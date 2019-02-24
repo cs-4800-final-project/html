@@ -7,9 +7,14 @@
 	<a href="index.php?page=project">Project</a>
 	<a href="index.php?page=member">Members</a>
 	<a href="index.php?page=contact">Contact Us</a>
-	// Check if the user is logged in, if not then redirect him to login page
-	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== false){
-    
-    	<a href="logout.php">Logout</a>
-	}
+	<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
+	{
+		?>
+	      <a href="logout.php">Logout</a>
+		<?php 
+	}else{ ?>
+     <a href="login.php">Login</a>
+     <a href="register.php">Register</a>
+	<?php 
+	} ?>
 </div>
