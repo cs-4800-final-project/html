@@ -1,41 +1,41 @@
 Logs page under Construction
 
-<button class="collapsible">Log 5: Feb 25,2019</button>
+<button class="collapsible">Log 6: Feb 25, 2019</button>
 <div class="content">
   <?php
   	include('logs/day6.php');
   ?>
 </div>
 
-<button class="collapsible">Log 5: Feb 22,2019</button>
+<button class="collapsible">Log 5: Feb 22, 2019</button>
 <div class="content">
   <?php
   	include('logs/day5.php');
   ?>
 </div>
 
-<button class="collapsible">Log 4: Feb 21,2019</button>
+<button class="collapsible">Log 4: Feb 21, 2019</button>
 <div class="content">
   <?php
   	include('logs/day4.php');
   ?>
 </div>
 
-<button class="collapsible">Log 3: Feb 20,2019</button>
+<button class="collapsible">Log 3: Feb 20, 2019</button>
 <div class="content">
   <?php
   	include('logs/day3.php');
   ?>
 </div>
 
-<button class="collapsible">Log 2: Feb 19,2019</button>
+<button class="collapsible">Log 2: Feb 19, 2019</button>
 <div class="content">
   <?php
   	include('logs/day2.php');
   ?>
 </div>
 
-<button class="collapsible">Log 1: Feb 18,2019</button>
+<button class="collapsible">Log 1: Feb 18, 2019</button>
 <div class="content">
   <?php
   	include('logs/day1.php');
@@ -43,7 +43,7 @@ Logs page under Construction
 </div>
 
 
-<button class="collapsible">Log 0: Feb 1,2019</button>
+<button class="collapsible">Log 0: Feb 1, 2019</button>
 <div class="content">
   <?php
   	include('logs/day0.php');
