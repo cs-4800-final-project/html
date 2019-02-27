@@ -1,5 +1,5 @@
-<p>Meeting at: In class</p>
-<p>Meeting Objective: Update profile page</p>
+<p>Meeting at: </p>
+<p>Meeting Objective: </p>
 <table style="width:100%">
   <tr>
     <th>Name</th>
@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <td>Chloe Stabinsky</td>
-    <td> Clean website. Test login. </td>
+    <td> </td>
     <td> </td>
     <td> </td>
   </tr>
