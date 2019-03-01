@@ -1,5 +1,12 @@
 Logs page under Construction
 
+<button class="collapsible">Log 10: Mar 1, 2019</button>
+<div class="content">
+  <?php
+  	include('logs/day10.php');
+  ?>
+</div>
+
 <button class="collapsible">Log 9: Feb 28, 2019</button>
 <div class="content">
   <?php
