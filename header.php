@@ -18,8 +18,6 @@
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=er"> ER Model </a>
 			</li>
-				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=member"> Members </a>
-			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
 			</li>
 			<?php 
