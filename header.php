@@ -7,7 +7,7 @@
 	<div class = "collapse navbar-collapse" id= "navbarResponsive">
 		<ul class = "navbar-nav ml-auto">
 			<li class = "nav-item">
-				<a class ="nav-link" href = "#"> Home </a>
+				<a class ="nav-link" href = "http://danc.ddns.net"> Home </a>
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=log"> Logs </a>
 			</li>
