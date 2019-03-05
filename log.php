@@ -1,12 +1,18 @@
-Logs page under Construction
 
+<h2>Week 3: Mar 4 - Mar 8</h2>
+<button class="collapsible">Log 12: Mar 5, 2019</button>
+<div class="content">
+  <?php
+    include('logs/day12.php');
+  ?>
+</div>
 <button class="collapsible">Log 11: Mar 4, 2019</button>
 <div class="content">
   <?php
   	include('logs/day11.php');
   ?>
 </div>
-
+<h2>Week 2: Feb 25 - Mar 1 </h2>
 <button class="collapsible">Log 10: Mar 1, 2019</button>
 <div class="content">
   <?php
@@ -42,6 +48,7 @@ Logs page under Construction
   ?>
 </div>
 
+<h2>Week 1: Feb 18 - Feb 22 </h2>
 <button class="collapsible">Log 5: Feb 22, 2019</button>
 <div class="content">
   <?php
@@ -77,7 +84,7 @@ Logs page under Construction
   ?>
 </div>
 
-
+<h2>Week 0: Feb 1 </h2>
 <button class="collapsible">Log 0: Feb 1, 2019</button>
 <div class="content">
   <?php
