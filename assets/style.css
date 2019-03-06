@@ -4,7 +4,7 @@
 @font-face
 {
 	src:url(font.otf);
-	font-family:myfont;
+	font-family: 'Poppins', sans-serif;
 }
 
 #uni
@@ -14,7 +14,7 @@
 	min-height: 100%;
 	left: 0px;
 	top: 0px;
-	font-family: myfont;
+	font-family: 'Poppins', sans-serif;
 }
 
 #menubar
