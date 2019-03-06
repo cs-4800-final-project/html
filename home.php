@@ -1,7 +1,4 @@
 
-<h2>Welcome to our Homepage.</h2>
-This will be changed after initial update.
-<a href="https://github.com/cs-4800-final-project">Github Project</a>
 <div id = "slides" class = "carousel slide" data-ride= "carousel">
 	<ul class= "carousel-indicators">
 		<li data-target = "#slides" data-slide-to="0" class="active"></li>
