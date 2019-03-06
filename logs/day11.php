@@ -21,7 +21,7 @@
   </tr>
   <tr>
     <td>Dylan Chung</td>
-    <td>Finished mock UI. Sent to Chung for testing. Made new logo.</td>
+    <td>Finished mock UI. Sent to So for testing. Made new logo.</td>
     <td>Rework mock UI for practice. </td>
     <td>Yes </td>
   </tr>
