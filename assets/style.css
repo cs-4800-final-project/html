@@ -111,11 +111,11 @@ html, body {
   transform: translateY(-50%);
 }
 .carousel-caption h1{
- /* text-shadow: 1px 1px 15px #000;*/
+  text-shadow: 1px 1px 15px #000;
  /* color: #A9A9A9;*/
 }
 .carousel-caption h3{
-  /*text-shadow: 1px 1px 15px #000;*/
+  text-shadow: 1px 1px 15px #000;
   /* color: 	#A9A9A9;*/
 }
 
