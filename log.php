@@ -3,6 +3,12 @@
 <button class="collapsible">Log 16: Mar 12, 2019</button>
 <div class="content">
   <?php
+    include('logs/day18.php');
+  ?>
+</div>
+<button class="collapsible">Log 16: Mar 12, 2019</button>
+<div class="content">
+  <?php
     include('logs/day17.php');
   ?>
 </div>
