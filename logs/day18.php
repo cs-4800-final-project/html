@@ -10,7 +10,7 @@
   <tr>
     <td>Chloe Stabinsky</td>
     <td>Reserch comments page. </td>
-    <td>Wait until Chung pulls a muscle.</td>
+    <td>Wait until project gets pulled/updated on github.</td>
     <td>Yes </td>
   </tr>
   <tr>
