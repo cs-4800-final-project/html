@@ -1,5 +1,5 @@
-<p>Meeting at: Video chat</p>
-<p>Meeting Objective: Finish profile, video updates, </p>
+<p>Meeting at: Discord</p>
+<p>Meeting Objective: Finish profile, video updates, and other things.</p>
 <table style="width:100%">
   <tr>
     <th>Name</th>
@@ -39,4 +39,4 @@
   </tr>
 </table>
 
-<p>Notes: </p>
+<p>Notes: Urrgh.</p>
