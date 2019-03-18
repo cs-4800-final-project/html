@@ -1,33 +1,39 @@
-<?php
 
-session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    exit;
-}
- 
-// Include config file
 require_once "config.php";
-?>
 <?php
-	if(isset('submit-search'))
-	{
-		$search = mysql_real_escape_string($link, $_POST['search']);
-		$sql = "SELECT * FROM content where ctittle LIKE '%$search%' OR year LIKE '%$search%'";
-		$result = mysqli_query($link,$sql);
-		$queryResult = mysqli_num_rows($result)
-		if($queryResult > 0)
-		{
-			while($row = mysqli_fetch_assoc($result))
-			{
-				echo "<div><p>.$row['ctittle']</p><p>.$row['clink']</p></div>"
-			}
-		}
-		else
-		{
-			echo "There are no results matching your search"
-		}
-	}
+	mysql_select_db("content") or die(mysql_error());
+    $query = $_POST['search']; 
+    // gets value sent over search form
+     
+    $min_length = 3;
+    // you can set minimum length of the query if you want
+     
+    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
+         
+        $query = htmlspecialchars($query); 
+           
+        $query = mysql_real_escape_string($query);
+
+         
+        $raw_results = mysql_query("SELECT * FROM articles
+            WHERE (`ctitle` LIKE '%".$query."%') OR (`year` LIKE '%".$query."%')") or die(mysql_error());
+ 
+         
+        if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+             
+            while($results = mysql_fetch_array($raw_results)){
+     
+             
+                echo "<p><h3>".$results['title']."</h3>".$results['clink']."</p>";
+            }
+             
+        }
+        else{ // if there is no matching rows do following
+            echo "There are no results matching your search";
+        }
+         
+    }
+    else{ // if query length is less than minimum
+        echo "Minimum length is ".$min_length;
+    }
 ?>
