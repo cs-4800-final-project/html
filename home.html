@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nufu</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class ="navbar navbar-expand-md navbar-dark bg-gray sticky-top">
+<div class = "container-fluid"> 
+	<a class = "navbar-brand" href="#"><img src = "img/logogu_the_blehgu.png"> </a>
+	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
+		<span class =  "navbar-toggler-icon"> 
+	</button>
+	<div class = "collapse navbar-collapse" id= "navbarResponsive">
+		<form action="search.php" method="POST">
+			<input type="text" name="search" placeholder="Search">
+			<button type="submit" name="submit-search">Search</button>
+		</form>
+		<ul class = "navbar-nav ml-auto">
+			<li class = "nav-item">
+				<a class ="nav-link" href = "#"> Home </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=log"> Logs </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/login.php"> Login </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/register.php"> Register </a>
+			</li>
+		</ul>
+	</div>
+</div>
+</nav>
+
+<!--- Image Slider -->
+
+	<div id = "slides" class = "carousel slide carousel-fade" data-ride= "carousel"  >
+		<ul class= "carousel-indicators">
+			<li data-target = "#slides" data-slide-to="0" class="active"></li>
+			<li data-target = "#slides" data-slide-to="1"></li>
+			<li data-target = "#slides" data-slide-to="2"></li>
+		</ul>
+	<div id = "myCarousel" class = "carousel-inner">
+
+		<div class ="carousel-item active" >
+			<img src = "img/background (1).png" >
+			<div class = "carousel-caption">
+				<h1 class ="display-2">Some Movie Title</h1>
+				<h3> "Some Amazing Quote"</h3>
+				<button type = "button" class = "btn btn-outline-light btn-lg float-left" >Watch Now <i class="fas fa-play-circle"></i>  </button>
+				<button type = "button" class = "btn btn-outline-light btn-lg float-left">See Trailer <i class="fas fa-film"></i></button>
+			</div>
+		</div>
+		<div class ="carousel-item" > <!--data-interval = "10000"-->
+				<!--<img src = "img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png">-->
+				<video class="video-fluid" id="player" controls volume= 2 poster= "data:image/gif,AAAA" width="100%" height = 100% style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+					<source src="img/yourname_trailer.mp4" type="video/mp4" />
+				</video>
+				<div class = "carousel-caption">
+					<h1 class ="display-2">your name</h1>
+					<h3> "Treasure the experience. Dreams fade away after you wake up."</h3>
+					<button type = "button" class = "btn btn-outline-light btn-lg float-left">Watch Now <i class="fas fa-play-circle"></i>  </button>
+					<button type = "button" class = "btn btn-outline-light btn-lg float-left">See Trailer <i class="fas fa-film"></i></button>
+				</div>
+		</div>
+		<div class ="carousel-item" data-interval = "10000">
+			<img src = "img/patrick.png">
+			<div class = "carousel-caption" >
+					<h1 class ="display-2" >No</h1>
+					<h3> "This is Patrick!"</h3>
+					<button type = "button" class = "btn btn-danger btn-lg float-left">Watch Now  <i class="fas fa-play-circle"></i> </button>
+					<button type = "button" class = "btn btn-danger btn-lg float-left">See Trailer <i class="fas fa-film"></i></button>
+				</div>
+		</div>
+	</div>
+
+</div>
+
+<!--- Video Gallery -->
+<div class="container-fluid pb-video-container" align="center">
+		<div class="col-md-10 col-md-offset-1">
+				<h2> Your subscriptions (This isn't done, have to figure out how to move them when it explands.)</h2>
+			<div class="row pb-row">
+				
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width="100%" height =140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('https://fanart.tv/fanart/tv/73244/tvthumb/O_73244%20(7).jpg " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> The Office</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+			</div>
+
+			<h2> Trending Now</h2>
+			<div class="row pb-row">
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA"width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+			</div>
+
+			<h2> Your Friends are Watching / Action/  Drama / So on So forth...</h2>
+			<div class="row pb-row">
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA"width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+				<div class="col-md-3 pb-video">
+						<video class="pb-video-frame" id="player" muted preload ="none" poster= "data:image/gif,AAAA" width=100% height = 140px style="background:transparent no-repeat url('img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png');background-size:100% " > <!-- looop mute-->
+							<source src="img/yourname_trailer.mp4" type="video/mp4" />
+						</video>
+						<h2> <a class ="nav-link" href = "#"> Your Name</a></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--- Footer -->
+
+	<footer id = "footer">
+		<div class="wrap">
+
+				<div class="left-footer">
+					<h3><a href="#">About Us</a></h3>
+					<h3><a href="#">FAQ</a></h3>
+					<h3><a href="#">Contact Us</a></h3>
+					<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+			
+				
+				<div class="right-footer">
+
+						<h3> Follow us on Social Media!</h3>
+
+						<h2> <a href="#"><i class="fab fa-facebook-square"></i></a>
+							<a href="#"><i class="fab fa-twitter-square"></i> </a>
+							<a href="#"><i class="fab fa-google-plus-square"></i> </a>
+						
+						
+						</h2>
+						
+				</div>
+				
+				<div class="center-footer">
+						<h3><a href="#">About Us</a></h3>
+						<h3><a href="#">FAQ</a></h3>
+						<h3><a href="#">Contact Us</a></h3>
+						<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+				
+				</div>
+				
+	</footer>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
