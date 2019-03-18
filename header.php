@@ -4,19 +4,16 @@
 	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
 		<span class =  "navbar-toggler-icon"></span>
 	</button>
+	<form action="search.php" method="POST">
+			<input type="text" name="search" placeholder="Search">
+			<button type="submit" name="submit-search">Search</button>
+	</form>
 	<div class = "collapse navbar-collapse" id= "navbarResponsive">
 		<ul class = "navbar-nav ml-auto">
 			<li class = "nav-item">
 				<a class ="nav-link" href = "http://danc.ddns.net"> Home </a>
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=log"> Logs </a>
-			</li>
-				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=srs"> SRS </a>
-			</li>
-				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=project"> Database </a>
-			</li>
-			</li>
-				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=er"> ER Model </a>
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
 			</li>
