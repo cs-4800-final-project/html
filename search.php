@@ -1,47 +1,29 @@
-
-<?php
-	require_once "config.php";
-	mysql_select_db("content") or die(mysql_error());
-    $query = $_POST['search']; 
-    // gets value sent over search form
-     
-    $min_length = 3;
-    // you can set minimum length of the query if you want
-     
-    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-         
-        $query = htmlspecialchars($query); 
-           
-        $query = mysql_real_escape_string($query);
-
-         
-        $raw_results = mysql_query("SELECT * FROM articles
-            WHERE (`ctitle` LIKE '%".$query."%') OR (`year` LIKE '%".$query."%')") or die(mysql_error());
- 
-         
-        if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-             
-            while($results = mysql_fetch_array($raw_results)){
-     
-             
-                echo "<p><h3>".$results['title']."</h3>".$results['clink']."</p>";
-            }
-             
-        }
-        else{ // if there is no matching rows do following
-            echo "There are no results matching your search";
-        }
-         
-    }
-    else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
-    }
-?>
-
-<title> NuFu Login</title>
+<title> NuFu Search</title>
 <link rel="stylesheet" href="assets/style.css">
 
 <div id='uni'>
 <?php
 include('header.php');
 ?>
+
+<?php
+include_once('config.php');
+if(isset($_POST['search'])){
+	$q = $_POST['q'];
+	$query = mysqli_query($link,"SELECT * FROM `content` WHERE (`ctittle` LIKE '%".$q."%') OR (`year` LIKE '%".$q."%')"); 
+//Replace table_name with your table name and `thing_to_search` with the column you want to search
+	$count = mysqli_num_rows($query);
+	if($count == "0"){
+		$output = '<h2>There are no results matching your search!</h2>';
+	}else{
+		while($row = mysqli_fetch_array($query)){
+		$s = $row['column_to_display']; // Replace column_to_display with the column you want the results from
+				$output .= '<h2>'.$s.'</h2><br>';
+			}
+		}
+	}
+?>
+<?php
+include('footer.php');
+?>
+</div>
