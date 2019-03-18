@@ -1,6 +1,6 @@
 
-require_once "config.php";
 <?php
+	require_once "config.php";
 	mysql_select_db("content") or die(mysql_error());
     $query = $_POST['search']; 
     // gets value sent over search form
