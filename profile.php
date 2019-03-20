@@ -9,6 +9,6 @@
 <p>Type: Debit</p>
 <p>*******9999</p>
 
-<h4>Subscription Ifno</h4>
+<h4>Subscription Info</h4>
 <p>Days Left in Subscription: 30</p>
 <p>Shows Subscribed To: The Office, Daredevil, Friends, Your Name</p>
