@@ -42,13 +42,49 @@
 	color: #505050;
 	background: white; 
 }
-
-#footer
+/*****OLD FOOTER STUFF****/
+/*#footer 
 {	
 	width: 94%
 	padding: 3%;
 	background-color: #505050;
 	font-size: 30px;
+}*/
+
+/*--- Footer---*/ 
+#footer h3{
+  font-size: 12px;
+  text-shadow: 1px 1px 15px #000;
+  color : rgb(128,128,128);
+}
+#footer h2 {
+  font-size: 20px;
+}
+#footer{
+  position: relative;
+  overflow: hidden;
+  bottom: 0;
+  text-align: left ;
+  font-family: 'Poppins', sans-serif;
+  background-color: #222 ;
+}
+.wrap{
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.left-footer {
+  float: left;
+  width:33%;
+}
+.right-footer {
+  float: right;
+  width: 33%;
+}
+.center-footer{
+  overflow:hidden;
 }
 
 #content
