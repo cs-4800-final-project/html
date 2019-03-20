@@ -23,6 +23,7 @@
 			{
 				?>
 			      <a class ="nav-link"href="logout.php">Logout</a>
+			      <a class ="nav-link"href="profile.php">Profile</a>
 			      </li>
 				<?php 
 			}
