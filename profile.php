@@ -4,9 +4,11 @@
 
 
 <h4>Shows Subscribed To</h4>
-<p>Show #1</p>
-<p>Show #n</p>
-<p>Show #10</p>
+<p>Show #1: The Office</p>
+<p>Show #2: Daredevil</p>
+<p>Show #3: Friends</p>
+
+<p>Show #10: You</p>
 
 
 <h4>Address</h4>
