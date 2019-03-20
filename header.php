@@ -17,8 +17,7 @@
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
 			</li>
-			</li>
-				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=profile"> Contact Us</a>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=profile"> Profile</a>
 			</li>
 			<?php 
 			session_start();
