@@ -1,19 +1,26 @@
 <h2>Profile Page</h2>
 <h4>User Name</h4>
-<p>Enter User Name</p>
+<p>Sameer097k</p>
 
 
-<h4>Shows Subscribed</h4>
-<p>Enter Show 1-10</p>
+<h4>Shows Subscribed To</h4>
+<p>Show #1</p>
+<p>Show #n</p>
+<p>Show #10</p>
+
 
 <h4>Address</h4>
-<p>Mock Address</p>
+<p>123456 NuFu Dr. Pomona CA 90765</p>
 
 <h4>Payment Method</h4>
-<p>Credit/Debit ***last4 Digits</p>
+<p>Type: Debit</p>
+<p>*******9999</p>
 
 <h4>Email</h4>
-<p>Chloe@chloe.com</p>
+<p>Sameer095k@gmail.com</p>
 
 <h4>Phone Number</h4>
-<p>###-###-####</p>
+<p>123-456-7890</p>
+
+<h4>Days Left in Subscription</h4>
+<p>30</p>
