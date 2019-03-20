@@ -17,13 +17,15 @@
 			</li>
 				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
 			</li>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=profile"> Contact Us</a>
+			</li>
 			<?php 
 			session_start();
 			if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
 			{
 				?>
 			      <a class ="nav-link"href="logout.php">Logout</a>
-			      <a class ="nav-link"href="profile.php">Profile</a>
 			      </li>
 				<?php 
 			}
