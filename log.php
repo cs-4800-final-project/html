@@ -1,4 +1,10 @@
 <h2>Week 5: Mar 18 - Mar 22</h2>
+<button class="collapsible">Log 24: Mar 21, 2019</button>
+<div class="content">
+  <?php
+    include('logs/day24.php');
+  ?>
+</div>
 <button class="collapsible">Log 23: Mar 20, 2019</button>
 <div class="content">
   <?php
