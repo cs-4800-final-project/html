@@ -57,6 +57,7 @@
 ';?>
 
 <?php
+	session_start();
 	
 	$servername = "localhost";
 	$username = "admin";
