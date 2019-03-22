@@ -62,20 +62,20 @@
 	$servername = "localhost";
 	$username = "admin";
 	$password = "12345";
-	$dbname = "information";
+	$dbname = "comments";
 	
-	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-		
-	}
 	
 	$sql = "SELECT userId, contentId, body FROM comments";
 	$result = $conn->query($sql);
-	
-	echo $result;
+	if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["Body"]. "<br>";
+    }
+	} else {
+		echo "0 results";
+	}
 	
 	$conn->close();
 	
