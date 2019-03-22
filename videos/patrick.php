@@ -59,29 +59,7 @@
 <?php
 	session_start();
 	
-	$servername = "localhost";
-	$username = "admin";
-	$password = "12345";
-	$dbname = "information";
-	
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	$sql = "SELECT userId, contentId, body FROM comments";
-	$result = $conn->query($sql);
-	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;"><iframe src="https://cdn.jwplayer.com/players/NllofW4e-wMbjKtxS.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen style="position:absolute;"></iframe></div>';
-	
-	if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["Body"]. "<br>";
-    }
-	} else {
-		echo "0 results";
-	}
-	
-	$conn->close();
-	
 	
 	
 ?>
@@ -103,6 +81,29 @@
 
 <h2>Comments</h2>
 <?php
+	
+	$servername = "localhost";
+	$username = "admin";
+	$password = "12345";
+	$dbname = "information";
+	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	$sql = "SELECT userId, contentId, body FROM comments";
+	$result = $conn->query($sql);
+	
+	
+	
+	if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["Body"]. "<br>";
+    }
+	} else {
+		echo "0 results";
+	}
+	
+	$conn->close();
 	
 	include('footer.php')
 ?>
