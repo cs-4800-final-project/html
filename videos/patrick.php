@@ -62,7 +62,7 @@
 	$servername = "localhost";
 	$username = "admin";
 	$password = "12345";
-	$dbname = "comments";
+	$dbname = "information";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
