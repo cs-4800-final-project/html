@@ -59,11 +59,44 @@
 <?php
 	session_start();
 	
+	$servername = "localhost";
+	$username = "admin";
+	$password = "12345";
+	$dbname = "information";
+	
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+		
+	
+	$sql = "SELECT userId, contentId, body FROM comments";
+	$result = $conn->query($sql);
+	
+	echo $sql;
+} 
+	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;"><iframe src="https://cdn.jwplayer.com/players/NllofW4e-wMbjKtxS.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen style="position:absolute;"></iframe></div>';
 	
 ?>
 
+<style>
+.checked{
+	color: orange;
+}
+</style>
 
+<h2>Rating</h2>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+
+
+
+<h2>Comments</h2>
 <?php
 	
 	include('footer.php')
