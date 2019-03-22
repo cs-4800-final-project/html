@@ -57,7 +57,6 @@
 ';?>
 
 <?php
-	session_start();
 	
 	$servername = "localhost";
 	$username = "admin";
@@ -70,12 +69,13 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 		
+	}
 	
 	$sql = "SELECT userId, contentId, body FROM comments";
 	$result = $conn->query($sql);
 	
-	echo $sql;
-} 
+	echo $result;
+
 	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;"><iframe src="https://cdn.jwplayer.com/players/NllofW4e-wMbjKtxS.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen style="position:absolute;"></iframe></div>';
 	
