@@ -6,7 +6,8 @@
   </body>
 </html>
 <?php
-	
+	session_start();
+
 	$servername = "localhost";
 	$username = "admin";
 	$password = "12345";
