@@ -113,16 +113,16 @@
 	$_POST["contentData"] = $conn->query($sql);//this wil be sent by the page
 	
 	
-	//if ($commentData->num_rows > 0) {
+	if ($commentData->num_rows > 0) {
     		// output data of each row
-    	//	while($row = $commentData->fetch_assoc()) {
+    		while($row = $commentData->fetch_assoc()) {
 	//    		if($row["contentId"] == 7){
-	//			echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"].";
+				echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"].";
     	//		}
 	//	}
-	//}else {
-	//	echo "0 results";
-	//}
+	}else {
+		echo "0 results";
+	}
 	
 	
 	$conn->close();
