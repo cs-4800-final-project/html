@@ -21,8 +21,12 @@
 	
 	
 	$comment = $_POST["comment"];
+	$id = $_POST["userData"];
+	$content = $_POST["contentData"];
+	
+	echo $id , "  ", $content;
 
-	$sql = "INSERT INTO comments(userId, contentId, body) VALUES(15, 7, '$comment')";
+	$sql = "INSERT INTO comments(userId, contentId, body) VALUES('$id', '$content', '$comment')";
 	if($conn->query($sql) === TRUE){
 		echo "Successful insertion";
 	}else{
