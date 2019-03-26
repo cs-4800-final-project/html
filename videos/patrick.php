@@ -117,12 +117,12 @@
 	
 	
 	if ($commentData->num_rows > 0) {
-    // output data of each row
-    while($row = $commentData->fetch_assoc()) {
-	    if($row["contentId"] == $contentData){
-       		 echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "<br>";
-	    }
-    }
+    		// output data of each row
+    		while($row = $commentData->fetch_assoc()) {
+	    	//if($row["contentId"] == $contentData){
+       			 echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "<br>";
+	    	//	}
+    		}
 	} else {
 		echo "0 results";
 	}
