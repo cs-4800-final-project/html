@@ -81,7 +81,7 @@
 
 <h2>Comments</h2>
 
-<form action = "submit.php">
+<form action = "submit.html">
   <div class="form-group">
   	<label for="comment">Comment:</label>
   	<textarea class="form-control" rows="5" id="comment"></textarea>
