@@ -92,7 +92,8 @@
 	if ($conn->connect_error) {
    		 die("Connection failed: " . $conn->connect_error);
 	} 
-	$sql = "INSERT INTO comments(userId, contentId, body) VALUES(3, 5, 'this is an insrted comment')";
+	
+	//$sql = "INSERT INTO comments(userId, contentId, body) VALUES(3, 5, 'this is an insrted comment')";
 	if($conn->query($sql) === TRUE){
 		echo "Successful insertion";
 	}else{
@@ -113,7 +114,7 @@
 	if ($commentData->num_rows > 0) {
     // output data of each row
     while($row = $commentData->fetch_assoc()) {
-        echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["Body"]. "<br>";
+        echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "<br>";
     }
 	} else {
 		echo "0 results";
