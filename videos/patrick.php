@@ -81,12 +81,13 @@
 
 <h2>Comments</h2>
 
-<div class="form-group">
-  		<label for="comment">Comment:</label>
- 		 <textarea class="comment" rows="5" id="comment"></textarea>
-	</div>
+ <div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div> 
 	
-		<input type="submit" class = "btn btn-default" name="submit" value="Submit">
+<input type="submit" class="btn btn-info" value="Submit">
+
 <?php
 	
 	$servername = "localhost";
