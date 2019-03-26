@@ -81,9 +81,8 @@
 
 <h2>Comments</h2>
 
- <form action="welcome.php" method="post">
-	<input type="text" name="name"><br>
-	<input type="text" name="email"><br>
+ <form action="welcome.php" class = "form-group" method="post">
+	<input type="text" name="email" rows = "5" cols = "40"><br>
 	<input type="submit">
 </form>
 	
