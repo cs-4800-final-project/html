@@ -95,8 +95,10 @@
 	
 	echo '<div class="form-group">
   		<label for="comment">Comment:</label>
- 		 <textarea class="form-control" rows="5" id="comment"></textarea>
+ 		 <textarea class="input" rows="5" id="comment"></textarea>
 	</div>';
+
+	$comment = $_GET['comment'];
 
 	//$sql = "INSERT INTO comments(userId, contentId, body) VALUES(3, 5, 'this is an insrted comment')";
 	if($conn->query($sql) === TRUE){
