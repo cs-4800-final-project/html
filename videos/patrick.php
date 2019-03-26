@@ -86,7 +86,7 @@
  		 <textarea class="comment" rows="5" id="comment"></textarea>
 	</div>
 	
-		<input type="submit" name="submit" value="Submit">
+		<input type="submit" class = "btn btn-default" name="submit" value="Submit">
 <?php
 	
 	$servername = "localhost";
