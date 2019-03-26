@@ -89,6 +89,16 @@
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	
+	if ($conn->connect_error) {
+   		 die("Connection failed: " . $conn->connect_error);
+	} 
+	$sql = "INSERT INTO comments(userId, contentId, body) VALUES(3, 5, 'this is an insrted comment')";
+	if($conn->query($sql) === TRUE){
+		echo "Successful insertion";
+	}else{
+		echo "error";
+	}
+	
 	$sql = "SELECT userId, contentId, body FROM comments";
 	$commentData = $conn->query($sql);
 	
