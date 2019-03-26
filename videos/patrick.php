@@ -81,12 +81,12 @@
 
 <h2>Comments</h2>
 
- <form action="submit.php" class = "form-control" method="post">
-	<input type="textarea" name="email" rows = "5" cols = "40"><br>
-	<input type="submit">
-</form>
+  <div class="form-group">
+  	<label for="comment">Comment:</label>
+  	<textarea class="form-control" rows="5" id="comment"></textarea>
+  </div> 
 	
-<input type="submit" class="btn btn-info" value="Submit">
+  <input type="submit" class="btn btn-info" value="Submit">
 
 <?php
 	
