@@ -112,6 +112,8 @@
 	$sql = "SELECT cid FROM content";
 	$_POST["contentData"] = $conn->query($sql);//this wil be sent by the page
 	
+	echo $_POST["userData"];
+	echo $_POST["contentData"];
 	
 	
 	if ($commentData->num_rows > 0) {
