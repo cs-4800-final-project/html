@@ -84,7 +84,7 @@
 <form action = "submit.php" method = "post">
   <div class="form-group">
   	<label for="comment">Comment:</label>
-  	<input type = "text" class="form-control" rows="5" id="comment">
+  	<input type = "text" class="form-control" rows="5" id="comment" name="comment">
 	<input type="submit" class="btn btn-info" value="Submit">
   </div> 
 </form>
