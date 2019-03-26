@@ -80,6 +80,13 @@
 
 
 <h2>Comments</h2>
+
+<div class="form-group">
+  		<label for="comment">Comment:</label>
+ 		 <textarea class="comment" rows="5" id="comment"></textarea>
+	</div>
+	
+		<input type="submit" name="submit" value="Submit">
 <?php
 	
 	$servername = "localhost";
@@ -93,10 +100,7 @@
    		 die("Connection failed: " . $conn->connect_error);
 	} 
 	
-	echo '<div class="form-group">
-  		<label for="comment">Comment:</label>
- 		 <textarea class="input" rows="5" id="comment"></textarea>
-	</div>';
+	
 
 	$comment = $_GET['comment'];
 
