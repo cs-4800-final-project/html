@@ -103,24 +103,14 @@
 	} 
 	
 	
-
-	$comment = $_GET['comment'];
-
-	//$sql = "INSERT INTO comments(userId, contentId, body) VALUES(3, 5, 'this is an insrted comment')";
-	if($conn->query($sql) === TRUE){
-		echo "Successful insertion";
-	}else{
-		echo "error";
-	}
-	
 	$sql = "SELECT userId, contentId, body FROM comments";
 	$commentData = $conn->query($sql);
 	
 	$sql = "SELECT ID, firstName FROM user";
-	$userData = $conn->query($sql);
+	$_POST["userData"] = $conn->query($sql);//this needs to be tied to the current user logged in
 	
 	$sql = "SELECT cid FROM content";
-	$contentData = $conn->query($sql);
+	$_POST["contentData"] = $conn->query($sql);//this wil be sent by the page
 	
 	
 	
