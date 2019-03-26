@@ -119,7 +119,8 @@
 	    	if($row["contentId"] == 7){
 			echo '
 			<div class = "jumbotron">
-       			 <h1> <?php echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "?></h1><br>"';
+       			 <h1> <?php echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "?></h1><br>'
+			</div>;
 	    		}
     		}
 	} else {
