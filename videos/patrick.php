@@ -102,7 +102,7 @@
 	
 	if ($commentData->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $commentData->fetch_assoc()) {
         echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["Body"]. "<br>";
     }
 	} else {
