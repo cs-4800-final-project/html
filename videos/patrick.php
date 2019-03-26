@@ -83,7 +83,7 @@
 
  <div class="form-group">
   <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
+  <textarea class="form-control" rows="5" cols = "40" id="comment"></textarea>
 </div> 
 	
 <input type="submit" class="btn btn-info" value="Submit">
