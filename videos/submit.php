@@ -21,8 +21,8 @@
 	
 	
 	$comment = $_POST["comment"];
-	$id = $_POST["userData"];
-	$content = $_POST["contentData"];
+	$id = $_POST["userData"];//not working
+	$content = $_POST["cid"];
 	
 	echo $id , "  ", $content;
 
