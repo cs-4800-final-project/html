@@ -81,7 +81,7 @@
 
 <h2>Comments</h2>
 
-<form action = "submit.html" method = "post">
+<form action = "submit.php" method = "post">
   <div class="form-group">
   	<label for="comment">Comment:</label>
   	<input type = "text" class="form-control" rows="5" id="comment">
