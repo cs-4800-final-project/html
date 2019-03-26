@@ -117,7 +117,9 @@
     		// output data of each row
     		while($row = $commentData->fetch_assoc()) {
 	    	if($row["contentId"] == 7){
-       			 echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "<br>";
+			echo '
+			<div class = "jumbotron">
+       			 <h1> <?php echo "id: " . $row["userId"]. "contentId: " . $row["contentId"]. " " . $row["body"]. "?></h1><br>"';
 	    		}
     		}
 	} else {
