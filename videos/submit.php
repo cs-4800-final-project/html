@@ -1,7 +1,7 @@
 <html>
   <body>
   
-  The comment was <?php echo $POST_["comment"]; ?></br>
+  the comment was <?php echo $_POST["comment"]; ?><br>
   
   </body>
 </html>
