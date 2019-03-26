@@ -1,6 +1,6 @@
 <h2>Profile Page</h2>
 <h4>User Info</h4>
-<p>User Name: Sameer097k</p>
+<p>User Name: <?php echo $_SESSION['username'];?></p>
 <p>Email: Sameer095k@gmail.com</p>
 <p>Phone Number: 123-456-7890</p>
 <p>Address: 123456 NuFu Dr. Pomona CA 90765</p>
