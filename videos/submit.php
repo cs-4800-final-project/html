@@ -22,7 +22,7 @@
 	
 	$comment = $_POST["comment"];
 
-	$sql = "INSERT INTO comments(userId, contentId, body) VALUES(15, 7, $comment)";
+	$sql = "INSERT INTO comments(userId, contentId, body) VALUES(15, 7, '$comment')";
 	if($conn->query($sql) === TRUE){
 		echo "Successful insertion";
 	}else{
