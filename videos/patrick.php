@@ -81,10 +81,11 @@
 
 <h2>Comments</h2>
 
- <div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" cols = "40" id="comment"></textarea>
-</div> 
+ <form action="welcome.php" method="post">
+	<input type="text" name="name"><br>
+	<input type="text" name="email"><br>
+	<input type="submit">
+</form>
 	
 <input type="submit" class="btn btn-info" value="Submit">
 
