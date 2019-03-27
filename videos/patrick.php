@@ -119,7 +119,20 @@
     		// output data of each row
     		while($row = $commentData->fetch_assoc()) {
 			if($row["contentId"] ==7){
-       			 	echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";
+				
+				
+				
+				echo '<div class="card">
+    					<div class="card-body">test</div>
+  				</div>
+  				<br>';
+				
+				
+       			 	<?php echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";?>
+				
+				
+				
+				
 			}
     		}
 	} else {
