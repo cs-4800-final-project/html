@@ -38,7 +38,7 @@
 		<div class ="carousel-item active" >
 			<img src = "img/background.png" > <!--TIMELINE COVER PHOTO--> 
 			<div class = "carousel-caption-profile">
-				<img src = "img/profile.jpg"> 
+				<img src = "img/profile.JPG"> 
 			</div>
 			<div class = "carousel-caption-profile-nameCaption">
 				<h1>  <?php echo $_SESSION['username'];?> </h1>
