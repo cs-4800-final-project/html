@@ -123,7 +123,9 @@
 				
 				
 				echo '<div class="card">
-    					<div class="card-body"><?php echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";?></div>
+    					<div class="card-body">
+					<?php echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>"; ?>
+					</div>
   				</div>
   				<br>';
 				
