@@ -86,6 +86,7 @@
   	<input type ="text" name="comment" class="form-control" rows="5" id="comment" ><br>
 	<input type="submit" class="btn btn-info" value="Submit">
 	<input type="hidden" name="cid" value="1" />
+	<input type="hidden" name="return" value="http://danc.ddns.net/videos/generic.php">
 </form>
 </html>
  
