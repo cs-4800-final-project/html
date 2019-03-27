@@ -23,8 +23,9 @@
 	$comment = $_POST["comment"];
 	$id = $_POST["userData"];//not working
 	$content = $_POST["cid"];
+	$return = $_POST["return"];
 	
-	echo $id , "  ", $content;
+	echo $return;
 
 	$sql = "INSERT INTO comments(userId, contentId, body) VALUES('$id', '$content', '$comment')";
 	if($conn->query($sql) === TRUE){
