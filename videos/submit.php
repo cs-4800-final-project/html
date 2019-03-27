@@ -33,5 +33,5 @@
 	}else{
 		echo "error";
 	}
-	redirect('$return');
+	redirect('http://danc.ddns.net/videos/patrick.php');
 ?>
