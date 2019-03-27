@@ -33,4 +33,5 @@
 	}else{
 		echo "error";
 	}
+	redirect('$return');
 ?>
