@@ -128,7 +128,7 @@
   				<br>';
 				
 				
-       			 	<?php echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";?>
+       			 	echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";
 				
 				
 				
