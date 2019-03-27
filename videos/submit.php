@@ -33,5 +33,5 @@
 	}else{
 		echo "error";
 	}
-	header("Location: http://danc.ddns.net/videos/patrick.php");
+	header("Location: $return");
 ?>
