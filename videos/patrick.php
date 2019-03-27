@@ -121,7 +121,7 @@
 			if($row["contentId"] ==7){
 				
 				
-				$printout = 'id: ' . $row["userId"]. 'Comment:  ' . $row["body"]. '<br>';
+				$printout = 'id: ' . $row["userId"]. '     Comment:  ' . $row["body"]. '<br>';
 				echo $printout;
 				
 				
