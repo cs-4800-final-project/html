@@ -122,12 +122,7 @@
 				
 				
 				$printout = 'id: ' . $row["userId"]. ' - cid: ' . $row["contentId"]. ' ' . $row["body"]. '<br>';
-				echo '<div class="card">
-    					<div class="card-body">
-					<?php echo $printout; ?>
-					</div>
-  				</div>
-  				<br>';
+				echo $printout;
 				
 				
        			 	
