@@ -1,7 +1,8 @@
-<?php
-   define('DB_SERVER', 'localhost');
-   define('DB_USERNAME', 'admin');
-   define('DB_PASSWORD', '12345');
-   define('DB_DATABASE', 'information');
-   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+<?php 
+$hostname = "localhost";
+$username = "admin";
+$password = "12345";
+$database = "information";
+mysql_connect($hostname,$username,$password) or die ("connection failed");
+mysql_select_db($database) or die ("error connect database");
 ?>
