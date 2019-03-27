@@ -1,37 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>nufu</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="../assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="../assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="../assets/css/rt-bs4-navbar-with-slideout-search.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Bootstrap Login</title>
+    <!-- bootstrap-3.3.7 -->
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <!-- JQUERY -->
+    <script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
+    <link href="style/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" language="javascript" src="style/style.js"></script>
 </head>
-
 <body>
-    <div class="login-clean">
-        <form method="post">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
-            <a href="#" class="forgot">Forgot your email or password?</a>
-        </form>
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="#" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" action="" method="POST">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" name="login">Sign in</button>
+            </form>
+        </div>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
-
 <?php
 include "../dbcon/config.php";
 IF(ISSET($_POST['login'])){
@@ -44,13 +38,9 @@ IF($cek > 0)
  session_start();
  $_SESSION['username'] = $data['username'];
  $_SESSION['id'] = $data['id'];
-echo "Login successful";
  echo "<script language=\"javascript\">alert(\"welcome \");document.location.href='../home/index.html';</script>";
-}
-else
-{
-echo "Login failed";
+}else{
+ echo "<script language=\"javascript\">alert(\"Invalid username or password\");document.location.href='index.html';</script>";
 }
 }
-
 ?>
