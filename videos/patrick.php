@@ -121,7 +121,7 @@
 			if($row["contentId"] ==7){
 				
 				
-				
+				$printout = 'id: ' . $row["userId"]. ' - cid: ' . $row["contentId"]. ' ' . $row["body"]. '<br>';
 				echo '<div class="card">
     					<div class="card-body">
 					</div>
@@ -129,7 +129,7 @@
   				<br>';
 				
 				
-       			 	echo 'id: ' . $row["userId"]. ' - cid: ' . $row["contentId"]. ' ' . $row["body"]. '<br>';
+       			 	echo $printout;
 				
 				
 				
