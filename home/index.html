@@ -56,6 +56,8 @@ IF(ISSET($_SESSION['username'])){
 				  </form>
 
 		<li class = "nav-item">
+     <a class ="nav-link" href = "#"> Welcome, <?=$_SESSION['username'];?> </a>
+		</li>
 			<a class ="nav-link" href = "#"> Home </a>
 		</li>
 			<a class ="nav-link" href = ""> My Subscriptions </a>
@@ -66,7 +68,7 @@ IF(ISSET($_SESSION['username'])){
 		</li>
 			<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=profile"> My Profile </a> <!--Make this a dropdown w/ profile picture later -->
 		</li>
-			<a class ="nav-link" href = "#"> Logout </a>
+			<a class ="nav-link" href = "http://danc.ddns.net/dbcon/logout.php"> Logout </a>
 		</li>
 		</ul>
 	</div>

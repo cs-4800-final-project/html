@@ -1,8 +1,16 @@
-<?php 
-$hostname = "localhost";
-$username = "admin";
-$password = "12345";
-$database = "information";
-mysql_connect($hostname,$username,$password) or die ("connection failed");
-mysql_select_db($database) or die ("error connect database");
+<?php
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', '12345');
+define('DB_NAME', 'information');
+ 
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
 ?>

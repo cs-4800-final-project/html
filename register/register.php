@@ -10,7 +10,7 @@
 
 <?php
 // Include config file
-require_once "config.php";
+require_once "../dbcon/config.php";
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div id='uni'>
 
 <?php
-include('header.php');
+include('../header.php');
 ?>
 <div class="wrapper">
     <h2>Sign Up</h2>
@@ -138,6 +138,6 @@ include('header.php');
     </form>
 </div>    
 <?php
-include('footer.php');
+include('../footer.php');
 ?>
 </div>
