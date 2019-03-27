@@ -106,7 +106,7 @@
 									<div class="panel-body">
 										<div class="pull-left">
 											<a href="#">
-												<img class="media-object img-circle" src="img/profile.jpg" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
+												<img class="media-object img-circle" src="img/profile.JPG" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
 											</a>
 										</div>
 										<h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
