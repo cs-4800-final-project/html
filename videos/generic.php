@@ -119,7 +119,13 @@
     		// output data of each row
     		while($row = $commentData->fetch_assoc()) {
 			if($row["contentId"] ==1){
-       			 	echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";
+				
+				
+				$printout = 'id: ' . $row["userId"]. '     Comment:  ' . $row["body"]. '<br>';
+				echo $printout;
+				
+				
+				
 			}
     		}
 	} else {
@@ -131,8 +137,3 @@
 	
 	include('footer.php')
 ?>
-
-
-
-
-
