@@ -58,9 +58,27 @@
 
 <?php
 	session_start();
+	/*
+	$servername = "localhost";
+	$username = "admin";
+	$password = "12345";
+	$dbname = "information";
+	
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+		
+	}
+	
+	$sql = "SELECT userId, contentId, body FROM comments";
+	$result = $conn->query($sql);
+	
+	echo $result;
+*/
 	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;"><iframe src="https://cdn.jwplayer.com/players/NllofW4e-wMbjKtxS.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen style="position:absolute;"></iframe></div>';
-	
 	
 ?>
 
@@ -80,53 +98,7 @@
 
 
 <h2>Comments</h2>
-<html>
-<form action = "submit.php" method = "post">
-  	<label for="comment">Comment:</label>
-  	<input type ="text" name="comment" class="form-control" rows="5" id="comment" ><br>
-	<input type="submit" class="btn btn-info" value="Submit">
-	<input type="hidden" name="cid" value="7" />
-</form>
-</html>
- 
-
 <?php
-	
-	$servername = "localhost";
-	$username = "admin";
-	$password = "12345";
-	$dbname = "information";
-	
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	if ($conn->connect_error) {
-   		 die("Connection failed: " . $conn->connect_error);
-	} 
-	
-	
-	$sql = "SELECT userId, contentId, body FROM comments";
-	$commentData = $conn->query($sql);
-	
-	$sql = "SELECT ID, firstName FROM user";
-	$_POST["userData"] = $conn->query($sql);//this needs to be tied to the current user logged in
-	
-	$sql = "SELECT cid FROM content";
-	$_POST["contentData"] = $conn->query($sql);//this wil be sent by the page
-	
-	
-	if ($commentData->num_rows > 0) {
-    		// output data of each row
-    		while($row = $commentData->fetch_assoc()) {
-			if($row["contentId"] ==7){
-       			 	echo "id: " . $row["userId"]. " - cid: " . $row["contentId"]. " " . $row["body"]. "<br>";
-			}
-    		}
-	} else {
-    		echo "0 results";
-	}
-	
-	
-	$conn->close();
 	
 	include('footer.php')
 ?>
