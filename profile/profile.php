@@ -9,7 +9,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
+	<link href="../style.css" rel="stylesheet">
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
@@ -28,7 +28,7 @@
 	
 </head>
 <?php
-include('header.php');
+include('../header.php');
 ?>
 <body>
 
@@ -39,9 +39,9 @@ include('header.php');
 	
 	<div id = "myCarousel" class = "carousel-inner-profile">
 		<div class ="carousel-item active" >
-			<img src = "img/background.png" > <!--TIMELINE COVER PHOTO--> 
+			<img src = "../img/background.png" > <!--TIMELINE COVER PHOTO--> 
 			<div class = "carousel-caption-profile">
-				<img src = "img/profile.JPG"> 
+				<img src = "../img/profile.JPG"> 
 			</div>
 			<div class = "carousel-caption-profile-nameCaption">
 				<h1>  <?php echo $_SESSION['username'];?> </h1>
@@ -93,9 +93,9 @@ include('header.php');
 								</div>
 							</span>
 							<br><br>
-							 <a href="#"><img src= "img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
-							 <a href="#"><img src= "img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
-							 <a href="#"><img src= "img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
+							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
+							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
+							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
 							
 							<br><br><hr>
 						</div>
@@ -109,7 +109,7 @@ include('header.php');
 									<div class="panel-body">
 										<div class="pull-left">
 											<a href="#">
-												<img class="media-object img-circle" src="img/profile.JPG" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
+												<img class="media-object img-circle" src="../img/profile.JPG" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
 											</a>
 										</div>
 										<h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
@@ -180,7 +180,7 @@ include('header.php');
                     <td colspam ="3"> <h4><a href="#">Friends </a></h4> </td>
             </tr>
             <tr>
-                    <td colspam ="1"> <a href="#"><img src= "friend.jpg" alt ="" class = "box-img" width= "100" height = "100"/> </a> </td>
+                    <td colspam ="1"> <a href="#"><img src= "../img/friend.jpg" alt ="" class = "box-img" width= "100" height = "100"/> </a> </td>
                     
             </tr>
         
@@ -211,7 +211,7 @@ include('header.php');
 
 </body>
 <?php
-include('footer.php');
+include('../footer.php');
 ?>
 </html>
 
