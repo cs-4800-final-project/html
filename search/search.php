@@ -3,11 +3,11 @@
 
 <div id='uni'>
 <?php
-include('header.php');
+include('../header.php');
 ?>
 
 <?php
-include_once('config.php');
+include_once('../dbcon/config.php');
 if(isset($_POST['search']))
 {
 	$q = $_POST['q'];
