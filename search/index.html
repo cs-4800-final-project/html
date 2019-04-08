@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search Result</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+
+	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
+	<script>
+		 $(window).scroll(function(){
+		var scroll = $(window).scrollTop();
+		var vid = document.getElementById("player");
+		
+        if(scroll < 100){
+			$('.fixed-top').css('background', 'transparent'); 
+			$('#slides').carousel({interval: 500});
+        } else{
+			$('.fixed-top').css('background', 'rgba(39, 39, 39)'); 
+			
+        }
+	});</script>
+	
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class ="navbar navbar-expand-md navbar-dark bg-gray fixed-top"  > 
+<div class = "container-fluid" >
+	<a class = "navbar-brand" href="#"> <img src = "../img/logo.png"> </h1> </a>
+	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
+		<span class =  "navbar-toggler-icon"> <span>
+	</button>
+	<div class = "collapse navbar-collapse" id= "navbarResponsive">
+		<ul class = "navbar-nav ml-auto">
+
+				<form class="form-inline "> <!-- This is the search bar-->
+						<div class="md-form my-0"> 
+							<input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search" aria-label="Search">
+							<i class="fas fa-search" aria-hidden="true"></i>
+						</div>
+					  </form>
+
+			<li class = "nav-item">
+				<a class ="nav-link" href = "#"> Home </a>
+			</li>
+				<a class ="nav-link" href = ""> My Subscriptions </a>
+			</li>
+				<a class ="nav-link" href = ""> Shows </a>
+			</li>
+				<a class ="nav-link" href = "#"> Movies </a>
+			</li>
+				<a class ="nav-link" href = "#"> My Profile </a> <!--Make this a dropdown w/ profile picture later -->
+			</li>
+				<a class ="nav-link" href = "#"> Logout </a>
+			</li>
+		</ul>
+	</div>
+</div>
+</nav>
+
+<!--Video Search Results-->
+
+<div class = "box-result" style= "margin-top: 100px;">
+    <img src="../img/movie1.jpg" alt="test">
+    <h1>Title_1.mp4</h1>
+    <h2> Uploader Name •   _/5 • Studio Marionnete</h2>
+    <h2> Description of video, it should cut off into a ..... format after x number of characters. Someone figure it out and implement it lol.</h2> 
+
+
+</div>
+
+<div class = "box-result" style= "margin-top: 10px;">
+    <img src="../img/movie1.jpg" alt="test">
+    <h1>Title_1.mp4</h1>
+    <h2> Uploader Name •   _/5 • Studio Marionnete</h2>
+    <h2> Description of video, it should cut off into a ..... format after x number of characters. Someone figure it out and implement it lol.</h2> 
+
+
+</div>
+
+<div class = "box-result" style= "margin-top: 10px;">
+    <img src="../img/movie1.jpg" alt="test">
+    <h1>Title_1.mp4</h1>
+    <h2> Uploader Name •   _/5 • Studio Marionnete</h2>
+    <h2> Description of video, it should cut off into a ..... format after x number of characters. Someone figure it out and implement it lol.</h2> 
+
+
+</div>
+
+<?php
+echo "<p>Copyright &copy; test 1999-" . date("Y") . " test database generated search</p>";
+?>
+
+<?php
+  ini_set('display_errors', 1);
+  require_once "../dbcon/config.php";
+  $sql = "SELECT * FROM content";
+  $result = $link->query($sql);
+  if ($result->num_rows > 0)   {
+    // output data of each row
+    while($row = $result->fetch_assoc()) 
+    {
+        $tittle = $row["ctittle"];
+        $imgsrc = $row["imgsrc"];
+        $link = $row["clink"];
+        $genre = $row["cgenre"];
+        $year  = $row["year"];
+        $studio = $row["studio"];
+        
+        echo '<div class = "box-result" style= "margin-top: 10px;">
+        <img src="'.$imgsrc.'" alt="test">
+        <h1><a href=" '.$link.' ">'.$tittle.'</a></h1>
+        <h2> Uploader Name •   _/5 • Studio: '.$studio.'</h2>
+        <h2> Description of video, generic filler.</h2> 
+
+
+        </div>';
+       
+    }
+  } 
+   else
+  {
+        echo "<p>0 results</p>";
+  }
+
+
+?>
+
+<!--- Footer -->
+<div class = "sticky-bottom" style= "padding-top: 1500px;">
+	<footer id = "footer" >
+		<div class="wrap">
+
+				<div class="left-footer">
+					<h3><a href="#">About Us</a></h3>
+					<h3><a href="#">FAQ</a></h3>
+					<h3><a href="#">Contact Us</a></h3>
+					<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+			
+				
+				<div class="right-footer">
+
+						<h3> Follow us on Social Media!</h3>
+
+						<h2> <a href="#"><i class="fab fa-facebook-square"></i></a>
+							<a href="#"><i class="fab fa-twitter-square"></i> </a>
+							<a href="#"><i class="fab fa-google-plus-square"></i> </a>
+						
+						
+						</h2>
+						
+				</div>
+				<div class="center-footer">
+						<h3><a href="#">About Us</a></h3>
+						<h3><a href="#">FAQ</a></h3>
+						<h3><a href="#">Contact Us</a></h3>
+						<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+
+				</div>	
+	</footer>
+</div>
+</body>
+</html>
