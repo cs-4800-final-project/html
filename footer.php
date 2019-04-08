@@ -2,7 +2,7 @@
 <!--<div id="footer">(C)2019 - Student Semester Project </div>-->
 
 <!--- Footer -->
-	
+<div class = "sticky-bottom">
 	<footer id = "footer">
 		<div class="wrap">
 
@@ -37,3 +37,4 @@
 				</div>
 				
 	</footer>
+</div>
