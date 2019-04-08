@@ -126,7 +126,9 @@
 				$printout = 'id: ' . $row["userId"]. '     Comment:  ' . $row["body"]. '<br>';
 				?>
 				<html>
-				<div class="col-sm" style="background-color:lavender;"><?php echo $printout; ?></div><br>			
+				<div class="card">
+  					<div class="card-body"><?php echo $printout; ?></div>
+				</div>		
 				</html>
        			 	<?php
 				
