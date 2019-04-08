@@ -1,2 +1,1 @@
-RewriteEngine on
-RewriteRule \.(html|htm)$ - [H=application/x-httpd-php]
+AddType application/x-httpd-php .htm .html
