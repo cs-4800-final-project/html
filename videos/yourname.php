@@ -124,7 +124,11 @@
 				
 				
 				$printout = 'id: ' . $row["userId"]. '     Comment:  ' . $row["body"]. '<br>';
-				echo $printout;
+				echo "<<p style="border:3px; 
+					border-style:solid;
+					border-color:#FF0000; 
+					padding: 1em;">First example with text surrounded by a red border.
+							<br>This example also has multiple lines.</p>>";";
 				
 				
        			 	
