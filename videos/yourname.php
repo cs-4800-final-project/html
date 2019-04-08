@@ -89,8 +89,7 @@
 	<input type="submit" class="btn btn-info" value="Submit">
 	<input type="hidden" name="cid" value="2" />
 	<input type="hidden" name="return" value="http://danc.ddns.net/videos/yourname.php">
-</form>
-<div class = "well">text</div>	
+</form>	
 </html>
  
 
@@ -126,8 +125,9 @@
 				
 				$printout = 'id: ' . $row["userId"]. '     Comment:  ' . $row["body"]. '<br>';
 				?>
+				<html>
 				<div class = "well">text</div>				
-				
+				</html>
        			 	<?php
 				
 				
