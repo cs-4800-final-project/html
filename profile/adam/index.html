@@ -9,7 +9,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="../style.css" rel="stylesheet">
+	<link href="../../style.css" rel="stylesheet">
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
@@ -28,7 +28,7 @@
 	
 </head>
 <?php
-include('../header.php');
+include('../../header.php');
 ?>
 <body>
 
@@ -39,13 +39,13 @@ include('../header.php');
 	
 	<div id = "myCarousel" class = "carousel-inner-profile">
 		<div class ="carousel-item active" >
-			<img src = "../img/background.png" > <!--TIMELINE COVER PHOTO--> 
+			<img src = "../../img/background.png" > <!--TIMELINE COVER PHOTO--> 
        
  <?php
   ini_set('display_errors', 1);
-  require_once "../dbcon/config.php";
+  require_once "../../dbcon/config.php";
   $usersName = $_SESSION['username'];
-  $sql = "SELECT * FROM users WHERE username = '".$usersName."'";
+  $sql = "SELECT * FROM users WHERE username = 'adam'";
   $result = $link->query($sql);
 
   if ($result->num_rows > 0)   {
@@ -60,7 +60,7 @@ include('../header.php');
           $pic = $row["profile"];
         
         echo '<div class = "carousel-caption-profile">
-            				<img src = "'.$pic.'"> 
+            				<img src = "../'.$pic.'"> 
             			</div>
             			<div class = "carousel-caption-profile-nameCaption">
             				<h1>  '.$user.' </h1>
