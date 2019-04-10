@@ -130,7 +130,15 @@
   					<div class="card-body">
 					<?php echo $printout; ?>
 						<div class="float-left">
-							<input type="button" class="btn btn-info" align="right" value="Like!">
+							<form action ='<?php $sql = "UPDATE comments 
+										SET likes = likes+1
+										WHERE id=0"
+								       	if (mysqli_query($conn, $sql)) {
+										echo "Record updated successfully";
+									} else {
+										echo "Error updating record: " . mysqli_error($conn);'?>
+}?>">
+							<input type="submit" class="btn btn-info" align="right" value="Like!">
 						</div>
 					
 					</div>	
