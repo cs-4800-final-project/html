@@ -4,7 +4,7 @@
 	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
 		<span class =  "navbar-toggler-icon"></span>
 	</button>
-	<form action="./search" method="POST">
+	<form action="http://danc.ddns.net/search/?ID=" method="POST">
 			<input type="text" name="search" placeholder="Search">
 			<button type="submit" name="submit-search">Search</button>
 	</form>
