@@ -127,7 +127,10 @@
 				?>
 				<html>
 				<div class="card">
-  					<div class="card-body"><?php echo $printout; ?></div>
+  					<div class="card-body">
+					<input type="button" class="btn btn-info" value="Input Button">
+					<?php echo $printout; ?>
+					</div>
 				</div>		
 				</html>
        			 	<?php
