@@ -129,9 +129,12 @@
 				<div class="card">
   					<div class="card-body">
 					<?php echo $printout; ?>
-					<input type="button" class="btn btn-info" align="right" value="Input Button">
-					</div>
-				</div>		
+						<div class="float-right">
+							<input type="button" class="btn btn-info" align="right" value="Input Button">
+						</div>
+					
+					</div>	
+				</div>
 				</html>
        			 	<?php
 				
