@@ -66,6 +66,9 @@
 
 
 
+<?php
+echo "<p>Copyright &copy; test 1999-" . date("Y") . " test database generated search</p>";
+?>
 
 <?php
 if(isset($_GET['ID']))
@@ -86,7 +89,7 @@ if(isset($_GET['ID']))
         $year  = $row["year"];
         $studio = $row["studio"];
         
-        echo '<div class = "box-result" style= "margin-top: 10px;">
+        echo '<div class = "box-result" style= "margin-top: 30px;">
         <img src="'.$imgsrc.'" alt="test">
         <h1><a href=" '.$link.' ">'.$tittle.'</a></h1>
         <h2> Uploader Name •   _/5 • Studio: '.$studio.'</h2>
