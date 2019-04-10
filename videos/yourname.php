@@ -128,8 +128,8 @@
 				<html>
 				<div class="card">
   					<div class="card-body">
-					<input type="button" class="btn btn-info" value="Input Button">
 					<?php echo $printout; ?>
+					<input type="button" class="btn btn-info" align="right" value="Input Button">
 					</div>
 				</div>		
 				</html>
