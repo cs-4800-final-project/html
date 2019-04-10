@@ -1,0 +1,80 @@
+
+<?php
+	 require_once "../../dbcon/config.php";		
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Edit Account</title>
+</head>
+<body>
+
+<?php
+session_start();
+
+	if(isset($_POST['Submit'])){//if the submit button is clicked
+	
+	
+	$bio = $_POST['updateBio'];
+	
+	$loc = $_POST['updateLoc'];
+	
+	$day = $_POST['updateBDay'];
+	
+	$gen = $_POST['updateGen'];
+		
+	$update = "UPDATE users SET bio='$bio', location='$loc', gender='$gen', birthday='$day' WHERE username = james";
+	$link->query($update) or die("Cannot update. Please contact server admin.");//update or error
+	}
+?>
+
+<?php
+//Create a query
+
+$usersName = $_SESSION['username'];
+$sql = "SELECT * FROM users WHERE username = '".$usersName."'";
+
+$result = $link->query($sql) or die(mysql_error());
+
+?>
+
+<h2>Update Record</h2>
+<form action="" method="post">
+<?php
+	
+	
+	while ($row = $result->fetch_assoc()) {?>
+    
+<table border="0" cellspacing="10">
+<tr>
+<td>Bio:</td> <td><input type="text" name="updateBio" value="<?php echo $row['bio']; ?>"></td>
+</tr>
+<tr>
+<td>Location:</td> <td><input type="text" name="updateLoc" value="<?php echo $row['location']; ?>"></td>
+</tr>
+<tr>
+<td>Birthday:</td> <td><input type="text" name="updateBDay" value="<?php echo $row['birthday']; ?>"></td>
+</tr>
+<tr>
+<td>Gender:</td> <td><input type="text" name="updateGen" size="100" value="<?php echo $row['gender']; ?>"></td>
+</tr>
+<tr>
+<td><INPUT TYPE="Submit" VALUE="Update the Record" NAME="Submit"></td>
+</tr>
+</table>
+<?php	}
+	?>
+</form>
+
+<?php
+	if($update){
+	
+	echo "<b>Update successful!</b>";
+	
+	
+		
+}  
+?>
+</body>
+</html>
