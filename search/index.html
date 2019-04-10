@@ -98,9 +98,12 @@ echo "<p>Copyright &copy; test 1999-" . date("Y") . " test database generated se
 ?>
 
 <?php
+if(isset($_GET['ID']))
+{
   ini_set('display_errors', 1);
   require_once "../dbcon/config.php";
-  $sql = "SELECT * FROM content";
+  $ID = $_GET['ID'];
+  $sql = "SELECT * FROM content WHERE ctittle LIKE '%$ID%'";
   $result = $link->query($sql);
   if ($result->num_rows > 0)   {
     // output data of each row
@@ -129,7 +132,7 @@ echo "<p>Copyright &copy; test 1999-" . date("Y") . " test database generated se
         echo "<p>0 results</p>";
   }
 
-
+}
 ?>
 
 <!--- Footer -->
