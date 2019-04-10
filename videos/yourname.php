@@ -129,7 +129,7 @@
 				<div class="card">
   					<div class="card-body">
 					<?php echo $printout; ?>
-						<div class="float-right">
+						<div class="float-left">
 							<input type="button" class="btn btn-info" align="right" value="Like!">
 						</div>
 					
