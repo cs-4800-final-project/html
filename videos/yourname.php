@@ -58,6 +58,12 @@
 
 <?php
 	session_start();
+
+	// Check if the user is already logged in, if yes then redirect him to welcome page
+	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  		  header("location: ../home/");
+    	exit;
+	}
 	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;">
 	<iframe src="https://cdn.jwplayer.com/players/kGD375IS-wMbjKtxS.html" width="100%" height="100%" frameborder="0" 
