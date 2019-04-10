@@ -8,7 +8,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.11/js/all.js"></script>
 	<link href="../../style.css" rel="stylesheet">
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
@@ -62,13 +62,18 @@ include('../header.php');
             			</div>
             			<div class = "carousel-caption-profile-nameCaption">
             				<h1>  '.$user.' </h1>
-                    <div button-wrapper style= "transform: translateY(150%) translateX(80%);">
-            					<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
-            					<br>
-            					<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
-            					<br>
-            					<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
-            				</div>
+                   	<div request-button-wrapper style="padding-left: 80%; transform:translateY(-290%);">
+				<button type="button" class="btn btn-secondary">Add Friend&nbsp;<i class="fas fa-user-plus"></i></button> <!--If They're added, this should say Friends or Added-->
+				<button type="button" class="btn btn-secondary">Friended&nbsp;<i class="fas fa-user-check"></i></button>
+			</div>
+
+				<div button-wrapper style="padding-left: 80%; transform:translateY(-100%);" >
+					<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
+					<br>
+					<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
+					<br>
+					<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
+				</div>
             			</div>
             		</div>
             	</div>
@@ -99,13 +104,18 @@ include('../header.php');
   } 
 
 ?>
-			<div button-wrapper style= "transform: translateY(150%) translateX(80%);">
-				<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
-				<br>
-				<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
-				<br>
-				<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
+				<div request-button-wrapper style="padding-left: 80%; transform:translateY(-290%);">
+				<button type="button" class="btn btn-secondary">Add Friend&nbsp;<i class="fas fa-user-plus"></i></button> <!--If They're added, this should say Friends or Added-->
+				<button type="button" class="btn btn-secondary">Friended&nbsp;<i class="fas fa-user-check"></i></button>
 			</div>
+
+				<div button-wrapper style="padding-left: 80%; transform:translateY(-100%);" >
+					<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
+					<br>
+					<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
+					<br>
+					<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
+				</div>
 		</div>
 
 		<div class= "box-profile-content">
