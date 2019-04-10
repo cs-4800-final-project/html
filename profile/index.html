@@ -9,23 +9,21 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="../style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
 		 $(window).scroll(function(){
 		var scroll = $(window).scrollTop();
-		var vid = document.getElementById("player");
-		
-        if(scroll < 700){
+		var vid = document.getElementById("player");	
+        if(scroll < 300){
 			$('.fixed-top').css('background', 'transparent'); 
 			$('#slides').carousel({interval: 500});
         } else{
 			$('.fixed-top').css('background', 'rgba(22, 22, 22)'); 
 			
         }
-	});</script>
-	
+	});</script>	
 </head>
 <?php
 include('../header.php');
@@ -94,7 +92,13 @@ include('../header.php');
   } 
 
 ?>
-		
+			<div button-wrapper style= "transform: translateY(150%) translateX(80%);">
+				<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
+				<br>
+				<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
+				<br>
+				<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
+			</div>
 		</div>
 
 		<div class= "box-profile-content">
@@ -188,39 +192,6 @@ include('../header.php');
 								</div>
 							</div>
 					
-
-
-
-<!--
-<div class= "box-profile >
-        <table border = "0" cellspacing ="0" width= "400" height = "480" align="center" >
-            
-            <tr align="center">
-                    <td colspam ="3">  <h4>About Me </h4> </td>
-            </tr> 
-            <tr>
-                    <td colspan= "3"> <h3>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </h3> </td> 
-            </tr>
-            <tr align="center">
-                    <td colspam ="3"> <h4><a href="#">Friends </a></h4> </td>
-            </tr>
-            <tr>
-                    <td colspam ="1"> <a href="#"><img src= "../img/friend.jpg" alt ="" class = "box-img" width= "100" height = "100"/> </a> </td>
-                    
-            </tr>
-        
-            <tr align="center">
-                    <td colspam ="3"> <h4><a href="#">Favorited Shows/Movies</a> </h4> </td>
-                    
-            </tr>    
-            <tr>
-                    <td colspam ="1"> <a href="https://www.youtube.com/watch?v=VubxHFy7ocE"><img src= "penguins.jpg" alt ="" class = "box-img" width= "100" height = "100"/> </a></td>
-                    
-            </tr>
-        </table>
-    </div>
--->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
