@@ -33,8 +33,8 @@
   </tr>
   <tr>
     <td>Mohammed Khan</td>
-    <td>Working on search bar. </td>
-    <td>Continue that. </td>
+    <td>Working on search bar. Remove penguins.</td>
+    <td>Continue that. Push changes.</td>
     <td>Yes </td>
   </tr>
 </table>
