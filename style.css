@@ -235,6 +235,15 @@ a { /*--- Link color override-----*/
   overflow:hidden;
 }
 
+/*--No Border Button--*/
+
+.unstyled-button {
+  border: none;
+  padding: 0;
+  background: none;
+  color:white;
+  font-size: 12px;
+}
 
 
 /*---Media Queries --*/
