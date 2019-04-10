@@ -2,7 +2,7 @@
 <!--<div id="footer">(C)2019 - Student Semester Project </div>-->
 
 <!--- Footer -->
-<div class = "sticky-bottom">
+<div class = "sticky-bottom" style = "padding-top:300%;">
 	<footer id = "footer">
 		<div class="wrap">
 
