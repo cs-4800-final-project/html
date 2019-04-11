@@ -143,8 +143,14 @@
 				?>
 				<html>
 				<div class="card">
-  					<div class="card-body"><?php echo $printout; ?></div>
-				</div>		
+  					<div class="card-body">
+					<?php echo $printout; ?>
+						<div class="float-left">
+							<input type="button" class="btn btn-info" value="Like!">
+						</div>
+					
+					</div>	
+				</div>
 				</html>
        			 	<?php
 				

@@ -9,39 +9,43 @@
 <link rel="stylesheet" href="assets/style.css">
 
 <?php
-	echo  '<nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
-		<div class = "container-fluid"> 
-			<a class = "navbar-brand" href="#"><img src = "../img/logo.png"> </a>
-				<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
-					<span class =  "navbar-toggler-icon"></span>
-				</button>
-	<!--<?php echo $_POST['search']; ?>-->
-		<form action="http://danc.ddns.net/search/?ID=" method="POST">
-			<input type="text" name="search" placeholder="Search">
-			<button type="submit" name="submit-search">Search</button>
-		</form>
-		<div class = "collapse navbar-collapse" id= "navbarResponsive">
-			<ul class = "navbar-nav ml-auto">
-				<li class = "nav-item">
-					<a class ="nav-link" href = "http://danc.ddns.net/home/"> Home </a>
-				</li>
-					<a class ="nav-link" href = "http://danc.ddns.net/profile/profile.php"> Profile</a>
-				</li>
+	echo  '<nav class ="navbar navbar-expand-md navbar-light bg-light">
+<div class = "container-fluid"> 
+	<a class = "navbar-brand" href="#"><img src = "img/logo.png"> </a>
+	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
+		<span class =  "navbar-toggler-icon"></span>
+	</button>
+	<div class = "collapse navbar-collapse" id= "navbarResponsive">
+		<ul class = "navbar-nav ml-auto">
+			<li class = "nav-item">
+				<a class ="nav-link" href = "http://danc.ddns.net"> Home </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=log"> Logs </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=srs"> SRS </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=project"> Database </a>
+			</li>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=er"> ER Model </a>
+			</li>
+				<a class ="nav-link" href = "http://danc.ddns.net/index.php?page=contact"> Contact Us</a>
+			</li>
 			<?php 
-				session_start();
-				if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
-				{
-			?>
-			<a class ="nav-link"href="../dbcon/logout.php">Logout</a>
+			session_start();
+			if( isset($_SESSION[\'username\']) && !empty($_SESSION[\'username\']) )
+			{
+				?>
+			      <a class ="nav-link"href="logout.php">Logout</a>
 			      </li>
-			<?php 
+				<?php 
 			}
 			else
 			{ 
 				?>
-		     	<a class ="nav-link"href="../login/login.php">Login</a>
+		     	<a class ="nav-link"href="login.php">Login</a>
 		     	</li>
-		     	<a class ="nav-link"href="../register/register.php">Register</a>
+		     	<a class ="nav-link"href="register.php">Register</a>
 		     	</li>
 				<?php 
 			} 	
@@ -49,16 +53,11 @@
 		</ul>
 	</div>
 </div>
-</nav>';?>
+</nav>
+';?>
 
 <?php
 	session_start();
-
-	// Check if the user is already logged in, if false then redirect him to welcome page
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === !true){
-  		  header("location: ../home/");
-    	exit;
-	}
 	
 	echo '<div style="position:relative; padding-bottom:56.25%; overflow:hidden;">
 	<iframe src="https://cdn.jwplayer.com/players/kGD375IS-wMbjKtxS.html" width="100%" height="100%" frameborder="0" 
@@ -153,6 +152,11 @@
 	
 	include('footer.php')
 ?>
+
+
+
+
+
 
 
 

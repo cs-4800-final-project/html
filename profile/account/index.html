@@ -24,9 +24,16 @@ session_start();
 	
 	$gen = $_POST['updateGen'];
 		
-	$update = "UPDATE users SET bio='$bio', location='$loc', gender='$gen', birthday='$day' WHERE username = james";
-	$link->query($update) or die("Cannot update. Please contact server admin.");//update or error
-	}
+	$update = "UPDATE users SET bio='$bio', location='$loc', gender='$gen', birthday='$day' WHERE username = 'james'";
+	
+	if(mysqli_query($link, $update)){ 
+    echo "Record was updated successfully."; 
+  } else { 
+      echo "ERROR: Could not able to execute $sql. "  
+                              . mysqli_error($link); 
+  }  
+  
+  }
 ?>
 
 <?php
