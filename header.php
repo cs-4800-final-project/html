@@ -9,15 +9,14 @@
 	if ( isset($_POST['submit-search']) )
 	{
 		$searchq = $_POST['search'];
-		$baseurl = "http://danc.ddns.net/search/?ID=test"
-		$completeurl = $baseurl + $searchq
-		header( "Location: $completeurl" ); 
+		$baseurl = "http://danc.ddns.net/search/?ID=";
+		$completeurl = $baseurl.$searchq;
+		header( "Location:".$completeurl ); 
 	}
 	?>
 
-	<!--<?php echo $_POST['search']; action="<?php echo $completeurl;?>"?>-->
 	<form method="POST">
-			<input type="text" name="search" placeholder="SearchWorking">
+			<input type="text" name="search" placeholder="Enter Show Name">
 			<button type="submit" name="submit-search">Search</button>
 	</form>
 	<div class = "collapse navbar-collapse" id= "navbarResponsive">
