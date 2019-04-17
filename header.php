@@ -6,9 +6,12 @@
 	</button>
 
 	<?php
+	if ( isset($_POST['submit-search']) )
+	{
 		$searchq = $_POST['search'];
 		$baseurl = "http://danc.ddns.net/search/?ID="
 		$completeurl = $baseurl + $searchq
+	}
 	?>
 
 	<!--<?php echo $_POST['search']; ?>-->
