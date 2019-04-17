@@ -9,7 +9,8 @@
 	if ( isset($_POST['submit-search']) )
 	{
 		$searchq = $_POST['search'];
-		$baseurl = "http://danc.ddns.net/search/?ID="
+		<p> echo $searchq </p>
+		$baseurl = "http://danc.ddns.net/search/?ID=test"
 		$completeurl = $baseurl + $searchq
 		header( "Location: $completeurl" ); 
 	}
