@@ -11,11 +11,12 @@
 		$searchq = $_POST['search'];
 		$baseurl = "http://danc.ddns.net/search/?ID="
 		$completeurl = $baseurl + $searchq
+		header( "Location: $completeurl" ); 
 	}
 	?>
 
-	<!--<?php echo $_POST['search']; ?>-->
-	<form action="<?php echo $completeurl;?>" method="POST">
+	<!--<?php echo $_POST['search']; action="<?php echo $completeurl;?>"?>-->
+	<form method="POST">
 			<input type="text" name="search" placeholder="Search">
 			<button type="submit" name="submit-search">Search</button>
 	</form>
