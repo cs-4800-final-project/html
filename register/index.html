@@ -1,0 +1,141 @@
+<?php
+   // Include config file
+   require_once "../dbcon/config.php";
+   
+   // Processing form data when form is submitted
+   if($_SERVER["REQUEST_METHOD"] == "POST")
+   {
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $firstname = mysqli_real_escape_string($db, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($db, $_POST['lastname']);
+    $bio = mysqli_real_escape_string($db, $_POST['bio']);
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+   
+   
+     $sql1 = "INSERT INTO `users` (`id`, `firstname`, `lastname`, `month`, `day`, `year`, `gender`, `phone`, `street 1`, `street 2`, `city`, `state`, `country`, `areacode`) VALUES (NULL, '$firstname', '$lastname', '', '', '', '', '', '', '', '', '', '', '')";
+     mysqli_query($link, $sql1);
+     
+     $sql2 ="INSERT INTO `account` (`id`, `username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES (NULL, '$username', '$password', '$email', '', '', '', '', '$bio')";
+     mysqli_query($link, $sql2);
+   }
+   // Close connection
+   mysqli_close($link);
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>webpage</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <div class="container" id="account">
+        <form id="general">
+            <hr>
+            <div class="form-row">
+                <div class="col" id="right">
+                    <h1>Registration</h1>
+                    <hr>
+                    <div class="form-row" id="name">
+                        <div class="col">
+                            <div class="form-group"><label>First Name</label><input class="form-control" type="text" value="<?php echo $firstname; ?>"></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Last Name</label><input class="form-control" type="text" value="<?php echo $lastname; ?>"></div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="email"><label id="email">Email</label><input class="form-control" type="text" value="<?php echo $email; ?>" id="emailadd"></div>
+                    <div class="form-group" id="username"><label id="usernamel">Username</label><input class="form-control" type="text" value="<?php echo $username; ?>" id="useradd"></div>
+                    <div class="form-group" id="password"><label id="password">Password</label><input class="form-control" type="text" value="<?php echo $password; ?>" id="passadd"></div>
+                    <div class="form-row" id="info">
+                        <div class="col-xl-8" id="birthday"><label id="bday">Birthday</label>
+                            <div class="form-row">
+                                <div class="col"><label>Month</label><input class="form-control" type="text"></div>
+                                <div class="col"><label>Day</label><input class="form-control" type="text"></div>
+                                <div class="col"><label>Year</label><input class="form-control" type="text"></div>
+                            </div>
+                        </div>
+                        <div class="col" id="gender"><label id="gender-label">Gender</label>
+                            <div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Male</label></div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Female</label></div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Other</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form id="biography">
+            <hr><label>Profile Biography</label>
+            <div class="form-row">
+                <div class="col"><textarea class="form-control" id="bio-input" value="<?php echo $bio; ?>"></textarea></div>
+            </div>
+        </form>
+        <form id="contact">
+            <hr><label>Contact Information</label>
+            <div class="col">
+                <div class="form-row">
+                    <div class="col">
+                    <label>Address Line 1</label>
+                    <input class="form-control" type="text">
+                    <label>Address Line 2</label>
+                    <input class="form-control" type="text">
+                    <label>Country</label>
+                    <input class="form-control" type="text">
+                    </div>
+                    <div class="col"><label>City</label>
+                    <input class="form-control" type="text">
+                    <label>State/Province</label>
+                    <input class="form-control" type="text">
+                    <label>Zip Code</label>
+                    <input class="form-control" type="text">
+                    </div>
+                    <div class="col">
+                    <label>Phone Number</label>
+                    <input class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form id="payment">
+            <hr><label>Payment and Subscription Information</label>
+            <div class="form-row">
+                <div class="col"><label>Credit Card Number</label>
+                <input class="form-control" type="text">
+                <label>Expiration Date</label><
+                input class="form-control" type="text">
+                <label>Security Code</label>
+                <input class="form-control" type="text">
+                </div>
+                <div class="col">
+                    <header></header>
+                </div>
+            </div>
+        </form>
+        <div class="row" id="confirmation">
+            <div class="col">
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group text-right" role="group" id="apply"><button class="btn btn-primary" type="button">Cancel</button><button class="btn btn-primary" type="button">Save</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <?php include('../footer.php');?>
+</body>
+
+</html>
