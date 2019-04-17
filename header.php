@@ -4,9 +4,19 @@
 	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
 		<span class =  "navbar-toggler-icon"></span>
 	</button>
-	<!--<?php echo $_POST['search']; ?>-->
-	<form action="http://danc.ddns.net/search/?ID=" method="POST">
-			<input type="text" name="search" placeholder="Search">
+
+	<?php
+	if ( isset($_POST['submit-search']) )
+	{
+		$searchq = $_POST['search'];
+		$baseurl = "http://danc.ddns.net/search/?ID=";
+		$completeurl = $baseurl.$searchq;
+		header( "Location:".$completeurl ); 
+	}
+	?>
+
+	<form method="POST">
+			<input type="text" name="search" placeholder="Enter Show Name">
 			<button type="submit" name="submit-search">Search</button>
 	</form>
 	<div class = "collapse navbar-collapse" id= "navbarResponsive">
