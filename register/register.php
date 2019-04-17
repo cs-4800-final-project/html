@@ -19,10 +19,10 @@
     
        // Validate username
        if(empty(trim($_POST["username"]))){
-           $username_err = "Please enter a username.";
+           $username_err = "Please enter a email.";
        } else{
            // Prepare a select statement
-           $sql = "SELECT id FROM users WHERE username = ?";
+           $sql = "SELECT id FROM account WHERE email = ?";
            
            if($stmt = mysqli_prepare($link, $sql)){
                // Bind variables to the prepared statement as parameters
@@ -37,7 +37,7 @@
                    mysqli_stmt_store_result($stmt);
                    
                    if(mysqli_stmt_num_rows($stmt) == 1){
-                       $username_err = "This username is already taken.";
+                       $username_err = "This email is already taken.";
                    } else{
                        $username = trim($_POST["username"]);
                    }
@@ -73,7 +73,7 @@
        if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
            
            // Prepare an insert statement
-           $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+           $sql = "INSERT INTO account (email, password) VALUES (?, ?)";
             
            if($stmt = mysqli_prepare($link, $sql)){
                // Bind variables to the prepared statement as parameters
