@@ -31,41 +31,28 @@ include('../header.php');
 ?>
    <body>
       <!-- Navigation -->
-<<<<<<< HEAD
-      <nav class ="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
-         <div class = "container-fluid">
-            <a class = "navbar-brand" href="#"> <img src = "../img/logo.png"> </h1> </a>
-            <button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
-            <span class =  "navbar-toggler-icon"> <span>
-            </button>
-            <div class = "collapse navbar-collapse" id= "navbarResponsive">
-               <ul class = "navbar-nav ml-auto">
-                  <form class="form-inline ">
-                     <!-- This is the search bar-->
-                     <div class="md-form my-0"> 
-                        <input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search" aria-label="Search">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                     </div>
-                  </form>
-                  <li class = "nav-item">
-                     <a class ="nav-link" href = "../home"> Home </a>
-                  </li>
-                  <a class ="nav-link" href = ""> My Subscriptions </a>
-                  </li>
-                  <a class ="nav-link" href = ""> Shows </a>
-                  </li>
-                  <a class ="nav-link" href = "#"> Movies </a>
-                  </li>
-        					<a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
-        					<!--Make this a dropdown w/ profile picture later -->
-        					</li>
-        					<a class="nav-link" href="http://danc.ddns.net/dbcon/logout.php"> Logout </a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </nav>
-=======
+      <?php
+            if(isset($_GET['ID']))
+            {
+              ini_set('display_errors', 1);
+              require_once "../dbcon/config.php";
+              $ID = $_GET['ID'];
+              $sql = "SELECT * FROM content WHERE cid = $ID";
+              $result = $link->query($sql);
+
+               while($row = $result->fetch_assoc()) 
+               {
+                  $description = $row["description"];
+                  $type = $row["type"];
+                  $studio = $row["studio"];
+                  $title = $row["title"];
+                  $year = $row["year"];
+                  $genre = $row["genre"];
+               }
+            }
+
+      ?>
+>>>>>>> 6f001da3d24ffd6f4d155c9c54e4dae53a10f033
  
 >>>>>>> 48ce01284ed61edb74a37e84982ea4eeebfb3626
       <!--Video Search Results -->
@@ -76,14 +63,14 @@ include('../header.php');
          <!--Line Divider-->
          <img src="../img/movie1.jpg" alt="test">
          <!--All the Movie/Show's Info-->
-         <h1> Disney Nature: Penguins </h1>
-         <h2><span> Type: </span> Spring 2019 Movies </h2>
-         <h2><span>Plot Summary: </span> Disneynature’s all-new feature film “Penguins” is a coming-of-age story about an Adélie penguin named Steve who joins millions of fellow males in the icy Antarctic spring on a quest to build a suitable nest, find a life partner and start a family. None of it comes easily for him, especially considering he's targeted by everything from killer whales to leopard seals, who unapologetically threaten his happily ever after. From the filmmaking team behind “Bears” and “Chimpanzee,” Disneynature’s “Penguins” opens in theaters nationwide in time for Earth Day 2019. </h2>
-         <h2><span>Genre: </span> Nature, Documentary</h2>
-         <h2><span>Studio:</span> Disney</h2>
-         <h2><span>Released: </span> 2019</h2>
+         <h1> '.$title.' </h1>
+         <h2><span> Type: </span>'.$type.'</h2>
+         <h2><span>Description: </span>'.$description.'</h2>
+         <h2><span>Genre: </span>'.$genre.'</h2>
+         <h2><span>Studio:</span>'.$studio.'</h2>
+         <h2><span>Released: </span>'.$year.'</h2>
          <h2> <span>Status: </span> Finished</h2>
-         <h3>Disney Nature: Penguins</h3>
+         <h3>'.$title.'</h3>
          <hr style="border: 1px solid gray; transform: translateY(-210px); margin-left: 3%; margin-right: 3%;"/>
          <!--Line Divider-->
          <!--All the Show/Movies Episodes in a Button-->
