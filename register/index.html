@@ -10,7 +10,7 @@
     $lastname = $_POST['updateLast'];
     $email = $_POST['updateEmail'];
     $User = $_POST['updateUser'];
-    $passl = $_POST['updatePass'];
+    $pass = $_POST['updatePass'];
     $month = $_POST['updateMont'];
     $day = $_POST['updateDay'];
     $year = $_POST['updateYear'];
@@ -26,12 +26,12 @@
     $exp = $_POST['updateExpD'];
     $sec = $_POST['updateSecC'];
     
-    $account = "INSERT INTO `account`(`id`, `username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES (,'$User','$pass','$email',0,'$cred','exp','$sec','bio')";
-    $users = "INSERT INTO `users`(`id`, `firstname`, `lastname`, `month`, `day`, `year`, `gender`, `phone`, `street1`, `street2`, `city`, `state`, `country`, `areacode`, `profile`) VALUES (,$firstname,[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],null";
+    $account = "INSERT INTO `account`(`username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES ('$User','$pass','$email',0,'$cred','exp','$sec','bio')";
+    $users = "INSERT INTO `users`(`firstname`, `lastname`, `month`, `day`, `year`, `phone`, `street1`, `street2`, `city`, `state`, `country`, `areacode`, `profile`) VALUES ('$firstname','$lastname','$month','$day','$year','$phone','$add1','$add2','$city','$prov','$loc','$code',null";
 
                
   	
-  	if(mysqli_query($link, $account) && mysqli_query($link, $user))
+  	if(mysqli_query($link, $account) && mysqli_query($link, $users))
     { 
       echo "Record was updated successfully."; 
       // Redirect user to welcome page
@@ -39,8 +39,7 @@
     } 
     else 
     { 
-        echo "ERROR: Could not able to execute $sql. "  
-                                . mysqli_error($link); 
+        echo "ERROR: Could not able to execute $sql. "; 
     } 
    }
    if(isset($_POST['Return'])){
