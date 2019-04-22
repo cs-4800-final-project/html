@@ -1,28 +1,51 @@
 <?php
-   // Include config file
-   require_once "../dbcon/config.php";
-   
-   // Processing form data when form is submitted
-   if($_SERVER["REQUEST_METHOD"] == "POST")
-   {
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $firstname = mysqli_real_escape_string($db, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($db, $_POST['lastname']);
-    $bio = mysqli_real_escape_string($db, $_POST['bio']);
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+	 require_once "../dbcon/config.php";		
+?>
 
-   
-   
-     $sql1 = "INSERT INTO `users` (`id`, `firstname`, `lastname`, `month`, `day`, `year`, `gender`, `phone`, `street 1`, `street 2`, `city`, `state`, `country`, `areacode`) VALUES (NULL, '$firstname', '$lastname', '', '', '', '', '', '', '', '', '', '', '')";
-     mysqli_query($link, $sql1);
-     
-     $sql2 ="INSERT INTO `account` (`id`, `username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES (NULL, '$username', '$password', '$email', '', '', '', '', '$bio')";
-     mysqli_query($link, $sql2);
+<?php
+  session_start();
+    if(isset($_POST['Submit'])){
+
+    $firstname = $_POST['updateFirst'];
+    $lastname = $_POST['updateLast'];
+    $email = $_POST['updateEmail'];
+    $User = $_POST['updateUser'];
+    $passl = $_POST['updatePass'];
+    $month = $_POST['updateMont'];
+    $day = $_POST['updateDay'];
+    $year = $_POST['updateYear'];
+    $bio = $_POST['updateBio'];
+    $add1 = $_POST['updateAdd1'];
+    $add2 = $_POST['updateAdd2'];
+    $loc = $_POST['updateCoun'];
+    $city = $_POST['updateCity'];
+    $prov = $_POST['updateProv'];
+    $code = $_POST['updateCode'];
+    $phone = $_POST['updatePhon'];
+    $cred = $_POST['updateCard'];
+    $exp = $_POST['updateExpD'];
+    $sec = $_POST['updateSecC'];
+    
+    $account = "INSERT INTO `account`(`id`, `username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES (,'$User','$pass','$email',0,'$cred','exp','$sec','bio')";
+    $users = "INSERT INTO `users`(`id`, `firstname`, `lastname`, `month`, `day`, `year`, `gender`, `phone`, `street1`, `street2`, `city`, `state`, `country`, `areacode`, `profile`) VALUES (,$firstname,[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],null";
+
+               
+  	
+  	if(mysqli_query($link, $account) && mysqli_query($link, $user))
+    { 
+      echo "Record was updated successfully."; 
+      // Redirect user to welcome page
+        header("location: ../login");
+    } 
+    else 
+    { 
+        echo "ERROR: Could not able to execute $sql. "  
+                                . mysqli_error($link); 
+    } 
    }
-   // Close connection
-   mysqli_close($link);
+   if(isset($_POST['Return'])){
+   header("location: ..");
+   }
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,29 +61,35 @@
 
 <body>
     <div class="container" id="account">
-        <form id="general">
+        <form action="" method="post">
+        <div>
             <hr>
             <div class="form-row">
                 <div class="col" id="right">
-                    <h1>Registration</h1>
+                    <h1>Account Information</h1>
                     <hr>
                     <div class="form-row" id="name">
                         <div class="col">
-                            <div class="form-group"><label>First Name</label><input class="form-control" type="text" value="<?php echo $firstname; ?>"></div>
+                            <div class="form-group"><label>First Name</label>
+                            <input class="form-control" type="text" name="updateFirst"></div>
                         </div>
                         <div class="col">
-                            <div class="form-group"><label>Last Name</label><input class="form-control" type="text" value="<?php echo $lastname; ?>"></div>
+                            <div class="form-group"><label>Last Name</label>
+                            <input class="form-control" type="text" name="updateLast"></div>
                         </div>
                     </div>
-                    <div class="form-group" id="email"><label id="email">Email</label><input class="form-control" type="text" value="<?php echo $email; ?>" id="emailadd"></div>
-                    <div class="form-group" id="username"><label id="usernamel">Username</label><input class="form-control" type="text" value="<?php echo $username; ?>" id="useradd"></div>
-                    <div class="form-group" id="password"><label id="password">Password</label><input class="form-control" type="text" value="<?php echo $password; ?>" id="passadd"></div>
+                    <div class="form-group" id="email"><label id="email">Email</label>
+                    <input class="form-control" type="text" name="updateEmail"></div>
+                    <div class="form-group" id="email"><label id="username">Username</label>
+                    <input class="form-control" type="text" name="updateUser"></div>
+                    <div class="form-group" id="email"><label id="password">Password</label>
+                    <input class="form-control" type="text" name="updatePass"></div>
                     <div class="form-row" id="info">
                         <div class="col-xl-8" id="birthday"><label id="bday">Birthday</label>
                             <div class="form-row">
-                                <div class="col"><label>Month</label><input class="form-control" type="text"></div>
-                                <div class="col"><label>Day</label><input class="form-control" type="text"></div>
-                                <div class="col"><label>Year</label><input class="form-control" type="text"></div>
+                                <div class="col"><label>Month</label><input class="form-control" type="text" name="updateMont"></div>
+                                <div class="col"><label>Day</label><input class="form-control" type="text" name="updateDay"></div>
+                                <div class="col"><label>Year</label><input class="form-control" type="text" name="updateYear"></div>
                             </div>
                         </div>
                         <div class="col" id="gender"><label id="gender-label">Gender</label>
@@ -73,69 +102,82 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <form id="biography">
+        </dix>
+        <div id="biography">
             <hr><label>Profile Biography</label>
             <div class="form-row">
-                <div class="col"><textarea class="form-control" id="bio-input" value="<?php echo $bio; ?>"></textarea></div>
+                <div class="col"><textarea class="form-control" name="updateBio"></textarea></div>
             </div>
-        </form>
-        <form id="contact">
+        </div>
+        <div id="contact">
             <hr><label>Contact Information</label>
             <div class="col">
                 <div class="form-row">
                     <div class="col">
                     <label>Address Line 1</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updateAdd1">
                     <label>Address Line 2</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updateAdd2">
                     <label>Country</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updateCoun">
                     </div>
-                    <div class="col"><label>City</label>
-                    <input class="form-control" type="text">
+                    <div class="col">
+                    <label>City</label>
+                    <input class="form-control" type="text" name="updateCity">
                     <label>State/Province</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updateProv">
                     <label>Zip Code</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updateCode">
                     </div>
                     <div class="col">
                     <label>Phone Number</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="updatePhon">
                     </div>
                 </div>
             </div>
-        </form>
-        <form id="payment">
+        </div>
+        <div id="payment">
             <hr><label>Payment and Subscription Information</label>
             <div class="form-row">
-                <div class="col"><label>Credit Card Number</label>
-                <input class="form-control" type="text">
-                <label>Expiration Date</label><
-                input class="form-control" type="text">
-                <label>Security Code</label>
-                <input class="form-control" type="text">
-                </div>
                 <div class="col">
+                <label>Credit Card Number</label>
+                <input class="form-control" type="text" name="updateCard">
+                <label>Expiration Date</label>
+                <input class="form-control" type="text" name="updateExpD">
+                <label>Security Code</label>
+                <input class="form-control" type="text" name="updateSecC">
+                </div>
+                <div class="col"><label>Subscription</label>
+                    <h1>Time:</h1>
                     <header></header>
+                    <div class="form-row">
+                        <div class="col">
+                        <button class="btn btn-primary" type="button">Subscribe Monthly</button>
+                        <button class="btn btn-primary" type="button">Subscribe Anually</button>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
         <div class="row" id="confirmation">
             <div class="col">
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <div class="btn-group text-right" role="group" id="apply"><button class="btn btn-primary" type="button">Cancel</button><button class="btn btn-primary" type="button">Save</button></div>
+                        <div class="btn-group text-right" role="group" id="apply">
+                        <td><INPUT TYPE="Submit" VALUE="Cancel" NAME="Return"></td>
+                        <td><INPUT TYPE="Submit" VALUE="Register" NAME="Submit"></td>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </form>
+     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
-    <?php include('../footer.php');?>
 </body>
 
 </html>

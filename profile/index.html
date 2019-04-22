@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,221 +9,359 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.11/js/all.js"></script>
-	<link href="../../style.css" rel="stylesheet">
+	<script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+
+
+	<link href="profile-style.css" rel="stylesheet">
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
-		 $(window).scroll(function(){
-		var scroll = $(window).scrollTop();
-		var vid = document.getElementById("player");	
-        if(scroll < 300){
-			$('.fixed-top').css('background', 'transparent'); 
-			$('#slides').carousel({interval: 500});
-        } else{
-			$('.fixed-top').css('background', 'rgba(22, 22, 22)'); 
-			
-        }
-	});</script>	
+		$(window).scroll(function () {
+			var scroll = $(window).scrollTop();
+			var vid = document.getElementById("player");
+
+			if (scroll < 300) {
+				$('.fixed-top').css('background', 'transparent');
+				$('#slides').carousel({ interval: 500 });
+			} else {
+				$('.fixed-top').css('background', 'rgba(22, 22, 22)');
+
+			}
+		});</script>
+
 </head>
-<?php
-include('../header.php');
-?>
+
 <body>
 
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"> <img src="../img/logo.png"> </h1> </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"> <span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
 
+					<form class="form-inline ">
+						<!-- This is the search bar-->
+						<div class="md-form my-0">
+							<input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search"
+								aria-label="Search">
+							<i class="fas fa-search" aria-hidden="true"></i>
+						</div>
+					</form>
 
-<!--Timeline Cover Photo as well as Profile Image-->
-<div id = "slides" class = "carousel slide carousel-fade" data-ride= "carousel"  >
-	
-	<div id = "myCarousel" class = "carousel-inner-profile">
-		<div class ="carousel-item active" >
-			<img src = "../img/background.png" > <!--TIMELINE COVER PHOTO--> 
-       
- <?php
+					<li class="nav-item">
+						<a class="nav-link" href="../home"> Home </a>
+					</li>
+					<a class="nav-link" href=""> My Subscriptions </a>
+					</li>
+					<a class="nav-link" href=""> Shows </a>
+					</li>
+					<a class="nav-link" href="#"> Movies </a>
+					</li>
+					<a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
+					<!--Make this a dropdown w/ profile picture later -->
+					</li>
+					<a class="nav-link" href="http://danc.ddns.net/dbcon/logout.php"> Logout </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<?php
+     // Initialize the session
+   session_start();
   ini_set('display_errors', 1);
   require_once "../dbcon/config.php";
-  $usersName = $_SESSION['username'];
-  $sql = "SELECT * FROM users WHERE username = '".$usersName."'";
+  
+  $uid = $_SESSION['id'];
+
+  $sql = "SELECT * FROM users,account WHERE account.id = users.id AND account.id = '".$uid."'";
   $result = $link->query($sql);
 
-  if ($result->num_rows > 0)   {
+  
+  if ($result->num_rows > 0 )   {
     // output data of each row
           $row = $result->fetch_assoc();
           $user = $row["username"];
           $bio = $row["bio"];
-          $loc = $row["location"];
+          $loc = $row["country"];
           $gender = $row["gender"];
           $subtime = $row["subtime"];
-          $birthday  = $row["birthday"];
+          //$birthday  = $row["birthday"];
           $pic = $row["profile"];
-        
-        echo '<div class = "carousel-caption-profile">
-            				<img src = "'.$pic.'"> 
-            			</div>
-            			<div class = "carousel-caption-profile-nameCaption">
-            				<h1>  '.$user.' </h1>
-                   	<div request-button-wrapper style="padding-left: 80%; transform:translateY(-290%);">
-				
-			</div>
 
-				<div button-wrapper style="padding-left: 80%; transform:translateY(-100%);" >
-					<button class="unstyled-button" >Edit Profile Picture&nbsp;<i class="far fa-edit"></i></button>
-					<br>
-					<button class="unstyled-button" >Edit Cover Photo&nbsp;<i class="far fa-edit"></i></button>
-					<br>
-					<button class="unstyled-button">Edit Profile Information&nbsp;<i class="far fa-edit"></i></button>
-           
-				</div>
-            			</div>
-            		</div>
-            	</div>
-            </div>
-            	<div class = "box-profile"> 
-              <div class="panel panel-default">
-                <div class="panel-body">
-                        <div class="media-body">
-                            <hr>
-                            <h3><strong>Bio</strong></h3>
-                            <h3>'.$bio.'</h3>
-                            <hr>
-                            <h3><strong>Location</strong></h3>
-                            <p>'.$loc.'</p>
-                            <hr>
-                            <h3><strong>Gender</strong></h3>
-                            <p>'.$gender.'</p>
-                            <hr>
-                            <h3><strong>Subscription Time Remaining</strong></h3>
-                            <p>'.$subtime.'</p>
-                            <hr>
-                            <h3><strong>Birthday</strong></h3>
-                            <p>'.$birthday.'</p>
-                        </div>
-                    </div>
-                </div>';
-       
-  } 
+  echo '<!--Timeline Cover Photo as well as Profile Image-->
+	<div id="slides" class="carousel slide carousel-fade" data-ride="carousel">
 
-?>
-
-	
-
-
-
-		</div>
-
-		<div class= "box-profile-content">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<span>
-								<h1 class="panel-title pull-left" style="font-size:25px;">Your Subscriptions <small></small> </h1>
-								<div class="dropdown pull-right">
-									<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-										Manage Subscriptions
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-										<li><a href="#">Options</a></li>
-										<li><a href="#"> Cancel your Subscriptions</a></li>
-										<li><a href="#"> Add a Subscription</a></li>
-										<li><a href="#"></a></li>
-										<li role="separator" class="divider"></li>
-										<li><a href="#"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>  I don't know </a></li>
-									</ul>
-								</div>
-							</span>
-							<br><br>
-							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
-							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
-							 <a href="#"><img src= "../img/movie1.jpg" alt =""  width= "100" height = "100"/> </a> 
-							
-							<br><br><hr>
-						</div>
-					</div>
-				</div>
-
-
-			<!-- Simple post content example. -->
-						<div class = "box-profile-content" style= "margin-top: 10px;">
-							<div class="panel panel-default">
-									<div class="panel-body">
-										<div class="pull-left">
-											<a href="#">
-												<img class="media-object img-circle" src="../img/profile.JPG" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
-											</a>
-										</div>
-										<h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> â€“ <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
-										<span>
-											<div class="navbar-right">
-												<div class="dropdown">
-													<button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-														<i class="fa fa-cog" aria-hidden="true"></i>
-														<span class="caret"></span>
-													</button>
-													<ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
-														<li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>
-														<li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignore</a></li>
-														<li><a href="#"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Enable notifications for this post</a></li>
-														<li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
-														<li role="separator" class="divider"></li>
-														<li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Delete</a></li>
-													</ul>
-												</div>
-											</div>
-										</span>
-										<hr>
-										<div class="post-content">
-											<p>Simple post content example.</p>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
-										</div>
-										<hr>
-										<div>
-											<div class="pull-right btn-group-xs">
-												<a class="btn btn-default btn-xs"><i class="fa fa-heart" aria-hidden="true"></i> Like</a>
-												<a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
-												<a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
-											</div>
-											<div class="pull-left">
-												<p class="text-muted" style="margin-left:5px;"><i class="fa fa-globe" aria-hidden="true"></i> Public</p>
-											</div>
-											<br>
-										</div>
-										<hr>
-										<div class="media">
-											<div class="pull-left">
-												<a href="#">
-													<img class="media-object img-circle" src="" width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
-												</a>
-											</div>
-											<div class="media-body">
-												<textarea class="form-control" rows="1" placeholder="Comment"></textarea>
-											</div>
-										</div>
+		<div id="myCarousel" class="carousel-inner-profile">
+			<div class="carousel-item active">
+				<img src="../img/background.png" style="z-index: -1;">
+				<!--TIMELINE COVER PHOTO-->
+				<div class="carousel-caption-profile">
+					<img style="z-index: 1; position:absolute;" src="'.$pic.'">
+					<h1 style="z-index: 1; position: relative; margin-left: 300px; margin-top:-100px; ">'.$user.'</h1>
+					<!--Username Here-->
+					<!--Timeline Navbar-->
+					<nav class="navbar navbar-expand-lg navbar-dark"
+						style="background-color: rgb(50,50,50); padding-left:45%; z-index: 0; margin-bottom: 5%; ">
+						<a class="navbar-brand" href="#">Navbar</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+							aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavDropdown">
+							<ul class="navbar-nav">
+								<li class="nav-item active">
+									<a class="nav-link" href="./account/">| Edit Profile&nbsp; <i class="fas fa-pen"></i> | <span
+											class="sr-only">(current)</span></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">| Something2 |</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">| Something3 |</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										| Dropdown link |
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="#">Action</a>
+										<a class="dropdown-item" href="#">Another action</a>
+										<a class="dropdown-item" href="#">Something else here</a>
 									</div>
-								</div>
-							</div>
-					
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
+	<!--Left Box Contents-->
 
+	<div class="box-profile" style="margin: 50px,50px;">
 
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media-body">
+					<hr>
+					<h3><strong>Bio</strong></h3>
+					<h3>'.$bio.'</h3>
+					<hr>
+					<h3><strong>Location</strong></h3>
+					<p>'.$loc.'</p>
+					<hr>
+					<h3><strong>Gender</strong></h3>
+					<p>'.$gender.'</p>
+					<hr>
+					<h3><strong>Subscription Time Remaining</strong></h3>
+					<p>'.$subtime.'</p>
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  ';}
 
-
-
-<!--- Footer -->
-
-
-
-
-
-</body>
-<?php
-include('../footer.php');
 ?>
+
+	<!--Friendlist-->
+	<div class="box-profile2">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="media-body">
+					<h3><strong>Friends &nbsp;· &nbsp;#numFriends</strong></h3>
+					<hr style="border: 1px solid gray; margin-left: 1%; margin-right: 1%; margin-top: 10px;" />
+
+					<div class="profile-pics">
+							<div class= "profile-pics-container">
+									<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100"></img></a>
+									<div class = "bottom-right"> <a href="#"><p></p></a> </div> <!--Needs fixing-->
+									<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100"></img></a>
+									<div class = "bottom-right"> <a href="#"><p></p></a> </div>
+									<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100"></img></a>
+									<div class = "bottom-right"> <a href="#"><p></p></a> </div>
+							</div>
+							<div class= "profile-pics-container">
+									<a href="#"><img src=../img/movie1.jpg" alt="" width="100" height="100"></img></a>
+									<div class = "bottom-right"> <a href="#"><p></p></a> </div>
+							</div>
+					</div>
+
+
+					<hr style="border: 1px solid gray;  margin-top: 10px;" /> <!--Line Divider-->
+					<a href="../friends" style=" margin-right: 30%;"> Manage Friends</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Middle Box Contents-->
+
+	<!--Your Subs-->
+	<div class="box-profile-content" style="margin-top:-455px;">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<span>
+
+					<h1 class="panel-title pull-left" style="font-size:25px;">Your Subscriptions <small></small> </h1>
+					<h1 class="panel-title pull-left" style="font-size:12px; color: gray;">7 Slots Free out of 10<small></small>
+					</h1>
+					<div class="dropdown pull-right">
+						<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="true">
+							Manage Subscriptions
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li><a href="#"> Cancel a Subscription</a></li>
+							<li><a href="#"> Add a Subscription</a></li>
+							<li><a href="#"> Stop Service</a></li>
+							<li>
+								<hr style="border: 1px solid gray; margin-left: 3%; margin-right: 3%; margin-top: 10px;" />
+								<!--Line Divider-->
+							</li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#"><i class="fa fa-fw fa-plus" aria-hidden="true"></i> Buy more slots </a></li>
+						</ul>
+					</div>
+				</span>
+				<hr style="border: 1px solid gray;  margin-top: 10px;" />
+				<!--Line Divider-->
+				<!--Movie/Show Images-->
+				<div class="box-subscriptions">
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+				</div>
+				<hr style="border: 1px solid gray;  margin-top: 10px;" />
+				<!--Line Divider-->
+				<a href="#" style=" margin-left: 90%;"> See More...</a>
+			</div>
+		</div>
+	</div>
+
+	<!--Your Wishlist-->
+	<div class="box-profile-content" style="margin-top: 20px;">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<span>
+
+					<h1 class="panel-title pull-left" style="font-size:25px;">Your Wishlist <small></small> </h1>
+					<h1 class="panel-title pull-left" style="font-size:12px; color: gray;">Place movies and shows you want to
+						watch here!<small></small></h1>
+
+					<hr style="border: 1px solid gray;  margin-top: 10px;" />
+					<!--Line Divider-->
+					<!--Movie/Show Images-->
+					<div class="box-subscriptions">
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					</div>
+					
+					<hr style="border: 1px solid gray;  margin-top: 10px;" /> <!--Line Divider-->
+					<a href="#" style=" margin-left: 90%;"> See More...</a>
+			</div>
+		</div>
+	</div>
+
+	<!--Your Watch History-->
+	<div class="box-profile-content" style="margin-top: 20px;">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<span>
+					<h1 class="panel-title pull-left" style="font-size:25px;">Your Watch History <small></small> </h1>
+					<h1 class="panel-title pull-left" style="font-size:12px; color: gray;">All the shows you've
+						watched<small></small></h1>
+
+					<hr style="border: 1px solid gray;  margin-top: 10px;" />
+					<!--Line Divider-->
+					<!--Movie/Show Images-->
+					<div class="box-subscriptions">
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					</div>
+					<hr style="border: 1px solid gray;  margin-top: 10px;" />
+					<!--Line Divider-->
+					<a href="#" style=" margin-left: 90%;"> See More...</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!--- Footer -->
+	<div class="sticky-bottom" style="padding-top:100%;">
+		<footer id="footer">
+			<div class="wrap">
+
+				<div class="left-footer">
+					<h3><a href="#">About Us</a></h3>
+					<h3><a href="#">FAQ</a></h3>
+					<h3><a href="#">Contact Us</a></h3>
+					<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+
+				<div class="right-footer">
+
+					<h3> Follow us on Social Media!</h3>
+
+					<h2> <a href="#"><i class="fab fa-facebook-square"></i></a>
+						<a href="#"><i class="fab fa-twitter-square"></i> </a>
+						<a href="#"><i class="fab fa-google-plus-square"></i> </a>
+					</h2>
+
+				</div>
+				<div class="center-footer">
+					<h3><a href="#">About Us</a></h3>
+					<h3><a href="#">FAQ</a></h3>
+					<h3><a href="#">Contact Us</a></h3>
+					<h3><a href="#">Terms & Conditions</a></h3>
+				</div>
+
+			</div>
+		</footer>
+	</div>
+</body>
+
 </html>
-
-
-
-
-
-
