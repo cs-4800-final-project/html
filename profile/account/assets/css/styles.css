@@ -1,0 +1,56 @@
+#left {
+}
+
+div {
+  /*padding: 10px;*/
+  left: 20px;
+}
+
+.form-control {
+}
+
+.form-control {
+}
+
+#emailadd {
+  /*padding: 20px;*/
+  /*padding-left: 400px;*/
+  margin-left: 20px;
+}
+
+#biospace {
+}
+
+#bioInput {
+  height: 30px;
+}
+
+#account {
+  padding: 20px;
+}
+
+#gender-label {
+  padding-left: 20px;
+}
+
+#bday {
+  padding-left: 20px;
+}
+
+#email {
+  padding-left: 20px;
+}
+
+body {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+hr {
+  border-top: 1px solid #ffffff;
+}
+
+#apply {
+  float: right;
+}
+

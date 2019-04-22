@@ -44,7 +44,7 @@
                      </div>
                   </form>
                   <li class = "nav-item">
-                     <a class ="nav-link" href = "#"> Home </a>
+                     <a class ="nav-link" href = ".."> Home </a>
                   </li>
                   <a class ="nav-link" href = ""> My Subscriptions </a>
                   </li>
@@ -52,9 +52,10 @@
                   </li>
                   <a class ="nav-link" href = "#"> Movies </a>
                   </li>
-                  <a class ="nav-link" href = "#"> My Profile </a> <!--Make this a dropdown w/ profile picture later -->
-                  </li>
-                  <a class ="nav-link" href = "#"> Logout </a>
+        					<a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
+        					<!--Make this a dropdown w/ profile picture later -->
+        					</li>
+        					<a class="nav-link" href="http://danc.ddns.net/dbcon/logout.php"> Logout </a>
                   </li>
                </ul>
             </div>
@@ -67,16 +68,16 @@
               ini_set('display_errors', 1);
               require_once "../dbcon/config.php";
               $ID = $_GET['ID'];
-              $sql = "SELECT * FROM content WHERE ctittle LIKE '%$ID%'";
+              $sql = "SELECT * FROM content WHERE tittle LIKE '%$ID%'";
               $result = $link->query($sql);
               if ($result->num_rows > 0)   {
                 // output data of each row
                 while($row = $result->fetch_assoc()) 
                 {
-                    $tittle = $row["ctittle"];
-                    $imgsrc = $row["imgsrc"];
+                    $tittle = $row["tittle"];
+                    $imgsrc = $row["image"];
                     $link = $row["clink"];
-                    $genre = $row["cgenre"];
+                    $genre = $row["genre"];
                     $year  = $row["year"];
                     $studio = $row["studio"];
                     
