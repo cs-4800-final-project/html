@@ -31,6 +31,17 @@
 
 </head>
 
+	<?php
+	if ( isset($_POST['submit-search']) )
+	{
+		$searchq = $_POST['search'];
+		$baseurl = "http://danc.ddns.net/search/?ID=";
+		$completeurl = $baseurl.$searchq;
+		header( "Location:".$completeurl ); 
+	}
+	?>
+
+
 <body>
 
 	<!-- Navigation -->
@@ -43,14 +54,12 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 
-					<form class="form-inline ">
-						<!-- This is the search bar-->
-						<div class="md-form my-0">
-							<input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search"
-								aria-label="Search">
-							<i class="fas fa-search" aria-hidden="true"></i>
-						</div>
-					</form>
+	<form method="POST">
+			<input type="text" name="search" placeholder="Enter Show Name">
+			<button type="submit" name="submit-search">Search</button>
+	</form>
+
+	
 
 					<li class="nav-item">
 						<a class="nav-link" href="../home"> Home </a>

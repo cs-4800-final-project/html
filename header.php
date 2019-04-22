@@ -5,6 +5,7 @@
 		<span class =  "navbar-toggler-icon"></span>
 	</button>
 
+<!-- this is the search part-->
 	<?php
 	if ( isset($_POST['submit-search']) )
 	{
@@ -19,6 +20,8 @@
 			<input type="text" name="search" placeholder="Enter Show Name">
 			<button type="submit" name="submit-search">Search</button>
 	</form>
+
+
 	<div class = "collapse navbar-collapse" id= "navbarResponsive">
 		<ul class = "navbar-nav ml-auto">
 			<li class = "nav-item">
