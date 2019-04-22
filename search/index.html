@@ -47,11 +47,11 @@ include('../header.php');
                 {
                     $tittle = $row["tittle"];
                     $imgsrc = $row["image"];
-                    $link = $row["clink"];
                     $genre = $row["genre"];
                     $year  = $row["year"];
                     $studio = $row["studio"];
-                    
+                    $cid = $row["cid"];
+                    $link = "http://danc.ddns.net/description/?ID=".$cid;
                     echo '<div class = "box-result" style= "margin-top: 10px;">
                     <img src="'.$imgsrc.'" alt="test">
                     <h1><a href=" '.$link.' ">'.$tittle.'</a></h1>
