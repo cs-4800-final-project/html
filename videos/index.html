@@ -34,7 +34,7 @@
 	echo $result;
 */
 	
-    if(isset($_GET['ID']) and isset($_GET['EID']))
+    if(isset($_GET['ID']) && isset($_GET['EID']))
     {
       ini_set('display_errors', 1);
       require_once "../dbcon/config.php";
@@ -46,8 +46,8 @@
         // output data of each row
         while($row = $result->fetch_assoc()) 
         {
-            $slink = "mJuLabO8-wMbjKtxS";
-            $full_link = "https://cdn.jwplayer.com/players/".$slink.".js";
+            $elink = $row["ep_link"];
+            $full_link = "https://cdn.jwplayer.com/players/".$elink.".js";
         }
       }
 
