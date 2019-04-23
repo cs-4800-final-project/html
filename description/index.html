@@ -79,6 +79,35 @@ include('../header.php');
          <!--All the Show/Movies Episodes in a Button-->
          <!--So if its a movie, only one episode should pop up, and if it's ongoing, only "X" amount of episodes will pop up. -->
          <!--I was also wondering how we would categorize Seasons of a show....Should it have a dropdown to select season? Or how should we do it. Idk-->
+         <?php
+         if ( isset($_POST['sub-button']) )
+         {
+            if(isset($_GET['ID']))
+            {
+               ini_set('display_errors', 1);
+               require_once "../dbcon/config.php";
+               $uid = $_SESSION['id'];
+               $sql = "INSERT INTO subscription (cid,uid,days_left) VALUES ($ID,$uid,30)";
+
+               if ($conn->query($sql) === TRUE) 
+               {
+                  echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";
+               } 
+
+               else 
+               {
+                  echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+               }
+            }
+         }
+         ?>
+
+          <form method="POST">                
+               <button type="submit" name="sub-button"> subscribe </button>
+         </form>
+
+
+
 
       <?php
             if(isset($_GET['ID']))
