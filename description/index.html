@@ -146,8 +146,6 @@ include('../header.php');
 
          ?>
 
-         <!-- INSERT INTO rental (cid,uid,hours_left) VALUES (1,1,24)-->
-
 
          <?php
 
@@ -160,13 +158,13 @@ include('../header.php');
             if ($result->num_rows == 0)   
             {
                echo '<form method="POST">                
-                  <button type="submit" name="unsub-button"> subscribe </button>
+                  <button type="submit" name="sub-button"> subscribe </button>
                   </form>';
             }
             else
             {
                echo '<form method="POST">                
-                  <button type="submit" name="sub-button"> unsubscribe </button>
+                  <button type="submit" name="unsub-button"> unsubscribe </button>
                   </form>';
             }
          }
