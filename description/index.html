@@ -62,14 +62,14 @@ include('../header.php');
          <!--Line Divider-->
          <img src="../img/movie1.jpg" alt="test">
          <!--All the Movie/Show's Info-->
-         <h1> '.$title.' </h1>
+         <h1> <?php echo $title?> </h1>
          <h2><span> Type: </span> <?php echo $type?> </h2>
-         <h2><span>Description: </span>'.$description.'</h2>
-         <h2><span>Genre: </span>'.$genre.'</h2>
-         <h2><span>Studio:</span>'.$studio.'</h2>
-         <h2><span>Released: </span>'.$year.'</h2>
+         <h2><span>Description: </span><?php echo $description?></h2>
+         <h2><span>Genre: </span><?php echo $genre?></h2>
+         <h2><span>Studio:</span><?php echo $studio?></h2>
+         <h2><span>Released: </span><?php echo $year?></h2>
          <h2> <span>Status: </span> Finished</h2>
-         <h3>'.$title.'</h3>
+         <h3><?php echo $title?></h3>
          <hr style="border: 1px solid gray; transform: translateY(-210px); margin-left: 3%; margin-right: 3%;"/>
          <!--Line Divider-->
          <!--All the Show/Movies Episodes in a Button-->
