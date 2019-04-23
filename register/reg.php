@@ -21,7 +21,7 @@
                mysqli_stmt_bind_param($stmt, "s", $param_username);
                
                // Set parameters
-               $param_username = trim($_POST["username"]);
+               $param_username = trim($_POST["email"]);
                
                // Attempt to execute the prepared statement
                if(mysqli_stmt_execute($stmt)){
@@ -31,7 +31,7 @@
                    if(mysqli_stmt_num_rows($stmt) == 1){
                        $username_err = "This email is already taken.";
                    } else{
-                       $username = trim($_POST["username"]);
+                       $username = trim($_POST["email"]);
                    }
                } else{
                    echo "Oops! Something went wrong. Please try again later.";
