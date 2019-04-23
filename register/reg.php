@@ -10,7 +10,7 @@
    if($_SERVER["REQUEST_METHOD"] == "POST"){
     
        // Validate username
-       if(empty(trim($_POST["username"]))){
+       if(empty(trim($_POST["email"]))){
            $username_err = "Please enter a email.";
        } else{
            // Prepare a select statement
@@ -52,10 +52,10 @@
        }
        
        // Validate confirm password
-       if(empty(trim($_POST["confirm_password"]))){
+       if(empty(trim($_POST["password-repeat"]))){
            $confirm_password_err = "Please confirm password.";     
        } else{
-           $confirm_password = trim($_POST["confirm_password"]);
+           $confirm_password = trim($_POST["password-repeat"]);
            if(empty($password_err) && ($password != $confirm_password)){
                $confirm_password_err = "Password did not match.";
            }
