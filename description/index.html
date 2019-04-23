@@ -48,6 +48,8 @@ include('../header.php');
                   $title = $row["tittle"];
                   $year = $row["year"];
                   $genre = $row["genre"];
+                  $image = $row["image"];
+                  $imglin = "../img/".$image;
                }
             }
 
@@ -60,7 +62,7 @@ include('../header.php');
          <h4>Show Information </h4>
          <hr style="border: 1px solid gray;  margin-left: 3%; margin-right: 3%; margin-top: 10px;"/>
          <!--Line Divider-->
-         <img src="../img/movie1.jpg" alt="test">
+         <img src="<?php echo $imglin?>" alt="test">
          <!--All the Movie/Show's Info-->
          <h1> <?php echo $title?> </h1>
          <h2><span> Type: </span> <?php echo $type?> </h2>
