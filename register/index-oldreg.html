@@ -1,0 +1,182 @@
+<?php
+	 require_once "../dbcon/config.php";		
+?>
+
+<?php
+  session_start();
+    if(isset($_POST['Submit'])){
+
+    $firstname = $_POST['updateFirst'];
+    $lastname = $_POST['updateLast'];
+    $email = $_POST['updateEmail'];
+    $User = $_POST['updateUser'];
+    $pass = $_POST['updatePass'];
+    $month = $_POST['updateMont'];
+    $day = $_POST['updateDay'];
+    $year = $_POST['updateYear'];
+    $bio = $_POST['updateBio'];
+    $add1 = $_POST['updateAdd1'];
+    $add2 = $_POST['updateAdd2'];
+    $loc = $_POST['updateCoun'];
+    $city = $_POST['updateCity'];
+    $prov = $_POST['updateProv'];
+    $code = $_POST['updateCode'];
+    $phone = $_POST['updatePhon'];
+    $cred = $_POST['updateCard'];
+    $exp = $_POST['updateExpD'];
+    $sec = $_POST['updateSecC'];
+    
+    $account = "INSERT INTO `account`(`username`, `password`, `email`, `subtime`, `creditnumber`, `expdate`, `seccode`, `bio`) VALUES ('$User','$pass','$email',0,'$cred','exp','$sec','bio')";
+    $users = "INSERT INTO `users`(`firstname`, `lastname`, `month`, `day`, `year`, `phone`, `street1`, `street2`, `city`, `state`, `country`, `areacode`, `profile`) VALUES ('$firstname','$lastname','$month','$day','$year','$phone','$add1','$add2','$city','$prov','$loc','$code',null";
+
+               
+  	
+  	if(mysqli_query($link, $account) && mysqli_query($link, $users))
+    { 
+      echo "Record was updated successfully."; 
+      // Redirect user to welcome page
+        header("location: ../login");
+    } 
+    else 
+    { 
+        echo "ERROR: Could not able to execute $sql. "; 
+    } 
+   }
+   if(isset($_POST['Return'])){
+   header("location: ..");
+   }
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>webpage</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <div class="container" id="account">
+        <form action="" method="post">
+        <div>
+            <hr>
+            <div class="form-row">
+                <div class="col" id="right">
+                    <h1>Account Information</h1>
+                    <hr>
+                    <div class="form-row" id="name">
+                        <div class="col">
+                            <div class="form-group"><label>First Name</label>
+                            <input class="form-control" type="text" name="updateFirst"></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Last Name</label>
+                            <input class="form-control" type="text" name="updateLast"></div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="email"><label id="email">Email</label>
+                    <input class="form-control" type="text" name="updateEmail"></div>
+                    <div class="form-group" id="email"><label id="username">Username</label>
+                    <input class="form-control" type="text" name="updateUser"></div>
+                    <div class="form-group" id="email"><label id="password">Password</label>
+                    <input class="form-control" type="text" name="updatePass"></div>
+                    <div class="form-row" id="info">
+                        <div class="col-xl-8" id="birthday"><label id="bday">Birthday</label>
+                            <div class="form-row">
+                                <div class="col"><label>Month</label><input class="form-control" type="text" name="updateMont"></div>
+                                <div class="col"><label>Day</label><input class="form-control" type="text" name="updateDay"></div>
+                                <div class="col"><label>Year</label><input class="form-control" type="text" name="updateYear"></div>
+                            </div>
+                        </div>
+                        <div class="col" id="gender"><label id="gender-label">Gender</label>
+                            <div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Male</label></div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Female</label></div>
+                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Other</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dix>
+        <div id="biography">
+            <hr><label>Profile Biography</label>
+            <div class="form-row">
+                <div class="col"><textarea class="form-control" name="updateBio"></textarea></div>
+            </div>
+        </div>
+        <div id="contact">
+            <hr><label>Contact Information</label>
+            <div class="col">
+                <div class="form-row">
+                    <div class="col">
+                    <label>Address Line 1</label>
+                    <input class="form-control" type="text" name="updateAdd1">
+                    <label>Address Line 2</label>
+                    <input class="form-control" type="text" name="updateAdd2">
+                    <label>Country</label>
+                    <input class="form-control" type="text" name="updateCoun">
+                    </div>
+                    <div class="col">
+                    <label>City</label>
+                    <input class="form-control" type="text" name="updateCity">
+                    <label>State/Province</label>
+                    <input class="form-control" type="text" name="updateProv">
+                    <label>Zip Code</label>
+                    <input class="form-control" type="text" name="updateCode">
+                    </div>
+                    <div class="col">
+                    <label>Phone Number</label>
+                    <input class="form-control" type="text" name="updatePhon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="payment">
+            <hr><label>Payment and Subscription Information</label>
+            <div class="form-row">
+                <div class="col">
+                <label>Credit Card Number</label>
+                <input class="form-control" type="text" name="updateCard">
+                <label>Expiration Date</label>
+                <input class="form-control" type="text" name="updateExpD">
+                <label>Security Code</label>
+                <input class="form-control" type="text" name="updateSecC">
+                </div>
+                <div class="col"><label>Subscription</label>
+                    <h1>Time:</h1>
+                    <header></header>
+                    <div class="form-row">
+                        <div class="col">
+                        <button class="btn btn-primary" type="button">Subscribe Monthly</button>
+                        <button class="btn btn-primary" type="button">Subscribe Anually</button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="confirmation">
+            <div class="col">
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group text-right" role="group" id="apply">
+                        <td><INPUT TYPE="Submit" VALUE="Cancel" NAME="Return"></td>
+                        <td><INPUT TYPE="Submit" VALUE="Register" NAME="Submit"></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+     
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
