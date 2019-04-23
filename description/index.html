@@ -100,11 +100,94 @@ include('../header.php');
                }
             }
          }
+
+         if ( isset($_POST['unsub-button']) )
+         {
+            if(isset($_GET['ID']))
+            {
+               ini_set('display_errors', 1);
+               require_once "../dbcon/config.php";
+               $uid = $_SESSION['id'];
+               $sql = "DELETE FROM subscription WHERE cid = $ID AND uid = $uid";
+
+               if ($link->query($sql) === TRUE) 
+               {
+                  echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";
+               } 
+
+               else 
+               {
+                  echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+               }
+            }
+         }
+
+         if ( isset($_POST['rent-button']) )
+         {
+            if(isset($_GET['ID']))
+            {
+               ini_set('display_errors', 1);
+               require_once "../dbcon/config.php";
+               $uid = $_SESSION['id'];
+               $sql = "INSERT INTO rental (cid,uid,hours_left) VALUES ($ID,$uid,24)";
+
+               if ($link->query($sql) === TRUE) 
+               {
+                  echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";
+               } 
+
+               else 
+               {
+                  echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+               }
+            }
+         }
+
+
          ?>
 
-          <form method="POST">                
-               <button type="submit" name="sub-button"> subscribe </button>
-         </form>
+         <!-- INSERT INTO rental (cid,uid,hours_left) VALUES (1,1,24)-->
+
+
+         <?php
+
+         if ( $type == "show")
+         {
+
+            $uid = $_SESSION['id'];
+            $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
+            $result = $link->query($sql);
+            if ($result->num_rows == 0)   
+            {
+               echo '<form method="POST">                
+                  <button type="submit" name="unsub-button"> subscribe </button>
+                  </form>';
+            }
+            else
+            {
+               echo '<form method="POST">                
+                  <button type="submit" name="sub-button"> unsubscribe </button>
+                  </form>';
+            }
+
+
+
+         else
+         {
+            $uid = $_SESSION['id'];
+            $sql = "SELECT * FROM `rental` WHERE cid = $ID AND uid = $uid";
+            $result = $link->query($sql);
+            if ($result->num_rows == 0)
+            {   
+               echo '<form method="POST">                
+                  <button type="submit" name="rent-button"> rent </button>
+               </form>';
+            }
+         }
+
+         ?>
+
+          
 
 
 
