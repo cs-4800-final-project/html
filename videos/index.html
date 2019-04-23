@@ -40,7 +40,7 @@
       require_once "../dbcon/config.php";
       $ID = $_GET['ID'];
       $EID = $_GET['EID'];
-      $sql = "SELECT * FROM `episodes` WHERE cid=$ID AND ep_num=$EID;
+      $sql = "SELECT * FROM `episodes` WHERE cid = $ID AND ep_num = $EID";
       $result = $link->query($sql);
       if ($result->num_rows > 0)   {
         // output data of each row
