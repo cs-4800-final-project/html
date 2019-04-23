@@ -45,7 +45,7 @@ include('../header.php');
                   $description = $row["description"];
                   $type = $row["type"];
                   $studio = $row["studio"];
-                  $title = $row["title"];
+                  $title = $row["tittle"];
                   $year = $row["year"];
                   $genre = $row["genre"];
                }
@@ -63,7 +63,7 @@ include('../header.php');
          <img src="../img/movie1.jpg" alt="test">
          <!--All the Movie/Show's Info-->
          <h1> '.$title.' </h1>
-         <h2><span> Type: </span>'.$type.'</h2>
+         <h2><span> Type: </span> <?php echo $type?> </h2>
          <h2><span>Description: </span>'.$description.'</h2>
          <h2><span>Genre: </span>'.$genre.'</h2>
          <h2><span>Studio:</span>'.$studio.'</h2>
