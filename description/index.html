@@ -54,6 +54,8 @@ include('../header.php');
             }
 
 
+
+
       ?>
 
       <!--Video Search Results -->
@@ -77,17 +79,32 @@ include('../header.php');
          <!--All the Show/Movies Episodes in a Button-->
          <!--So if its a movie, only one episode should pop up, and if it's ongoing, only "X" amount of episodes will pop up. -->
          <!--I was also wondering how we would categorize Seasons of a show....Should it have a dropdown to select season? Or how should we do it. Idk-->
-         <a href="#" class="btn btn-outline-secondary" role="button">S1:E1&nbsp; </a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 2&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 3&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 4&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 5&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 6&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 7&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 8&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 9&nbsp;</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 10</a> 
-         <a href="#" class="btn btn-outline-secondary" role="button">Episode 11</a> 
+
+      <?php
+            if(isset($_GET['ID']))
+            {
+              ini_set('display_errors', 1);
+              require_once "../dbcon/config.php";
+              $sql = "SELECT * FROM episodes WHERE cid = $ID";
+              $result = $link->query($sql);
+
+               while($row = $result->fetch_assoc()) 
+               {
+                  $epnum = $row["ep_num"];
+                  $type = $row["type"];
+                  $full_link = "http://danc.ddns.net/videos/?ID".$ID."&EID=".$epnum;
+
+                  echo ' <a href='.$full_link.' class="btn btn-outline-secondary" role="button">S1:E1&nbsp; </a> 
+
+               }
+            }
+
+            
+
+
+      ?>
+
+      
          <a href="#" class="btn btn-outline-secondary" role="button">Episode 12</a> 
          <p style ="color: green; margin-left: 3%; transform: translateY(-580px);"> Leave a comment!</p>
          <hr style="border: 1px solid gray; transform: translateY(-580px); margin-left: 3%; margin-right: 3%; margin-top: 10px;"/>
