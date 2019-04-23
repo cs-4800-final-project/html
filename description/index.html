@@ -92,9 +92,9 @@ include('../header.php');
                {
                   $epnum = $row["ep_num"];
                   $type = $row["type"];
-                  $full_link = "http://danc.ddns.net/videos/?ID".$ID."&EID=".$epnum;
+                  $full_link = "http://danc.ddns.net/videos/?ID=".$ID."&EID=".$epnum;
 
-                  echo ' <a href='.$full_link.' class="btn btn-outline-secondary" role="button">$epnum </a>';
+                  echo ' <a href='.$full_link.' class="btn btn-outline-secondary" role="button">'.$epnum.' </a>';
 
                }
             }
