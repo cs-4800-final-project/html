@@ -91,7 +91,6 @@ include('../header.php');
                while($row = $result->fetch_assoc()) 
                {
                   $epnum = $row["ep_num"];
-                  $type = $row["type"];
                   $full_link = "http://danc.ddns.net/videos/?ID=".$ID."&EID=".$epnum;
 
                   echo ' <a href='.$full_link.' class="btn btn-outline-secondary" role="button">Episode: '.$epnum.'&nbsp; </a>';
