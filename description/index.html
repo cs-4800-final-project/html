@@ -89,7 +89,7 @@ include('../header.php');
                $uid = $_SESSION['id'];
                $sql = "INSERT INTO subscription (cid,uid,days_left) VALUES ($ID,$uid,30)";
 
-               if ($conn->query($sql) === TRUE) 
+               if ($link->query($sql) === TRUE) 
                {
                   echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";
                } 
