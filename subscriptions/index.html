@@ -131,7 +131,7 @@
                                 ini_set('display_errors', 1);
                                   require_once "../dbcon/config.php";
                                   $uid = $_SESSION['id'];
-                                  $sql = "SELECT content.* FROM `content`, `rental` WHERE rental.uid = $uid AND content.cid = subscription.cid";
+                                  $sql = "SELECT content.* FROM `content`, `rental` WHERE rental.uid = $uid AND content.cid = rental.cid";
                                   $result = $link->query($sql);
                                    while($row = $result->fetch_assoc()) 
                                    {
