@@ -43,6 +43,10 @@
     </script>
 </head>
 
+  <?php 
+  include('../header.php');
+  session_start(); 
+  ?>
 <body>
     <!--Subscription List-->
     <div class="container">
@@ -62,7 +66,6 @@
 
             
                                 <?php   
-                                session_start();
 
                                     ini_set('display_errors', 1);
                                       require_once "../dbcon/config.php";
