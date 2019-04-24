@@ -41,9 +41,9 @@
 					</li>
 					<a class="nav-link" href=""> My Subscriptions </a>
 					</li>
-					<a class="nav-link" href=""> Shows </a>
+					<a class="nav-link" href="http://danc.ddns.net/shows/"> Shows </a>
 					</li>
-					<a class="nav-link" href="#"> Movies </a>
+					<a class="nav-link" href="http://danc.ddns.net/movies/"> Movies </a>
 					</li>
 					<a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
 					<!--Make this a dropdown w/ profile picture later -->
