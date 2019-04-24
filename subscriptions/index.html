@@ -61,12 +61,14 @@
                                     <!-- begin col-6 -->
 
             
-                                <?php
-                                ini_set('display_errors', 1);
-                                  require_once "../dbcon/config.php";
-                                  $uid = $_SESSION['id'];
-                                  $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
-                                  $result = $link->query($sql);
+                                <?php   
+                                session_start();
+
+                                    ini_set('display_errors', 1);
+                                      require_once "../dbcon/config.php";
+                                      $uid = $_SESSION['id'];
+                                      $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
+                                      $result = $link->query($sql);
                                    while($row = $result->fetch_assoc()) 
                                    {
                                       $description = $row["description"];
@@ -129,6 +131,8 @@
                                 <div class="row row-space-2">
 
                                  <?php
+                                 session_start();
+
                                 ini_set('display_errors', 1);
                                   require_once "../dbcon/config.php";
                                   $uid = $_SESSION['id'];
