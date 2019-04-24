@@ -75,10 +75,10 @@ include('../header.php');
                     $tittle = $row["tittle"];
                     $imgsrc = $row["image"];
                     $cid = $row["cid"];
-                    $link = "http://danc.ddns.net/description/?ID=".$cid;
+                    $vlink = "http://danc.ddns.net/description/?ID=".$cid;
                     echo '<div class="col-sm-3">
-                    <a href=" '.$link.' "><img src="../img/'.$imgsrc.'" class="img-responsive"></a>
-                    <a href=" '.$link.' "><h1>'.$tittle.'</h1></a>
+                    <a href=" '.$vlink.' "><img src="../img/'.$imgsrc.'" class="img-responsive"></a>
+                    <a href=" '.$vlink.' "><h1>'.$tittle.'</h1></a>
                     </div>';
                 }
               } 
