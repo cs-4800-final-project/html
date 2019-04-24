@@ -71,21 +71,17 @@
                                       $result = $link->query($sql);
                                    while($row = $result->fetch_assoc()) 
                                    {
-                                      $description = $row["description"];
-                                      $type = $row["type"];
-                                      $studio = $row["studio"];
-                                      $title = $row["tittle"];
-                                      $year = $row["year"];
-                                      $genre = $row["genre"];
+\                                     $title = $row["tittle"];
                                       $image = $row["image"];
-                                      $imglin = "../img/".$image;
-                                   
+                                      $cid = $row["cid"];
+                                      $link = "http://danc.ddns.net/description/?ID=".$cid;
+
                                       echo '
                                     <div class="col-md-6 m-b-2">
                                         <div class="p-10 bg-white">
                                             <div class="media media-xs overflow-visible">
                                                 <a class="media-left" href="javascript:;">
-                                                    <img src=src="../img/'.$imgsrc.'" alt=""
+                                                    <img src=src="../img/'.$image.'" alt=""
                                                         class="media-object img-circle">
                                                 </a>
                                                 <div class="media-body valign-middle">
@@ -140,21 +136,18 @@
                                   $result = $link->query($sql);
                                    while($row = $result->fetch_assoc()) 
                                    {
-                                      $description = $row["description"];
-                                      $type = $row["type"];
-                                      $studio = $row["studio"];
                                       $title = $row["tittle"];
-                                      $year = $row["year"];
-                                      $genre = $row["genre"];
                                       $image = $row["image"];
-                                      $imglin = "../img/".$image;
+                                      $cid = $row["cid"];
+                                      $link = "http://danc.ddns.net/description/?ID=".$cid;
+
                                    
                                    echo'
                                     <div class="col-md-6 m-b-2">
                                         <div class="p-10 bg-white">
                                                 <div class="media media-xs overflow-visible">
                                                 <a class="media-left" href="javascript:;">
-                                                    <img src=src="../img/'.$imgsrc.'" alt=""
+                                                    <img src=src="../img/'.$image.'" alt=""
                                                         class="media-object img-circle">
                                                 </a>
                                                 <div class="media-body valign-middle">
