@@ -37,7 +37,7 @@
 					-->
 
 					<li class="nav-item">
-						<a class="nav-link" href="../home"> Home </a>
+						<a class="nav-link" href="http://danc.ddns.net/home/"> Home </a>
 					</li>
 					<a class="nav-link" href="http://danc.ddns.net/subscriptions/"> My Subscriptions </a>
 					</li>
