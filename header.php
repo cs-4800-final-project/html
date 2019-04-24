@@ -39,7 +39,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../home"> Home </a>
 					</li>
-					<a class="nav-link" href=""> My Subscriptions </a>
+					<a class="nav-link" href="http://danc.ddns.net/subscriptions/"> My Subscriptions </a>
 					</li>
 					<a class="nav-link" href="http://danc.ddns.net/shows/"> Shows </a>
 					</li>
