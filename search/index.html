@@ -39,7 +39,7 @@ include('../header.php');
               ini_set('display_errors', 1);
               require_once "../dbcon/config.php";
               $ID = $_GET['ID'];
-              $sql = "SELECT * FROM content WHERE ctittle LIKE '%$ID%'";
+              $sql = "SELECT * FROM content WHERE tittle LIKE '%$ID%'";
               $result = $link->query($sql);
               if ($result->num_rows > 0)   {
                 // output data of each row
