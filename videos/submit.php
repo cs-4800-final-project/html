@@ -5,8 +5,19 @@
   
   </body>
 </html>
-	<?php
-	 require_once "../../dbcon/config.php";		
+<?php
+	session_start();
+
+	$servername = "localhost";
+	$username = "admin";
+	$password = "12345";
+	$dbname = "information";
+	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	if ($conn->connect_error) {
+   		 die("Connection failed: " . $conn->connect_error);
+	} 
 	
 	
 	$comment = $_POST["comment"];
