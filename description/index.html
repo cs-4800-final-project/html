@@ -153,10 +153,9 @@ include('../header.php');
          {
 
             $uid = $_SESSION['id'];
-            $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
+            $sql = "SELECT COUNT(*) FROM `subscription` WHERE cid = $ID AND uid = $uid";
             $result = $link->query($sql);
-            //if ($result->num_rows == 0)  
-            if (is_null($result))
+            if ($result == 0)  
             {
                echo '<form method="POST">                
                   <button type="submit" name="sub-button"> subscribe </button>
@@ -175,10 +174,9 @@ include('../header.php');
          else
          {
             $uid = $_SESSION['id'];
-            $sql = "SELECT * FROM `rental` WHERE cid = $ID AND uid = $uid";
+            $sql = "SELECT COUNT(*) FROM `subscription` WHERE cid = $ID AND uid = $uid";
             $result = $link->query($sql);
-            //if ($result->num_rows == 0)
-            if (is_null($result))
+            if ($result == 0)  
             {   
                echo '<form method="POST">                
                   <button type="submit" name="rent-button"> rent </button>
