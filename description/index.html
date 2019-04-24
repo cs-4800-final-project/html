@@ -196,8 +196,14 @@ include('../header.php');
       <?php
             if(isset($_GET['ID']))
             {
-              ini_set('display_errors', 1);
-              require_once "../dbcon/config.php";
+
+            $uid = $_SESSION['id'];
+            $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
+            $result = $link->query($sql);
+            
+            if ($result->num_rows > 0)  
+            {
+
               $sql = "SELECT * FROM episodes WHERE cid = $ID";
               $result = $link->query($sql);
 
@@ -210,6 +216,35 @@ include('../header.php');
 
                }
             }
+
+            else
+            {
+               $uid = $_SESSION['id'];
+               $sql = "SELECT * FROM `rental` WHERE cid = $ID AND uid = $uid";
+               $result = $link->query($sql);
+               if ($result->num_rows > 0)  
+               {
+                  $sql = "SELECT * FROM episodes WHERE cid = $ID";
+                  $result = $link->query($sql);
+
+               while($row = $result->fetch_assoc()) 
+               {
+                  $epnum = $row["ep_num"];
+                  $full_link = "http://danc.ddns.net/videos/?ID=".$ID."&EID=".$epnum;
+
+                  echo ' <a href='.$full_link.' class="btn btn-outline-secondary" role="button">Watch Movie</a>';
+
+               }
+
+               }
+
+
+            }
+
+
+            
+            }
+
 
             
 
