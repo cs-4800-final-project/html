@@ -1,4 +1,4 @@
-<p>Meeting at: In class</p>
+<p>Meeting at: Discord</p>
 <p>Meeting Objective:</p>
 <table style="width:100%">
   <tr>
@@ -15,26 +15,26 @@
   </tr>
   <tr>
     <td>Andrew So</td>
-    <td>Linking databases.</td>
-    <td>Fix search.</td>
+    <td>Redid landing page and register and login page.</td>
+    <td>Error checked and fix errors on comments.</td>
     <td>Yes </td>
   </tr>
   <tr>
     <td>Dylan Chung</td>
-    <td>Subscription and wish/watch list.</td>
-    <td>Update friend page.</td>
-    <td>Yes</td>
+    <td></td>
+    <td></td>
+    <td>No</td>
   </tr>
   <tr>
     <td>Nowndale Sale</td>
-    <td>Broke ratings.</td>
-    <td>Gix it.</td>
+    <td>Tried ratings.</td>
+    <td>Get links for more videos.</td>
     <td>Yes</td>
   </tr>
   <tr>
     <td>Mohammed Khan</td>
-    <td>Dynamic video page. </td>
-    <td>Push that. Video info page.</td>
+    <td>Show movie and subscription page.</td>
+    <td>Fix titles and movie page and search.</td>
     <td>Yes </td>
   </tr>
 </table>
