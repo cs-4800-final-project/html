@@ -8,16 +8,7 @@
 <?php
 	session_start();
 
-	$servername = "localhost";
-	$username = "admin";
-	$password = "12345";
-	$dbname = "information";
-	
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	if ($conn->connect_error) {
-   		 die("Connection failed: " . $conn->connect_error);
-	} 
+require_once "../dbcon/config.php"; 
 	
 	
 	$comment = $_POST["comment"];
@@ -28,7 +19,7 @@
 	echo $return;
 
 	$sql = "INSERT INTO comments(userId, contentId, body) VALUES('$id', '$content', '$comment')";
-	if($conn->query($sql) === TRUE){
+	if($link->query($sql) === TRUE){
 		echo "Successful insertion";
 	}else{
 		echo "error";
