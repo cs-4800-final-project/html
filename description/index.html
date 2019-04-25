@@ -63,7 +63,16 @@ include('../header.php');
       <div class = "box-description" style= "margin-top: 100px; margin-bottom: 1000px; padding-bottom: 100px;">
          <h4>Show Information </h4>
 
-         <?php
+
+
+
+         <hr style="border: 1px solid gray;  margin-left: 3%; margin-right: 3%; margin-top: 10px;"/>
+         <!--Line Divider-->
+         <img src="<?php echo $imglin?>" alt="test">
+         <!--All the Movie/Show's Info-->
+         <h1> <?php echo $title?> </h1>
+
+                  <?php
 
          if ( $type == "show")
          {
@@ -110,12 +119,6 @@ include('../header.php');
          ?>
 
 
-
-         <hr style="border: 1px solid gray;  margin-left: 3%; margin-right: 3%; margin-top: 10px;"/>
-         <!--Line Divider-->
-         <img src="<?php echo $imglin?>" alt="test">
-         <!--All the Movie/Show's Info-->
-         <h1> <?php echo $title?> </h1>
          <h2><span> Type: </span> <?php echo $type?> </h2>
          <h2><span>Description: </span><?php echo $description?></h2>
          <h2><span>Genre: </span><?php echo $genre?></h2>
