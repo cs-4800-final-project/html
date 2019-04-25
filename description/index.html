@@ -85,12 +85,11 @@ include('../header.php');
             $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
             $result = $link->query($sql);
             if ($result->num_rows > 0)  
-            //if (is_null($result))
             {
             //                           //<form method="POST">                
                   //<button type="submit" name="unsub-button"> unsubscribe </button>
                   //</form>
-                           echo '<h1> <a href="#" class="btn btn-outline-danger"  name="unsub-button" style = "margin:-1px;" role="button"> Unsubscribe</a> </h1>';
+                           echo '<h1> <a class="btn btn-outline-danger"  name="unsub-button" style = "margin:-1px;" role="button"> Unsubscribe</a> </h1>';
 
             }
             else
