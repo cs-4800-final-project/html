@@ -71,9 +71,13 @@ include('../header.php');
          <img src="<?php echo $imglin?>" alt="test">
          <!--All the Movie/Show's Info-->
          <h1> <?php echo $title?> </h1>
-
+         <h2><span> Type: </span> <?php echo $type?> </h2>
+         <h2><span>Description: </span><?php echo $description?></h2>
+         <h2><span>Genre: </span><?php echo $genre?></h2>
+         <h2><span>Studio:</span><?php echo $studio?></h2>
+         <h2><span>Released: </span><?php echo $year?></h2>
+         <h2> <span>Status: </span> Finished</h2>
                   <?php
-
          if ( $type == "show")
          {
 
@@ -86,11 +90,7 @@ include('../header.php');
             //                           //<form method="POST">                
                   //<button type="submit" name="unsub-button"> unsubscribe </button>
                   //</form>
-                           echo '
-                           <h1> <a href="#" class="btn btn-outline-danger"  name="unsub-button" style = "margin:-1px;" role="button"> Unsubscribe</a> </h1>
-
-
-                  ';
+                           echo '<h1> <a href="#" class="btn btn-outline-danger"  name="unsub-button" style = "margin:-1px;" role="button"> Unsubscribe</a> </h1>';
 
             }
             else
@@ -117,14 +117,6 @@ include('../header.php');
          }
 
          ?>
-
-
-         <h2><span> Type: </span> <?php echo $type?> </h2>
-         <h2><span>Description: </span><?php echo $description?></h2>
-         <h2><span>Genre: </span><?php echo $genre?></h2>
-         <h2><span>Studio:</span><?php echo $studio?></h2>
-         <h2><span>Released: </span><?php echo $year?></h2>
-         <h2> <span>Status: </span> Finished</h2>
          <h3><?php echo $title?></h3>
          <hr style="border: 1px solid gray; transform: translateY(-210px); margin-left: 3%; margin-right: 3%;"/>
          <!--Line Divider-->
