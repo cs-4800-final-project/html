@@ -86,16 +86,14 @@ include('../header.php');
             $result = $link->query($sql);
             if ($result->num_rows > 0)  
             {
-            //                           //<form method="POST">                
-                  //<button type="submit" name="unsub-button"> unsubscribe </button>
-                  //</form>
                            echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger"  name="unsub-button" style = "margin:-1px;" > Unsubscribe</button> </h1></form>';
 
             }
             else
             {
-               echo '<form method="POST">                
-                  <button type="submit" name="sub-button"> subscribe </button>
+               echo '
+               <form method="POST">                
+                  <h1> <button type="submit" class="btn btn-outline-success"  name="sub-button" style = "margin:-1px;" > Subscribe</button> </h1>
                   </form>';
             }
          }
@@ -110,7 +108,7 @@ include('../header.php');
             if ( !($result->num_rows > 0))
             {   
                echo '<form method="POST">                
-                  <button type="submit" name="rent-button"> rent </button>
+                 <h1> <button type="submit" class="btn btn-outline-success"  name="rent-button" style = "margin:-1px;" > Unsubscribe</button> </h1>
                </form>';
             }
          }
