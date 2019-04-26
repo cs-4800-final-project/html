@@ -8,34 +8,29 @@
   //Create a query
   
   $uid = $_SESSION['id'];
-  $sql = "SELECT * FROM users,account WHERE account.id = users.id AND account.id = '".$uid."'";
+  $sql = "SELECT * FROM account WHERE id = '".$uid."'";
   
   $result = $link->query($sql) or die(mysql_error());
 	$row = $result->fetch_assoc();
      if(isset($_POST['Submit'])){
 
-    $firstname = $_POST['updateFirst'];
-    $lastname = $_POST['updateLast'];
+    $username = $_POST['updateFirst'];
+    $password = $_POST['updateLast'];
     $email = $_POST['updateEmail'];
-    $month = $_POST['updateMont'];
-    $day = $_POST['updateDay'];
-    $year = $_POST['updateYear'];
+	$gen = $_POST['updateGen'];
+    //$profile = $_POST['updateProfile'];
     $bio = $_POST['updateBio'];
-    $add1 = $_POST['updateAdd1'];
-    $add2 = $_POST['updateAdd2'];
     $loc = $_POST['updateCoun'];
-    $city = $_POST['updateCity'];
-    $prov = $_POST['updateProv'];
-    $code = $_POST['updateCode'];
+
     $phone = $_POST['updatePhon'];
     $cred = $_POST['updateCard'];
     $exp = $_POST['updateExpD'];
     $sec = $_POST['updateSecC'];
-$update = "UPDATE users,account SET account.email='$email',account.creditnumber='$cred',account.expdate='$exp',account.seccode ='$sec', account.bio='$bio',
-                users.firstname='$firstname', users.lastname='$lastname', users.month='$month', users.day='$day',  
-                users.city='$city', users.state='$prov', users.country= '$loc', users.areacode ='$code'
-                WHERE account.id = users.id AND account.id = '".$uid."'";
+
+    $update = "UPDATE account SET username = '$username', password = '$password', email='$email', creditnumber ='$cred', expdate='$exp', seccode='$sec', bio='$bio', country = '$loc',  gender = '$gen' WHERE id = '".$uid."'";
   	
+
+  	//profile = '$profile',
   	if(mysqli_query($link, $update))
     { 
       echo "Record was updated successfully."; 
@@ -82,32 +77,20 @@ $update = "UPDATE users,account SET account.email='$email',account.creditnumber=
                     <hr>
                     <div class="form-row" id="name">
                         <div class="col">
-                            <div class="form-group"><label>First Name</label>
+                            <div class="form-group"><label>Username</label>
                             <input class="form-control" type="text" name="updateFirst" value="<?php echo $row['firstname']; ?>"></div>
+                            <div class="form-group"><label>Gender</label>
+                            <input class="form-control" type="text" name="updateGen" value="<?php echo $row['gender']; ?>"></div>
                         </div>
                         <div class="col">
-                            <div class="form-group"><label>Last Name</label>
+                            <div class="form-group"><label>Password</label>
                             <input class="form-control" type="text" name="updateLast" value="<?php echo $row['lastname']; ?>"></div>
+                            <div class="form-group"><label>Country</label>
+                            <input class="form-control" type="text" name="updateCoun" value="<?php echo $row['country']; ?>"></div>
                         </div>
                     </div>
                     <div class="form-group" id="email"><label id="email">Email</label>
                     <input class="form-control" type="text" name="updateEmail" value="<?php echo $row['email']; ?>"></div>
-                    <div class="form-row" id="info">
-                        <div class="col-xl-8" id="birthday"><label id="bday">Birthday</label>
-                            <div class="form-row">
-                                <div class="col"><label>Month</label><input class="form-control" type="text" name="updateMont" value="<?php echo $row['month']; ?>"></div>
-                                <div class="col"><label>Day</label><input class="form-control" type="text" name="updateDay" value="<?php echo $row['day']; ?>"></div>
-                                <div class="col"><label>Year</label><input class="form-control" type="text" name="updateYear" value="<?php echo $row['year']; ?>"></div>
-                            </div>
-                        </div>
-                        <div class="col" id="gender"><label id="gender-label">Gender</label>
-                            <div>
-                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Male</label></div>
-                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Female</label></div>
-                                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Other</label></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </dix>
@@ -117,33 +100,7 @@ $update = "UPDATE users,account SET account.email='$email',account.creditnumber=
                 <div class="col"><textarea class="form-control" name="updateBio"><?php echo $row['bio']; ?></textarea></div>
             </div>
         </div>
-        <div id="contact">
-            <hr><label>Contact Information</label>
-            <div class="col">
-                <div class="form-row">
-                    <div class="col">
-                    <label>Address Line 1</label>
-                    <input class="form-control" type="text" name="updateAdd1" value="<?php echo $row['street1']; ?>">
-                    <label>Address Line 2</label>
-                    <input class="form-control" type="text" name="updateAdd2" value="<?php echo $row['street2']; ?>">
-                    <label>Country</label>
-                    <input class="form-control" type="text" name="updateCoun" value="<?php echo $row['country']; ?>">
-                    </div>
-                    <div class="col">
-                    <label>City</label>
-                    <input class="form-control" type="text" name="updateCity" value="<?php echo $row['city']; ?>">
-                    <label>State/Province</label>
-                    <input class="form-control" type="text" name="updateProv" value="<?php echo $row['state']; ?>">
-                    <label>Zip Code</label>
-                    <input class="form-control" type="text" name="updateCode" value="<?php echo $row['areacode']; ?>">
-                    </div>
-                    <div class="col">
-                    <label>Phone Number</label>
-                    <input class="form-control" type="text" name="updatePhon" value="<?php echo $row['phone']; ?>">
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div id="payment">
             <hr><label>Payment and Subscription Information</label>
             <div class="form-row">
