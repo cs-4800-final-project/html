@@ -71,7 +71,7 @@
                                       $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
                                       $result = $link->query($sql);
                                       $number = $result->num_rows;
-                                   <h4 class="m-t-0 m-b-20"> Subscriptions ('.$number.')</h4>
+                                    echo '<h4 class="m-t-0 m-b-20"> Subscriptions ('.$number.') </h4>';
                                    while($row = $result->fetch_assoc()) 
                                    {
                                      $title = $row["tittle"];
@@ -147,7 +147,7 @@
                                   $result = $link->query($sql);
 
                                   $number = $result->num_rows;
-                                   <h4 class="m-t-0 m-b-20"> Rented Movies ('.$number.')</h4>
+                                   echo '<h4 class="m-t-0 m-b-20"> Rented Movies ('.$number.')</h4>';
                                    while($row = $result->fetch_assoc()) 
                                    {
                                       $title = $row["tittle"];
