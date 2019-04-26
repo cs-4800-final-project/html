@@ -200,19 +200,33 @@ include('../header.php');
 				<hr style="border: 1px solid gray;  margin-top: 10px;" />
 				<!--Line Divider-->
 				<!--Movie/Show Images-->
-				<div class="box-subscriptions">
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-					<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+					<div class="box-subscriptions">
+					<?php   
+
+                        ini_set('display_errors', 1);
+                          require_once "../dbcon/config.php";
+                          $uid = $_SESSION['id'];
+                          $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
+                          $result = $link->query($sql);
+                          $number = $result->num_rows;
+                        echo '<h4 class="m-t-0 m-b-20"> Subscriptions ('.$number.') </h4>
+                                    <!-- begin row -->
+                                    <div class="row row-space-2">
+                                    ';
+                                   while($row = $result->fetch_assoc()) 
+                                   {
+                                     $title = $row["tittle"];
+                                      $image = $row["image"];
+                                      $cid = $row["cid"];
+                                      $vlink = "http://danc.ddns.net/description/?ID=".$cid;
+
+                                      echo '<a href="'.$vlink.'"><img src="../img/'.$image.'" alt="" width="100" height="100" /> </a>
+                                    ';
+                                    }
+
+                	?>
+
+					
 				</div>
 				<hr style="border: 1px solid gray;  margin-top: 10px;" />
 				<!--Line Divider-->
@@ -236,17 +250,7 @@ include('../header.php');
 					<!--Movie/Show Images-->
 					<div class="box-subscriptions">
 						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+
 					</div>
 					
 					<hr style="border: 1px solid gray;  margin-top: 10px;" /> <!--Line Divider-->
@@ -269,17 +273,7 @@ include('../header.php');
 					<!--Movie/Show Images-->
 					<div class="box-subscriptions">
 						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
-						<a href="#"><img src="../img/movie1.jpg" alt="" width="100" height="100" /> </a>
+
 					</div>
 					<hr style="border: 1px solid gray;  margin-top: 10px;" />
 					<!--Line Divider-->
