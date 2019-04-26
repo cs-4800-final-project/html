@@ -43,11 +43,6 @@
     </script>
 </head>
 
-  <?php 
-    session_start(); 
-
-  include('../header.php');
-  ?>
 <body>
     <!--Subscription List-->
     <div class="container">
@@ -64,32 +59,15 @@
                                 <!-- begin row -->
                                 <div class="row row-space-2">
                                     <!-- begin col-6 -->
-
-            
-                                <?php   
-
-                                    ini_set('display_errors', 1);
-                                      require_once "../dbcon/config.php";
-                                      $uid = $_SESSION['id'];
-                                      $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
-                                      $result = $link->query($sql);
-                                   while($row = $result->fetch_assoc()) 
-                                   {
-                                     $title = $row["tittle"];
-                                      $image = $row["image"];
-                                      $cid = $row["cid"];
-                                      $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-
-                                      echo '
                                     <div class="col-md-6 m-b-2">
                                         <div class="p-10 bg-white">
                                             <div class="media media-xs overflow-visible">
                                                 <a class="media-left" href="javascript:;">
-                                                    <img src=src="../img/'.$image.'" alt=""
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                                         class="media-object img-circle">
                                                 </a>
                                                 <div class="media-body valign-middle">
-                                                    <a href=" '.$vlink.' "><b class="text-inverse">'.$title.'</b></a>
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
                                                 </div>
                                                 <div class="media-body valign-middle text-right overflow-visible">
                                                     <div class="btn-group dropdown">
@@ -107,14 +85,271 @@
                                             </div>
                                         </div>
                                     </div>
-                                    ';
-                                    }
-
-                                    ?>
-
                                     <!-- end col-6 -->
                                     <!-- begin col-6 -->
-                                   
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar6.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar3.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Unsubscribe</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                </div>
+                                <!-- end row -->
+                            </div>
+                            <!-- end #profile-friends tab -->
+                        </div>
+                        <!-- end tab-content -->
+                    </div>
+                    <!-- end profile-content -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Rented Movies List-->
     <div class="container">
         <div class="row">
@@ -129,32 +364,16 @@
                                 <h4 class="m-t-0 m-b-20"> Rented Movies (3)</h4>
                                 <!-- begin row -->
                                 <div class="row row-space-2">
-
-                                 <?php
-
-                                ini_set('display_errors', 1);
-                                  require_once "../dbcon/config.php";
-                                  $uid = $_SESSION['id'];
-                                  $sql = "SELECT content.* FROM `content`, `rental` WHERE rental.uid = $uid AND content.cid = rental.cid";
-                                  $result = $link->query($sql);
-                                   while($row = $result->fetch_assoc()) 
-                                   {
-                                      $title = $row["tittle"];
-                                      $image = $row["image"];
-                                      $cid = $row["cid"];
-                                      $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-
-                                   
-                                   echo'
+                                    <!-- begin col-6 -->
                                     <div class="col-md-6 m-b-2">
                                         <div class="p-10 bg-white">
-                                                <div class="media media-xs overflow-visible">
+                                            <div class="media media-xs overflow-visible">
                                                 <a class="media-left" href="javascript:;">
-                                                    <img src=src="../img/'.$image.'" alt=""
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
                                                         class="media-object img-circle">
                                                 </a>
                                                 <div class="media-body valign-middle">
-                                                    <a href=" '.$vlink.' "><b class="text-inverse">'.$title.'</b></a>
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
                                                 </div>
                                                 <div class="media-body valign-middle text-right overflow-visible">
                                                     <div class="btn-group dropdown">
@@ -172,11 +391,75 @@
                                             </div>
                                         </div>
                                     </div>
-                                    ';
-
-                                    }
-                                    ?>
-
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Remaining Time: 5 hrs</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Extend Rental Period 24hrs</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                    <!-- begin col-6 -->
+                                    <div class="col-md-6 m-b-2">
+                                        <div class="p-10 bg-white">
+                                            <div class="media media-xs overflow-visible">
+                                                <a class="media-left" href="javascript:;">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
+                                                        class="media-object img-circle">
+                                                </a>
+                                                <div class="media-body valign-middle">
+                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                </div>
+                                                <div class="media-body valign-middle text-right overflow-visible">
+                                                    <div class="btn-group dropdown">
+                                                        <a href="javascript:;" class="btn btn-default">Remaining Time: 5 hrs</a>
+                                                        <a href="javascript:;" data-toggle="dropdown"
+                                                            class="btn btn-default dropdown-toggle"
+                                                            aria-expanded="false"></a>
+                                                        <ul class="dropdown-menu dropdown-menu-right"
+                                                            x-placement="bottom-end"
+                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
+                                                            <li><a href="javascript:;">Extend Rental Period 24hrs</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col-6 -->
+                                </div>
+                                <!-- end row -->
+                            </div>
+                            <!-- end #profile-friends tab -->
+                        </div>
+                        <!-- end tab-content -->
+                    </div>
+                    <!-- end profile-content -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Wish List-->
     <div class="container">
@@ -264,6 +547,54 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img src="img/logo.png"> </h1> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"> <span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                        <form class="form-inline" method="POST">
+                                <div class="md-form my-0">
+                                    <input type="text" class="form-control form-control-sm mr-3 w-80" name="search" placeholder="Search">
+                                    <button type="submit" name="submit-search" style= "background-color:Transparent; background-repeat:no-repeat;
+                                    border: none;
+                                    cursor:pointer;
+                                    overflow: hidden; outline:none;"><i class="fas fa-search" aria-hidden="true" style= "color:white;"></i></button>
+                                </div>
+                                </form>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://danc.ddns.net/home/"> Home </a>
+                    </li>
+                    <a class="nav-link" href="http://danc.ddns.net/subscriptions/"> My Subscriptions </a>
+                    </li>
+                    <a class="nav-link" href="http://danc.ddns.net/shows/"> Shows </a>
+                    </li>
+                    <a class="nav-link" href="http://danc.ddns.net/movies/"> Movies </a>
+                    </li>
+                    <a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
+                    <!--Make this a dropdown w/ profile picture later -->
+                    </li>
+                    <a class="nav-link" href="http://danc.ddns.net/dbcon/logout.php"> Logout </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
 
     <!--- Footer -->
     <div class="sticky-bottom" style="padding-top:300%;">
