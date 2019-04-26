@@ -59,15 +59,30 @@
                                 <!-- begin row -->
                                 <div class="row row-space-2">
                                     <!-- begin col-6 -->
+                                    <?php   
+
+                                    ini_set('display_errors', 1);
+                                      require_once "../dbcon/config.php";
+                                      $uid = $_SESSION['id'];
+                                      $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
+                                      $result = $link->query($sql);
+                                   while($row = $result->fetch_assoc()) 
+                                   {
+                                     $title = $row["tittle"];
+                                      $image = $row["image"];
+                                      $cid = $row["cid"];
+                                      $vlink = "http://danc.ddns.net/description/?ID=".$cid;
+
+                                      echo '
                                     <div class="col-md-6 m-b-2">
                                         <div class="p-10 bg-white">
                                             <div class="media media-xs overflow-visible">
                                                 <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                                    <img src=src="../img/'.$image.'" alt=""
                                                         class="media-object img-circle">
                                                 </a>
                                                 <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
+                                                    <a href=" '.$vlink.' "><b class="text-inverse">'.$title.'</b></a>
                                                 </div>
                                                 <div class="media-body valign-middle text-right overflow-visible">
                                                     <div class="btn-group dropdown">
@@ -85,258 +100,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar6.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end col-6 -->
-                                    <!-- begin col-6 -->
-                                    <div class="col-md-6 m-b-2">
-                                        <div class="p-10 bg-white">
-                                            <div class="media media-xs overflow-visible">
-                                                <a class="media-left" href="javascript:;">
-                                                    <img src="http://bootdey.com/img/Content/avatar/avatar3.png" alt=""
-                                                        class="media-object img-circle">
-                                                </a>
-                                                <div class="media-body valign-middle">
-                                                    <a href="#"><b class="text-inverse">Your Name</b></a>
-                                                </div>
-                                                <div class="media-body valign-middle text-right overflow-visible">
-                                                    <div class="btn-group dropdown">
-                                                        <a href="javascript:;" class="btn btn-default">Subscribed</a>
-                                                        <a href="javascript:;" data-toggle="dropdown"
-                                                            class="btn btn-default dropdown-toggle"
-                                                            aria-expanded="false"></a>
-                                                        <ul class="dropdown-menu dropdown-menu-right"
-                                                            x-placement="bottom-end"
-                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(101px, 34px, 0px);">
-                                                            <li><a href="javascript:;">Unsubscribe</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ';
+                                    }
+
+                                    ?>
                                     <!-- end col-6 -->
                                 </div>
                                 <!-- end row -->
@@ -553,7 +320,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"> <img src="img/logo.png"> </h1> </a>
+            <a class="navbar-brand" href="#"> <img src="../img/logo.png"> </h1> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"> <span>
             </button>
