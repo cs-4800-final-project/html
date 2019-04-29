@@ -96,18 +96,18 @@
               {
 
               
-              $sql = "SELECT * FROM `friend` WHERE userID = $userID AND friendID = $fid";
-              $result = $link->query($sql);
+              $sqlb = "SELECT * FROM `friend` WHERE userID = $userid AND friendID = $fid";
+              $resultb = $link->query($sqlb);
               if ($result->num_rows > 0)
                 {
-                echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unsub-button" style="margin:-1px;"> Unsubscribe</button> </h1></form>';
+                echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unfri-button" style="margin:-1px;"> Unfriend</button> </h1></form>';
 
                 }
               else
                 {
                 echo '
                 <form method="POST">
-                    <h1> <button type="submit" class="btn btn-outline-success" name="sub-button" style="margin:-1px;"> Subscribe</button> </h1>
+                    <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;"> Friend</button> </h1>
                 </form>';
                 }
               }
