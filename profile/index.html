@@ -38,6 +38,7 @@
             {
               $uid = $_GET['ID'];
               $fid = $_GET['ID'];
+              $userid = $_SESSION['id'];
               $notmyaccount =  TRUE;
               
             }
@@ -94,7 +95,7 @@
               if ($notmyaccount)
               {
 
-              $userid = $_SESSION['id'];
+              
               $sql = "SELECT * FROM `friend` WHERE userID = $userID AND friendID = $fid";
               $result = $link->query($sql);
               if ($result->num_rows > 0)
