@@ -140,10 +140,10 @@
                         $result = $link->query($sql);
                         $number = $result->num_rows;
 
-						echo '<h3><strong>Friends &nbsp;· &nbsp;'.$number.'</strong></h3>';
+						echo '<h3><strong>Friends &nbsp;· &nbsp;'.$number.'</strong></h3>
                   		<hr style="border: 1px solid gray; margin-left: 1%; margin-right: 1%; margin-top: 10px;" />
                  		 <div class="profile-pics">
-                     		<div class= "profile-pics-container">
+                     		<div class= "profile-pics-container">';
 
                         while($row = $result->fetch_assoc()){
                         $friend = $row["friendID"];
