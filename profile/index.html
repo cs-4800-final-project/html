@@ -90,6 +90,27 @@
          			</li>
          		</ul>	
              
+             <?php
+              if ($notmyaccount)
+              {
+
+              $userid = $_SESSION['id'];
+              $sql = "SELECT * FROM `friend` WHERE userID = $userID AND friendID = $fid";
+              $result = $link->query($sql);
+              if ($result->num_rows > 0)
+                {
+                echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unsub-button" style="margin:-1px;"> Unsubscribe</button> </h1></form>';
+
+                }
+              else
+                {
+                echo '
+                <form method="POST">
+                    <h1> <button type="submit" class="btn btn-outline-success" name="sub-button" style="margin:-1px;"> Subscribe</button> </h1>
+                </form>';
+                }
+              }
+              ?>
          		
          	</div>
          </nav>
@@ -186,7 +207,23 @@
             <div class="panel-body">
                <span>
                   <h1 class="panel-title pull-left" style="font-size:25px;">Your Subscriptions <small></small> </h1>
-                  <h1 class="panel-title pull-left" style="font-size:12px; color: gray;">7 Slots Free out of 10<small></small>
+                  
+                  <?php   
+                     ini_set('display_errors', 1);
+                       require_once "../dbcon/config.php";
+                       if(isset($_GET['ID']))
+            {
+              $uid = $_GET['ID'];
+            }
+            else
+            {
+             $uid = $_SESSION['id'];
+           }
+                       $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
+                       $result = $link->query($sql);
+                       $number = $result->num_rows;
+                     echo '
+                  <h1 class="panel-title pull-left" style="font-size:12px; color: gray;">'.$number.' Slots out of 10<small></small>
                   </h1>
                   <div class="dropdown pull-right">
                      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -211,21 +248,7 @@
                <!--Line Divider-->
                <!--Movie/Show Images-->
                <div class="box-subscriptions">
-                  <?php   
-                     ini_set('display_errors', 1);
-                       require_once "../dbcon/config.php";
-                       if(isset($_GET['ID']))
-            {
-              $uid = $_GET['ID'];
-            }
-            else
-            {
-             $uid = $_SESSION['id'];
-           }
-                       $sql = "SELECT content.* FROM `content`, `subscription` WHERE subscription.uid = $uid AND content.cid = subscription.cid";
-                       $result = $link->query($sql);
-                       $number = $result->num_rows;
-                     echo '<h4 class="m-t-0 m-b-20"> Subscriptions ('.$number.') </h4>
+                     <h4 class="m-t-0 m-b-20"> Subscriptions ('.$number.') </h4>
                                  <!-- begin row -->
                                  <div class="row row-space-2">
                                  ';
