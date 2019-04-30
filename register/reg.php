@@ -63,9 +63,11 @@
        
        // Check input errors before inserting in database
        if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-           
+           $user = $_POST["username"];
+           $pass = $_POST["password"];
+           $emai = $_POST["email"];
            // Prepare an insert statement
-           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('.$_POST["username"].','.$_POST["password"].','.$_POST["email"].')";
+           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('$user','$pass','$emai')";
             
            if(mysqli_query($link, $sql))
             { 
