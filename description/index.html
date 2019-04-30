@@ -316,9 +316,9 @@
 
                                     while ($row = $result->fetch_assoc())
                                     {
-                                       usern = $row["username"];
+                                       $usern = $row["username"];
                                        echo ' <li class="post" id="post-1">
-                                             <h1> '.$uname.'</h1>
+                                             <h1> '$usern'</h1>
                                              <h2>'$comments'</h2>
                                           </li>  ';
                                     }
