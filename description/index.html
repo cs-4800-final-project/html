@@ -303,13 +303,13 @@
                               if (isset($_GET['ID']))
                               {
                                  $ID = $_GET['ID'];                              
-                                 $sql = "SELECT comments.body, account.username FROM `comments`, `account` WHERE comments.contentID = $ID AND comments.userID = account.id ORDER BY comments.commentID DESC";
+                                 $sql = "SELECT comments.body as co, account.username as us FROM `comments`, `account` WHERE comments.contentID = $ID AND comments.userID = account.id ORDER BY comments.commentID DESC";
                                  $result = $link->query($sql);
 
                                 while ($row = $result->fetch_assoc())
                                  {
-                                    $uname = $row["username"];
-                                    $comments = $row["comments.body"];
+                                    $uname = $row["us"];
+                                    $comments = $row["co"];
                                     echo ' <li class="post" id="post-1">
                                           <h1>$uname</h1>
                                           <h2>'$comments'</h2>
