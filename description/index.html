@@ -303,25 +303,17 @@
                               if (isset($_GET['ID']))
                               {
                                  $ID = $_GET['ID'];                              
-                                 $sql = "SELECT * FROM `comments` WHERE contentID = $ID ORDER BY commentID DESC";
+                                 $sql = "SELECT comments.body, account.username FROM `comments`, `account` WHERE comments.contentID = $ID AND comments.userID = account.id ORDER BY comments.commentID DESC";
                                  $result = $link->query($sql);
 
                                 while ($row = $result->fetch_assoc())
                                  {
                                     $uname = $row["userID"];
                                     $comments = $row["body"];
-                                    
-                                    $sql2 = "SELECT * FROM `account` WHERE id = $uname";
-                                    $secresult = $link->query($sql2);
-
-                                    while ($row = $secresult->fetch_assoc())
-                                    {
-                                       $usern = $row["username"];
-                                       echo ' <li class="post" id="post-1">
-                                             <h1> '$usern'</h1>
-                                             <h2>'$comments'</h2>
-                                          </li>  ';
-                                    }
+                                    echo ' <li class="post" id="post-1">
+                                          <h1> '$uname'</h1>
+                                          <h2>'$comments'</h2>
+                                       </li>  ';
 
                                  }
 
