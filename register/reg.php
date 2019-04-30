@@ -65,28 +65,17 @@
        if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
            
            // Prepare an insert statement
-           $sql = "INSERT INTO account (email, password) VALUES (?, ?)";
+           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('.$_POST["username"].','.$_POST["password"].','.$_POST["email"].)"
             
-           if($stmt = mysqli_prepare($link, $sql)){
-               // Bind variables to the prepared statement as parameters
-               mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+           if(mysqli_query($link, $sql))
+            { 
+            echo "Account register successfully."; 
+            // Redirect user to welcome page
+            header("location: ../login");
+             } 
+                
                
-               // Set parameters
-               $param_username = $username;
-               $param_password = $password; // leave password unsalted
-               
-               // Attempt to execute the prepared statement
-               if(mysqli_stmt_execute($stmt)){
-                   // Redirect to login page
-                   header("location: ../home");
-               } else{
-                   echo "Something went wrong. Please try again later.";
-               }
            }
-            
-           // Close statement
-           mysqli_stmt_close($stmt);
-       }
        
        // Close connection
        mysqli_close($link);
