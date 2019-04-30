@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+
+
 html, body {
   height: 100%;
   width: 100%;
@@ -31,198 +33,60 @@ html, body {
   margin-left: -100px;
 }
 
-/*-----PROFILE PAGE -------*/
-.carousel-inner-profile img { /*Facebook Cover Photo Clone*/
+/*--Star Rating--*/ 
+.star-rating {
 
-    width:100%;
-    height: 350px;
-}
-
-.carousel-caption-profile img { /* Profile Image*/
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(150%);
-    transform: translateX(40%);
-    border: 5px solid rgb(20,20,20);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.carousel-caption-profile-nameCaption { /*---NAME CAPTION--*/
-  padding-left: 300px;
-  transform: translateY(-125%); /*--So that Name lies in line with Cover Photo--*/
+.checked {
+  color: orange;
 }
 
+/*--Pick a Star---*/
 
-.box-profile h3 {
-  font-size: 15px;
+*{
+  margin: 0;
+  padding: 0;
 }
-
-.box-profile {
-    float: left;
-    width: 25%;
-    margin-left: 45px;
-    margin-top: -5px;
-    padding: 15px;
-    border: 2px solid gray;
-    background: rgb(50,50,50);
-    border: 1px solid rgb(255,255,255);
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
 }
-
-.box-profile-content{
-  float: right;
- 
-  background: rgb(50,50,50);
-  margin-block-start: 10%;
-  width: 60%;
-  margin-right: 125px;
-  margin-top: -5px;
-  padding: 15px;
-  border: 1px solid rgba(255,255,255);
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
 }
-
-    .box-profile-content img {
-        border-radius: 10%;
-        margin-left: 15px;
-        border: 1px solid rgba(255,255,255);
-    }
-
-
-
-/*---VIDEOPAGE: Separate caption formatting for video page---*/
-.carousel-inner img {
-  
-  width: 100%;
-  height: 100%;
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
 }
-.video-fluid {
-  width: 100%;
-  height: 100%;
+.rate:not(:checked) > label:before {
+  content: '★ ';
 }
-.carousel-caption {
-  position: fixed;
-  top: 40%;
-  transform: translateY(50%);
-  transform: translateX(-20%);
+.rate > input:checked ~ label {
+  color: #ffc700;    
 }
-.carousel-caption h1{
-  font-size: 20px;
-  text-align:left;
-  text-shadow: 1px 1px 15px #000;
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
 }
-.carousel-caption h3{
-  font-size:15px;
-  text-align:left;
-  text-shadow: 1px 1px 15px #000;
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
 }
 
-/*--VIDEOPAGE: Video rows stuff --*/
-.pb-video-container {
-  padding-top: 30px;
-}
-.pb-video-container h1 {
-  font-size:15px;
-  text-align:left;
-  text-shadow: 1px 1px 15px #000;
-  color:  rgb(128,128,128);
-}
-
-.pb-video-container h2 {
-  font-size:15px;
-  text-align:left;
-  text-shadow: 1px 1px 15px #000;
-  color:  white;
-}
-.pb-video {
-  padding: 1px;
-}
-.pb-video img {
-  width: 100%;
-  height: 100%;
-}
-.pb-video-frame {
-  transition: width 2s, height 2s;
-}
-.pb-video-frame:hover {
-  height: 250px;
-  width: 300px;
-}
-.pb-row {
-  margin-bottom: 20px;
-}
-
-/*--- LANDINGPAGE: These are the boxes used in the landing page so they have different colors for each box.-----*/
-.box {
-  width: 100%;
-}
-.box-gray {
-  background: #141414;
-  font-size: 20px;
-  color: white
-}
-.box-lightGray {
-  background: #000;
-  font-size: 20px;
-  color:  rgb(128,128,128);
-}
-.box-Image {
-  background-image: url(img/watching_show.png);
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  color: white;
-  
-}
-
-/*---LANDINGPAGE: Separate caption formatting for landing page---*/
-.carousel-caption-landing { 
-  position: fixed;
-  top: 50%;
- transform: translateY(50%);
-  transform: translateX(50%); 
-}
-.carousel-caption-landing h2{ 
-  font-size: 25px;
-  text-align:center;
-  text-shadow: 1px 1px 15px #000;
-}
-
-.carousel-caption-landing h4{
-  font-size: 15px;
-  text-align:center;
-  text-shadow: 1px 1px 15px #000;
-}
-
-.container { /*so text isn't flush to edge*/
-  padding: 15px;
-}
-
-/*---Search-Results----*/
-.box-result {
-  width: 100%;
-  height: 200px;
-  background: rgb(20,20,20);
-  
-}
-.box-result img {
-    transform: translateY(20px) translateX(20%);
-    width: 225px;
-    height: 150px;
-}
-.box-result h1 { 
-  transform: translateX(300px) translateY(-125px);
-  font-size: 20px;
-
-  color : rgb(255,255,255);
-}
-.box-result h2 {
-  font-size: 12px;
-  transform: translateX(300px) translateY(-125px);
- 
-  color : rgb(128,128,128);
-}
-
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
 
 /*--Video Description Page--*/
 
@@ -234,91 +98,91 @@ html, body {
     padding: 15px;
     border: 2px solid gray;
     background: rgb(50,50,50);
-    border: 1px solid rgb(255,255,255);
+
 }
 
 .box-description img {
-  margin-top:20px;
-  margin-left: 3%;
   width: 305px;
   height: 431px;
 }
 
 .box-description p {
-  margin-left: 44%;
-  margin-top: 400px;
   font-size: 12px;
   color: #FFFFFF;
-  margin-right: 3%;
+  
 }
 
-.box-description h1 { /*---Title of Movie----*/
+/*---Title of Movie----*/
+.box-description h1 { 
   color: rgb(255,188,26);
   font-size: 20px;
-  margin-left: 44%;
-  margin-right: 3%;
-  
-  transform: translateY(-400px);
 }
 
 .box-description h2 {
   color: white;
   font-size: 12px;
-  margin-left: 44%;
-  margin-right: 3%;
-  transform: translateY(-400px);
+
 }
 
 .box-description h3 {
     color: rgb(255,188,26);
     font-size: 20px;
-    transform: translateY(-210px);
-    margin-left: 3%;
+
 }
 
-.box-description h4 { /*--Header--*/
+/*--Head Font Color--*/
+.box-description h4 { 
   color: rgb(255,188,26);
   font-size: 25px;
   text-align: center;
-  margin-left: 3%;
-  margin-top: 1%;;
+
 }
 
-
-/*---No longer in use---*/
-/*  
-.box-description header { 
-  color: black;
-  padding-left:25px;
-  font-size: 35px;
-  text-align: left;
-  margin-top: -2%;
-  margin-bottom: 2%;
-  background-color: rgb(255,188,26);
-}
-*/
-
-.box-description span { /*---Changes color for "genre, release, studio,etc..." --*/ 
+/*---Changes color for "genre, release, studio,etc..." --*/ 
+.box-description span { 
   color: green;
 }
 
 .box-description a {
-  transform: translateY(-210px);
-  margin-left: 3%;
-  margin-right: -2%;
-  margin-top:1%;
+ 
   font-size: 12px;
+}
+
+.btn {
+  margin-right:1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+/*--Comment box--*/
+.box-comments {
+  float: left;
+  width: 100%;
+  height: 1000px;
+  padding-top: 40%;
+  padding-left: 5%;
+  background: rgb(50,50,50);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+.karma-system h1{
+
+  color: gray;
+  transform: translateY(-2300%);
 }
 
 /*---The box on the right---*/
 .box-suggested {
+    
+    position:relative;
     float: right;
     height: 100%;
     width: 25%;
     padding-left:3%;
     margin-left: 1%;
     margin-right: 3%;
-    margin-top: 0px;
     padding: 0px;
     border: 2px solid gray;
     background: rgb(50,50,50);
@@ -357,7 +221,86 @@ html, body {
   color: rgb(255,188,26);
 }
 
+/*--COMMENT SECTION IN VIDEO DESCRIPTION--*/                                                         
+#post-list li{ /*--Gets rid of bullet points in list---*/
+  list-style-type: none;
 
+}
+
+.post-list img {
+  margin-left: -5%;
+  height: 60px; 
+  width: 60px; 
+  transform: translateY(-560%);
+}
+
+.post-list h1 { /*--Name, Score, Post Date--*/
+  font-size:15px;
+  color: gray;
+  margin-left: 3%;
+  margin-right: 10%;
+  transform: translate(20px,-400px);
+ 
+  
+}
+.post-list h2 { /*--Parent Comment--*/
+  font-size: 15px;
+  color: white;
+  margin-left: 3%;
+  transform: translate(20px,-400px);
+
+}
+
+
+/*--CSS used in other pages, but altered ---*/
+
+.unstyled-button {
+    border: none;
+    padding: 0;
+    background: none;
+    color:white;
+    font-size: 12px;
+    margin-right: 1%;
+    margin-left: 1%;
+
+    
+  }
+
+
+  /*---Pop-up Stuff----*/
+
+
+  #box {
+    width: 500px; 
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0  0 20px black;
+    border-radius: 8px; 
+    position: absolute;
+    top:50%;
+    left:50%;
+    padding:10px;
+    text-align: left;
+    display: none;
+  }
+
+  #box h1 {
+    color: #333;
+    font-size: 20px;
+    
+  }
+  
+  .close{
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    cursor:pointer;
+    background :orangered;
+    display:inline-block;
+
+    border-radius: 4px;
+  }
+  
 
 /*----CUSTOM SCROLLBAR---*/
 /* width */
