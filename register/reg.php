@@ -65,7 +65,7 @@
        if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
            
            // Prepare an insert statement
-           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('.$_POST["username"].','.$_POST["password"].','.$_POST["email"].')"
+           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('.$_POST["username"].','.$_POST["password"].','.$_POST["email"].')";
             
            if(mysqli_query($link, $sql))
             { 
