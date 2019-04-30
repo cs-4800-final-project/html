@@ -51,7 +51,14 @@ if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
 include('../header.php');
 ?>
 <!--Friendslist -->
-
+<script>
+window.onload = function(){
+    document.getElementsByName("unfri-button").onclick = function(){
+        document.getElementsByName("postvar")[0].value = this.value;
+        document.forms.myform.submit();
+    }
+};
+</script>
 <div class="container">
    <div class="row">
       <div class="col-md-12">
@@ -165,12 +172,12 @@ include('../header.php');
 <?php
         if (isset($_POST['unfri-button']))
         {
-        if (isset($_GET['ID']))
+        if (isset($_POST["postvar"]))
         {
         ini_set('display_errors', 1);
         require_once "../dbcon/config.php";
         $uid = $_SESSION['id'];
-        $delfid = $_POST['submit'];
+        $delfid = $_POST["postvar"];
         $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $delfid";
 
         if ($link->query($sql) === true)
