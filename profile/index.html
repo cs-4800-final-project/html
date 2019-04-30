@@ -27,7 +27,19 @@
       </script>
    </head>
    <?php
+
+       if (isset($_POST['friend-search']))
+        {
+			$searchq1 = $_POST['searchFriends'];
+			$baseurl2 = "http://danc.ddns.net/friends/?ID=";
+			$completeurl2 = $baseurl2.$searchq1;
+			header( "Location:".$completeurl2 ); 
+        }
+      
       include('../header.php');
+
+
+
       ?>
    <body>
       <?php
