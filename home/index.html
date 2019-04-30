@@ -126,7 +126,8 @@
                     $cid = $row["cid"];
                     $vlink = "http://danc.ddns.net/description/?ID=".$cid;
                     $desc = $row["description"];
-
+                    $baseurl = "http://danc.ddns.net/search/?ID=";
+                    $completeurlstu = $baseurl.$studio;                    
                     echo '
                   <div class="videoItem">
                   <p class="title">'.$tittle.'</p>
@@ -136,7 +137,7 @@
                   <div class="play"></div>
                   </a>
                   <p class="title"><a href="'.$vlink.'">'.$desc.'</a> </p>
-                  <p class="author"><a href="#">'.$studio.'</a></p>
+                  <p class="author"><a href="'.$completeurlstu.'">'.$studio.'</a></p>
                   </div>';
                    
                 }
