@@ -311,8 +311,8 @@
                                     $uname = $row["userID"];
                                     $comments = $row["body"];
                                     
-                                    $sql = "SELECT * FROM `account` WHERE id = $uname";
-                                    $secresult = $link->query($sql);
+                                    $sql2 = "SELECT * FROM `account` WHERE id = $uname";
+                                    $secresult = $link->query($sql2);
 
                                     while ($row = $secresult->fetch_assoc())
                                     {
