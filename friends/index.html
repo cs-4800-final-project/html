@@ -60,18 +60,39 @@ include('../header.php');
                <div class="tab-content p-0">
                   <!-- begin #profile-friends tab -->
                   <div class="tab-pane fade in active show" id="profile-friends">
-                     <h4 class="m-t-0 m-b-20">Friend List (14)</h4>
-                     <!-- begin row -->
-                     <div class="row row-space-2">
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
+                          <?php
+                          ini_set('display_errors', 1);
+                          require_once "../dbcon/config.php";
+                          $uid = $_SESSION['id'];
+                         
+                          $sql = "SELECT * FROM `friend` WHERE userID = $uid";
+                          $result = $link->query($sql);
+                          $number = $result->num_rows;
+
+                          echo '
+                          <h4 class="m-t-0 m-b-20">Friend List ('.$number.')</h4>
+                           <!-- begin row -->
+                          <div class="row row-space-2">
+                          <!-- begin col-6 -->';
+
+                          while($row = $result->fetch_assoc()){
+                          $friend = $row["friendID"];
+                          $sql2 = "SELECT * FROM `account` WHERE id = $friend";
+                          $result2 = $link->query($sql2);
+
+                          $row2 = $result2->fetch_assoc();
+                          $profile = $row2["profile"];
+                          $user = $row2["username"];
+                          $plink = "?ID=".$friend;
+                          echo '
+                          <div class="col-md-6 m-b-2">
                            <div class="p-10 bg-white">
                               <div class="media media-xs overflow-visible">
                                  <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object img-circle">
+                                 <img src="../profile/'.$profile.'" alt="" class="media-object img-circle">
                                  </a>
                                  <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
+                                    <a href="'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
                                     <div class="btn-group">
@@ -80,258 +101,9 @@ include('../header.php');
                                 </div>
                               </div>
                            </div>
-                        </div>
+                        </div>';'
                         <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar4.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar5.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                            <div class="p-10 bg-white">
-                                <div class="media media-xs overflow-visible">
-                                    <a class="media-left" href="javascript:;">
-                                        <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""
-                                            class="media-object img-circle">
-                                    </a>
-                                    <div class="media-body valign-middle">
-                                        <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                    </div>
-                                    <div class="media-body valign-middle text-right overflow-visible">
-                                        <div class="btn-group">
-                                            <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar5.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <!-- end col-6 -->
-                        <!-- begin col-6 -->
-                        <div class="col-md-6 m-b-2">
-                           <div class="p-10 bg-white">
-                              <div class="media media-xs overflow-visible">
-                                 <a class="media-left" href="javascript:;">
-                                 <img src="http://bootdey.com/img/Content/avatar/avatar4.png" alt="" class="media-object img-circle">
-                                 </a>
-                                 <div class="media-body valign-middle">
-                                    <a href="#"><b class="text-inverse">Patrick Conner</b></a>
-                                 </div>
-                                 <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
-                                </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- end col-6 -->
+                        
                      </div>
                      <!-- end row -->
                   </div>
