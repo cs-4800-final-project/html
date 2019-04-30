@@ -50,6 +50,7 @@ error_reporting(E_ALL ^ E_WARNING);
 if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
 include('../header.php');
 ?>
+
 <!--Friendslist -->
 <script>
 window.onload = function(){
@@ -131,7 +132,46 @@ window.onload = function(){
       </div>
    </div>
 </div>
-
+if(isset($_GET['ID']))
+{
+  $fusid = $_GET['ID'];
+  $sql = "SELECT * FROM account WHERE username  like '%".$fusid."%'";
+  $result = $link->query($sql);
+ 
+  while($result->num_rows > 0)
+  {  
+      $friendfind = $row["id"];
+      $profile = $row["profile"];
+      $user = $row["username"];
+      $plink = "?ID=".$friend;
+    echo '
+                        <!-- begin col-6 -->
+                        <div class="col-md-6 m-b-2">
+                           <div class="p-10 bg-white">
+                              <div class="media media-xs overflow-visible">
+                                 <a class="media-left" href="javascript:;">
+                                 <img src="../profile/'.$profile.'" alt="" width="50" height="50">
+                                 </a>
+                                 <div class="media-body valign-middle">
+                                    <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
+                                 </div>
+                                 <div class="media-body valign-middle text-right overflow-visible">
+                                    <form action="" method="POST">
+                                       <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;" value ="'.friendfind.'"> Friend</button> </h1>
+                                    </form>
+                                </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end col-6 -->
+                        ';
+  }
+  else
+  {
+    echo '<h1>No one with that username!</h1>'
+  }
+ 
+}
 	
 	<!--- Footer -->
 	<div class="sticky-bottom" style="padding-top:300%;">
