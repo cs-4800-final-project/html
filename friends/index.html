@@ -12,7 +12,7 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="friend-page-style.css" rel="stylesheet">
 
-
+ 
 
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
@@ -46,6 +46,8 @@
 
 <body>
 <?php
+error_reporting(E_ALL ^ E_WARNING);
+if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
 include('../header.php');
 ?>
 <!--Friendslist -->
@@ -60,39 +62,42 @@ include('../header.php');
                <div class="tab-content p-0">
                   <!-- begin #profile-friends tab -->
                   <div class="tab-pane fade in active show" id="profile-friends">
-                          <?php
-                          ini_set('display_errors', 1);
-                          require_once "../dbcon/config.php";
-                          $uid = $_SESSION['id'];
+                     <?php
+                     
                          
-                          $sql = "SELECT * FROM `friend` WHERE userID = $uid";
-                          $result = $link->query($sql);
-                          $number = $result->num_rows;
+                         //ini_set('display_errors', 1);
+                        require_once "../dbcon/config.php";
+                         
+                        $uid = $_SESSION["id"];
+                        //var_dump($_SESSION["id"]);
+                        $sql = "SELECT * FROM `friend` WHERE userID = $uid";
+                        $result = $link->query($sql);
+                        $number = $result->num_rows;
+                     
+                     
+                     echo '<h4 class="m-t-0 m-b-20">Friend List ('.$number.')</h4>
+                     <!-- begin row -->
+                     <div class="row row-space-2">';
+                        while($row = $result->fetch_assoc()){
+                        $friend = $row["friendID"];
+                        $sql2 = "SELECT * FROM `account` WHERE id = $friend";
+                        $result2 = $link->query($sql2);
 
-                          echo '
-                          <h4 class="m-t-0 m-b-20">Friend List ('.$number.')</h4>
-                           <!-- begin row -->
-                          <div class="row row-space-2">
-                          <!-- begin col-6 -->';
-
-                          while($row = $result->fetch_assoc()){
-                          $friend = $row["friendID"];
-                          $sql2 = "SELECT * FROM `account` WHERE id = $friend";
-                          $result2 = $link->query($sql2);
-
-                          $row2 = $result2->fetch_assoc();
-                          $profile = $row2["profile"];
-                          $user = $row2["username"];
-                          $plink = "?ID=".$friend;
-                          echo '
-                          <div class="col-md-6 m-b-2">
+                        $row2 = $result2->fetch_assoc();
+                        $profile = $row2["profile"];
+                        $user = $row2["username"];
+                        $plink = "?ID=".$friend;
+                     
+                        echo '
+                        <!-- begin col-6 -->
+                        <div class="col-md-6 m-b-2">
                            <div class="p-10 bg-white">
                               <div class="media media-xs overflow-visible">
                                  <a class="media-left" href="javascript:;">
-                                 <img src="../profile/'.$profile.'" alt="" class="media-object img-circle">
+                                 <img src="../profile/'.$profile.'" alt="" width="50" height="50">
                                  </a>
                                  <div class="media-body valign-middle">
-                                    <a href="'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
+                                    <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
                                     <div class="btn-group">
@@ -101,10 +106,12 @@ include('../header.php');
                                 </div>
                               </div>
                            </div>
-                        </div>';
-                      }
+                        </div>
                         <!-- end col-6 -->
-                        
+                        ';
+                        };
+
+                        ?>
                      </div>
                      <!-- end row -->
                   </div>
