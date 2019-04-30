@@ -290,6 +290,46 @@
 
 
       </div>
+
+      <!--COMMENT SECTION-->
+        <div class="box-comments">
+            <div class="container">
+
+                <div class=row>
+                    <ul id="post-list" class="post-list">
+                        <div class="col-lg-11" >
+
+                           <?php
+                              if (isset($_GET['ID']))
+                              {
+                                 $ID = $_GET['ID'];                              
+                                 $sql = "SELECT * FROM `comments` WHERE contentID = $ID ORDER BY commentID DESC";
+                                 $result = $link->query($sql);
+
+                                while ($row = $result->fetch_assoc())
+                                 {
+                                   $uname = $row["userID"];
+                                   $comments = $row["body"];
+
+                                   echo ' <li class="post" id="post-1">
+                                             <img src="img/movie1.jpg" alt="test">
+                                             <h1> '.$uname.'</h1>
+                                             <h2>'.$comments.'</h2>
+                                          </li>  ';
+                                 }
+
+
+                              }
+                           ?>
+
+                          
+
+                        
+                        </div>
+                     </ul>
+                  </div>
+               </div>
+
     </div>
    
 
