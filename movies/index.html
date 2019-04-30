@@ -71,33 +71,7 @@
                ?>
          </div>
       </div>
-      <div class= "box-suggested" style = "margin-top: 100px; margin-bottom: 1000px; padding-bottom: 100px;">
-         <h1>Recent Releases</h1>
-         <hr style="border: 1px solid gray;  margin-left: 3%; margin-right: 3%; margin-top: 10px;"/>
-         <!--Line Divider-->
-         <table style="width:100%; ">
-            <?php
-               $sql = "SELECT * FROM `content` ORDER by cid DESC Limit 12";
-               $result = $link->query($sql);
-               
-               while($row = $result->fetch_assoc()) 
-                {
-                   $CID = $row["cid"];
-                   $ctittle = $row["tittle"];
-                   $imgsrc = $row["image"];
-                   $full_link = "http://danc.ddns.net/description/?ID=".$CID;
-               
-                   echo ' 
-                   <tr>
-                      <td><a href="'.$full_link.'"><img src="..img/'.$imgsrc.'" alt="" width="50" height="50" /> </a></td>
-                      <td><a href= "'.$full_link.'" style="margin-right:1em;">'.$ctittle.'</a> </td>
-                 </tr> 
-                 </a>';
-               
-                }       
-               ?>           
-         </table>
-      </div>
+
       <!--- Footer -->
       <div class="sticky-bottom" style="padding-top:300%;">
          <footer id="footer">
