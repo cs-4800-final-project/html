@@ -56,20 +56,20 @@
     <!-- LEFT SIDE CONTENT DESCRIPTION BOX-->
     <div class="box-description" style="margin-top: 100px;">
       <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4> Show Information</h4>
-                </div>
-            </div>
-            <hr style="border: 1px solid gray;  margin-left: 2%; margin-right: 2%; margin-top: -10px;" />
-            <div class="row">
-                <div class="col-md-5"> 
-                     <img src="<?php echo $imglin; ?>" alt="test" style="margin-left: 5%;"> 
-                </div>
-            </div>
+         <div class="row">
+             <div class="col-sm-12">
+                 <h4> Show Information</h4>
+             </div>
+         </div>
+         <hr style="border: 1px solid gray;  margin-left: 2%; margin-right: 2%; margin-top: -10px;" />
+         <div class="row">
+             <div class="col-md-5"> 
+                  <img src="<?php echo $imglin; ?>" alt="test" style="margin-left: 5%;"> 
+             </div>
+         </div>
         <!--All the Movie/Show's Info-->
         <h1> <?php echo $title; ?> </h1>
-               <?php
+         <?php
         if ($type == "show")
         {
 
@@ -116,7 +116,6 @@
                    <h3> <?php echo $title; ?> </h3>                
                </div>
          </div>
-
         <hr style="border: 1px solid gray; transform: translateY(-210px); margin-left: 3%; margin-right: 3%;" />
         <!--Line Divider-->
         <!--All the Show/Movies Episodes in a Button-->
@@ -275,10 +274,10 @@
                 </div>
             </div>
 
-      <form method="POST">
+      <form method="POST" >
           <!--COMMENT BOX-->
           <div class="form-group" style="padding-bottom: 5%">
-               <input type="textarea" name="commentBox" class="form-control" rows="5"></input>
+               <input type="textarea" name="commentBox" class="form-control" rows="5">
               <button type="submit" name="comment-button" class="btn btn-warning" style="float:right;">Submit</button>
           </div>
       </form>
