@@ -100,9 +100,9 @@ include('../header.php');
                                     <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-default">Unfollow</a>
-                                    </div>
+                                    <form method="POST">
+                                       <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;"> Friend</button> </h1>
+                                    </form>
                                 </div>
                               </div>
                            </div>
@@ -161,6 +161,36 @@ include('../header.php');
 			</div>
 		</footer>
 	</div>
+
+<?php
+        if (isset($_POST['unfri-button']))
+        {
+        if (isset($_GET['ID']))
+        {
+        ini_set('display_errors', 1);
+        require_once "../dbcon/config.php";
+        $uid = $_SESSION['id'];
+        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
+
+        if ($link->query($sql) === true)
+        {
+        echo "
+        <script type='text/javascript'>alert(\"Unfriended\");</script>";
+        }
+
+        else
+        {
+        echo "
+        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+        }
+        }
+        }
+      
+      ?>
+
+
+
+
 </body>
 
 </html>
