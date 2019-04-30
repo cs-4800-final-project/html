@@ -195,7 +195,7 @@
               $ID     = $_GET['ID'];
               $commentText = $_POST['commentBox'];
 
-              $sql = "INSERT INTO `comments`( `userID`, `contentID`, `body`) VALUES ($uid,$ID,$commentText)";
+              $sql = "INSERT INTO `comments`( `userID`, `contentID`, `body`) VALUES ($uid,$ID,'.$commentText.')";
 
               if ($link->query($sql) === true)
               {
