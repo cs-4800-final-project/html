@@ -38,10 +38,8 @@ html, body {
 .box-description {
     float: left;
     width: 95%;
-    margin-left: 10px;
+    margin-left: 2.5%;
     margin-top: -5px;
-    
-
     padding: 15px;
     border: 2px solid gray;
     background: rgb(50,50,50);
@@ -65,9 +63,18 @@ html, body {
 .box-description h1 { /*---Title of Movie----*/
   color: rgb(255,188,26);
   font-size: 20px;
-  margin-top:5px;
-  text-align:center;
+  text-align: center;
+  
+  margin-right: 35%;
 }
+
+.box-description h2 { /*---Title of Movie----*/
+  color: rgb(255,188,26);
+  font-size: 20px;
+  text-align: center;
+}
+
+
 
 .box-description h3 {
     color: rgb(255,188,26);
