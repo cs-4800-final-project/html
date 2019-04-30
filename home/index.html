@@ -143,7 +143,7 @@
             <?php
               ini_set('display_errors', 1);
               require_once "../dbcon/config.php";
-              $sql = "SELECT * FROM `content` WHERE type = "show" ORDER BY cid DESC LIMIT 8";
+              $sql = "SELECT * FROM `content` WHERE type = 'show' ORDER BY cid DESC LIMIT 8";
               $result = $link->query($sql);
               if ($result->num_rows > 0)   {
                 // output data of each row
