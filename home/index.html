@@ -159,105 +159,47 @@
          <div id="header" style="margin-top: 1%;">
             <hr style="border: 1px solid gray; margin-left: 3%; margin-right: 3%;" />
             <!--Line Divider-->
-            <p id="bigTitle">Featured Videos</p>
+            <p id="bigTitle">Recent Movies</p>
          </div>
          <div id="list">
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <span class="duration">05:00</span>
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
+             <?php
+              ini_set('display_errors', 1);
+              require_once "../dbcon/config.php";
+              $sql = "SELECT * FROM `content` WHERE type = 'movie' ORDER BY cid DESC LIMIT 8";
+              $result = $link->query($sql);
+              if ($result->num_rows > 0)   {
+                // output data of each row
+                while($row = $result->fetch_assoc()) 
+                {
+                    $tittle = $row["tittle"];
+                    $imgsrc = $row["image"];
+                    $genre = $row["genre"];
+                    $year  = $row["year"];
+                    $studio = $row["studio"];
+                    $cid = $row["cid"];
+                    $vlink = "http://danc.ddns.net/description/?ID=".$cid;
+                    $desc = $row["description"];
+
+                    echo '
+                  <div class="videoItem">
+                  <p class="title">'.$tittle.'</p>
+                  <a href=" '.$vlink.' " class="thumbnail">
+                  <span class="duration">'.$genre.'</span>
+                  <img src="../img/'.$imgsrc.'"/>
                   <div class="play"></div>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
-            <div class="videoItem">
-               <p class="category">Category</p>
-               <a href="#" class="thumbnail">
-                  <img src="img/Kimi-no-Na-wa-Wallpaper-kimi-no-na-wa-40144869-1920-1200.png" />
-                  <div class="play"></div>
-                  <span class="duration">05:00</span>
-               </a>
-               <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui,
-                  ornare eu porttitor ut, tristique ac tellus.</a>
-               </p>
-               <p class="author"><a href="#">Author</a></p>
-            </div>
+                  </a>
+                  <p class="title"><a href="'.$vlink.'">'.$desc.'</a> </p>
+                  <p class="author"><a href="#">'.$studio.'</a></p>
+                  </div>';
+                   
+                }
+              } 
+               else
+              {
+                    echo "<p>0 results</p>";
+              }
+            
+            ?>
          </div>
       </div>
       <!--End Dark-Box-->
