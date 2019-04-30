@@ -66,7 +66,7 @@
                 <div class="col-md-5"> 
                      <img src="<?php echo $imglin; ?>" alt="test" style="margin-left: 5%;"> 
                 </div>
-
+            </div>
         <!--All the Movie/Show's Info-->
         <h1> <?php echo $title; ?> </h1>
                <?php
@@ -111,7 +111,6 @@
         <h2> <span>Released: </span><?php echo $year; ?> </h2>
         <h2> <span>Status: </span> Finished</h2>
  
-         </div>
          <div class="row">
                 <div class="col-md-12">
                    <h3> <?php echo $title; ?> </h3>                
@@ -213,66 +212,64 @@
 
 
 
-      <div class="row">
-         <div class="col-md-12" style="margin-left: 2%; margin-top:-2%;">
-        <?php
-        if (isset($_GET['ID']))
-        {
-
-           $uid = $_SESSION['id'];
-           $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
-           $result = $link->query($sql);
-
-           if ($result->num_rows > 0)
-           {
-
-           $sql = "SELECT * FROM episodes WHERE cid = $ID";
-           $result = $link->query($sql);
-
-           while ($row = $result->fetch_assoc())
-            {
-              $epnum = $row["ep_num"];
-              $full_link = "http://danc.ddns.net/videos/?ID=" . $ID . "&EID=" . $epnum;
-
-              echo ' <a href=' . $full_link . ' class="btn btn-outline-secondary" role="button">Episode: ' . $epnum . '&nbsp; </a>';
-
-            }
-           }
-
-           else
-           {
-              $uid = $_SESSION['id'];
-              $sql = "SELECT * FROM `rental` WHERE cid = $ID AND uid = $uid";
-              $result = $link->query($sql);
-              if ($result->num_rows > 0)
+         <div class="row">
+            <div class="col-md-12" style="margin-left: 2%; margin-top:-2%;">
+              <?php
+              if (isset($_GET['ID']))
               {
+
+                 $uid = $_SESSION['id'];
+                 $sql = "SELECT * FROM `subscription` WHERE cid = $ID AND uid = $uid";
+                 $result = $link->query($sql);
+
+                 if ($result->num_rows > 0)
+                 {
+
                  $sql = "SELECT * FROM episodes WHERE cid = $ID";
                  $result = $link->query($sql);
 
                  while ($row = $result->fetch_assoc())
-                 {
+                  {
                     $epnum = $row["ep_num"];
                     $full_link = "http://danc.ddns.net/videos/?ID=" . $ID . "&EID=" . $epnum;
 
-                    echo ' <a href=' . $full_link . ' class="btn btn-outline-secondary" role="button">Watch Movie</a>';
+                    echo ' <a href=' . $full_link . ' class="btn btn-outline-secondary" role="button">Episode: ' . $epnum . '&nbsp; </a>';
+
+                  }
+                 }
+
+                 else
+                 {
+                    $uid = $_SESSION['id'];
+                    $sql = "SELECT * FROM `rental` WHERE cid = $ID AND uid = $uid";
+                    $result = $link->query($sql);
+                    if ($result->num_rows > 0)
+                    {
+                       $sql = "SELECT * FROM episodes WHERE cid = $ID";
+                       $result = $link->query($sql);
+
+                       while ($row = $result->fetch_assoc())
+                       {
+                          $epnum = $row["ep_num"];
+                          $full_link = "http://danc.ddns.net/videos/?ID=" . $ID . "&EID=" . $epnum;
+
+                          echo ' <a href=' . $full_link . ' class="btn btn-outline-secondary" role="button">Watch Movie</a>';
+
+                        }
+
+                     }
 
                   }
 
-               }
+                }
 
-            }
-
-          }
-
-        ?>
+              ?>
             </div>
         </div>
 
          <hr style="border: 1px solid gray; margin-left: 2%; margin-right: 2%; margin-top: -10px;" />
-
-         
-
-         <div class="row">
+            <!--Line Divider-->
+            <div class="row">
                 <div class="col-md-12">
                     <p style="color: green; margin-left: 2%; margin-top: -20px;"> Leave a comment and rating!</p>
                 </div>
