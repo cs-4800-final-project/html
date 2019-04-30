@@ -308,13 +308,21 @@
 
                                 while ($row = $result->fetch_assoc())
                                  {
-                                   $uname = $row["userID"];
-                                   $comments = $row["body"];
+                                    $uname = $row["userID"];
+                                    $comments = $row["body"];
+                                    
+                                    $sql = "SELECT * FROM `account` WHERE id = $uname";
+                                    $secresult = $link->query($sql);
 
-                                   echo ' <li class="post" id="post-1">
+                                    while ($row = $result->fetch_assoc())
+                                    {
+                                       usern = $row["username"];
+                                       echo ' <li class="post" id="post-1">
                                              <h1> '.$uname.'</h1>
-                                             <h2>'.$comments.'</h2>
+                                             <h2>'$comments'</h2>
                                           </li>  ';
+                                    }
+
                                  }
 
 
