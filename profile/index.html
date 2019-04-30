@@ -309,49 +309,37 @@
       <?php
         if (isset($_POST['fri-button']))
         {
-        if (isset($_GET['ID']))
-        {
-        ini_set('display_errors', 1);
-        require_once "../dbcon/config.php";
-        $uid = $_SESSION['id'];
-        $fid = $_GET['ID'];
-        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
+	        if (isset($_GET['ID']))
+	        {
+		        ini_set('display_errors', 1);
+		        require_once "../dbcon/config.php";
+		        $uid = $_SESSION['id'];
+		        $fid = $_GET['ID'];
+		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
 
-        if ($link->query($sql) === true)
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Added Friend\");</script>";
-        }
+		        if ($link->query($sql) === true)
+		        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
 
-        else
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
-        }
-        }
+		        else
+		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+	        }
         }
 
         if (isset($_POST['unfri-button']))
         {
-        if (isset($_GET['ID']))
-        {
-        ini_set('display_errors', 1);
-        require_once "../dbcon/config.php";
-        $uid = $_SESSION['id'];
-        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
+	        if (isset($_GET['ID']))
+	        {
+		        ini_set('display_errors', 1);
+		        require_once "../dbcon/config.php";
+		        $uid = $_SESSION['id'];
+		        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
 
-        if ($link->query($sql) === true)
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Unfriended\");</script>";
-        }
+		        if ($link->query($sql) === true)
+		        { echo "<script type='text/javascript'>alert(\"Unfriended\");</script>";}
 
-        else
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
-        }
-        }
+		        else
+		        { echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+	        }
         }
       
       ?>
