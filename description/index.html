@@ -252,6 +252,29 @@
 
         ?>
         <p style="color: green; margin-left: 3%; transform: translateY(-580px);"> Leave a comment!</p>
+                <form>
+                <!--COMMENT BOX-->
+                <div class="form-group" style="padding-bottom: 5%">
+                    <label for="comment" style= "float:left;">Review: </label>
+                    
+                    <!--Star System-->
+                    <div class="rate" style = "float:left; margin-top: -15px;">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <button type="button" class="btn btn-warning" style="float:right;">Submit</button>
+                </div>
+            </form>
+
     </div>
     <div class="box-suggested" style="margin-top: 100px; margin-bottom: 1000px; padding-bottom: 100px;">
         <h1>Recent Releases</h1>
@@ -279,28 +302,7 @@
             ?>
         </table>
 
-            <form>
-                <!--COMMENT BOX-->
-                <div class="form-group" style="padding-bottom: 5%">
-                    <label for="comment" style= "float:left;">Review: </label>
-                    
-                    <!--Star System-->
-                    <div class="rate" style = "float:left; margin-top: -15px;">
-                            <input type="radio" id="star5" name="rate" value="5" />
-                            <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" />
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" />
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" />
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" />
-                            <label for="star1" title="text">1 star</label>
-                        </div>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                    <button type="button" class="btn btn-warning" style="float:right;">Submit</button>
-                </div>
-            </form>
+
 
 
     </div>
