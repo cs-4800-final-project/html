@@ -86,7 +86,7 @@
               if ($notmyaccount) {
                  $sqlb = "SELECT * FROM `friend` WHERE userID = $userid AND friendID = $fid";
                  $resultb = $link->query($sqlb);
-                 if ($result->num_rows > 0)
+                 if ($resultb->num_rows > 0)
                     {
                         echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unfri-button" style="margin:-1px;"> Unfriend</button> </h1></form>';
                     }
