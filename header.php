@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"> <img src="../img/logo.png"> </h1> </a>
+			<a class="navbar-brand" href="#"> <img src="http://danc.ddns.net/img/logo.png"> </h1> </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"> <span>
 			</button>
