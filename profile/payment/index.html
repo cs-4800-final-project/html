@@ -60,7 +60,7 @@ include('../../header.php');
 	       $result = $link->query($sql);
 	       if($result->num_rows > 0 )
 	       {
-	       		while($row = $sql->fetch_assoc()) 
+	       		while($row = $result->fetch_assoc()) 
 				{
 			       	$date = $row["date"];
 			       	$desc = $row["description"];
