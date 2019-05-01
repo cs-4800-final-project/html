@@ -31,7 +31,7 @@
 
 </head>
 <?php
-include('../header.php');
+include('../../header.php');
 ?>
 <body>
 
@@ -50,7 +50,7 @@ include('../header.php');
 		</tr>
 		<?php
 		ini_set('display_errors', 1);
-	       require_once "../dbcon/config.php";
+	       require_once "../../dbcon/config.php";
 	       $uid = $_SESSION['id'];
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
 	       while($result->num_rows > 0 )
