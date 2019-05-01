@@ -180,16 +180,19 @@
                     $cid = $row["cid"];
                     $vlink = "http://danc.ddns.net/description/?ID=".$cid;
                     $desc = $row["description"];
-
+                    $baseurl = "http://danc.ddns.net/search/?ID=";
+                    $completeurlstu = $baseurl.$studio;   
+                    $completeurlgenr = $baseurl.$genre;                    
+                 
                     echo '
                   <div class="videoItem">
                   <a href=" '.$vlink.' " class="thumbnail">
-                  <span class="duration">'.$genre.'</span>
                   <img src="../img/'.$imgsrc.'"/>
                   <div class="play"></div>
                   </a>
                   <p class="title"><a href="'.$vlink.'">'.$tittle.'</a> </p>
-                  <p class="author"><a href="#">'.$studio.'</a></p>
+                  <p class="author"><a href="'.$completeurlstu.'">'.$studio.'</a></p>
+                  <p class="author"><a href="'.$completeurlgenr.'">'.$genre.'</a></p>
                   </div>';
                    
                 }
