@@ -30,44 +30,13 @@
 	
 
 </head>
+<?php
+include('../header.php');
+?>
 <body>
 
 
 <!-- Navigation -->
-<nav class ="navbar navbar-expand-md navbar-dark bg-gray fixed-top "> 
-<div class = "container-fluid"> 
-	<a class = "navbar-brand" href="#"> <img src = "../../img/logo.png"> </h1> </a>
-	<button class="navbar-toggler" type= "button" data-toggle="collapse" data-target = "#navbarResponsive">
-		<span class =  "navbar-toggler-icon"> <span>
-	</button>
-	<div class = "collapse navbar-collapse" id= "navbarResponsive">
-		<ul class = "navbar-nav ml-auto">
-
-				<form class="form-inline "> <!-- This is the search bar-->
-						<div class="md-form my-0"> 
-							<input class="form-control form-control-sm mr-3 w-80" type="text" placeholder="Search" aria-label="Search">
-							<i class="fas fa-search" aria-hidden="true"></i>
-						</div>
-					  </form>
-
-			<li class = "nav-item">
-				<a class ="nav-link" href = "http://danc.ddns.net/home"> Home </a>
-			</li>
-				<a class ="nav-link" href = ""> My Subscriptions </a>
-			</li>
-				<a class ="nav-link" href = ""> Shows </a>
-			</li>
-				<a class ="nav-link" href = "#"> Movies </a>
-			</li>
-					<a class="nav-link" href="http://danc.ddns.net/profile"> My Profile </a>
-					<!--Make this a dropdown w/ profile picture later -->
-					</li>
-					<a class="nav-link" href="http://danc.ddns.net/dbcon/logout.php"> Logout </a>
-			</li>
-		</ul>
-	</div>
-</div>
-</nav>
 
 <!--Payment History Table-->
 <div payment-table style = "margin-top: 10em;">
@@ -79,52 +48,25 @@
 			<th>Description</th>
 			<th>Payment</th>
 		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Standard monthly Nufu subscription service </td>
-			<td>$10.00</td>
-		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Additional Show Slot (Quantity: 3) </td>
-			<td>$3.00</td>
-		</tr><tr>
-			<td>01/01/2019</td>
-			<td>Standard monthly Nufu subscription service </td>
-			<td>$10.00</td>
-		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Additional Show Slot (Quantity: 3) </td>
-			<td>$3.00</td>
-		</tr><tr>
-			<td>01/01/2019</td>
-			<td>Standard monthly Nufu subscription service </td>
-			<td>$10.00</td>
-		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Additional Show Slot (Quantity: 3) </td>
-			<td>$3.00</td>
-		</tr><tr>
-			<td>01/01/2019</td>
-			<td>Standard monthly Nufu subscription service </td>
-			<td>$10.00</td>
-		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Additional Show Slot (Quantity: 3) </td>
-			<td>$3.00</td>
-		</tr><tr>
-			<td>01/01/2019</td>
-			<td>Standard monthly Nufu subscription service </td>
-			<td>$10.00</td>
-		</tr>
-		<tr>
-			<td>01/01/2019</td>
-			<td>Additional Show Slot (Quantity: 3) </td>
-			<td>$3.00</td>
-		</tr>
+		<?php
+		ini_set('display_errors', 1);
+	       require_once "../dbcon/config.php";
+	       $uid = $_SESSION['id'];
+	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
+	       while($result->num_rows > 0 )
+	       {
+	       	$date = $row["date"];
+	       	$desc = $row["description"];
+	       	$pric = $row["price"];
+	       	echo '
+			<tr>
+			<td>'.$date.'</td>
+			<td>'.$desc.' </td>
+			<td>$'.$pric.'</td>
+			</tr>';
+	       }
+		
+		?>
 	</table>
 </div>
 
