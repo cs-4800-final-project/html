@@ -137,9 +137,9 @@ window.onload = function(){
 if(isset($_GET['ID']))
 {
   $find = $_GET['ID'];
-  $findsql =  "SELECT * FROM `account` WHERE `username` LIKE '%$find%'";
+  $findsql =  "SELECT * FROM `account` WHERE `username` = '".$find."'";
   $fresult = $link->query($findsql);
-  while($fresult->num_rows>0)
+  if($fresult->num_rows>0)
   {
     $row = $fresult->fetch_assoc();
     $profile = $row["profile"];
@@ -171,7 +171,10 @@ if(isset($_GET['ID']))
     <!-- end col-6 -->
     ';
   }
-
+  else
+  {
+    echo'<h1>No one with that username!</h1>';
+  }
   
 }
 ?>
