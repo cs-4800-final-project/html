@@ -136,6 +136,7 @@ window.onload = function(){
 if(isset($_GET['ID']))
 {
   $fusid = $_GET['ID'];
+  echo $fusid;
   $sql = "SELECT * FROM account WHERE username = '".$fusid."'";
   $resultc = $link->query($sql);
  
