@@ -137,9 +137,9 @@ if(isset($_GET['ID']))
 {
   $fusid = $_GET['ID'];
   $sql = "SELECT * FROM account WHERE username = '".$fusid."'";
-  $result = $link->query($sql);
+  $resultc = $link->query($sql);
  
-  while($result->num_rows > 0)
+  while($resultc->num_rows > 0)
   {  
       $friendfind = $row["id"];
       $profile = $row["profile"];
