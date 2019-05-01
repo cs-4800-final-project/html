@@ -53,7 +53,8 @@ include('../../header.php');
 	       require_once "../../dbcon/config.php";
 	       $uid = $_SESSION['id'];
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
-	       if($sql->num_rows > 0 )
+	       $result = $link->query($sql);
+	       if($result->num_rows > 0 )
 	       {
 	       		while($row = $sql->fetch_assoc()) 
 				{
