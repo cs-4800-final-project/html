@@ -53,18 +53,23 @@ include('../../header.php');
 	       require_once "../../dbcon/config.php";
 	       $uid = $_SESSION['id'];
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
-	       while($sql->num_rows > 0 )
+	       if($sql->num_rows > 0 )
 	       {
-	       	$date = $row["date"];
-	       	$desc = $row["description"];
-	       	$pric = $row["price"];
-	       	echo '
-			<tr>
-			<td>'.$date.'</td>
-			<td>'.$desc.' </td>
-			<td>$'.$pric.'</td>
-			</tr>';
+	       		while($row = $sql->fetch_assoc()) 
+				{
+			       	$date = $row["date"];
+			       	$desc = $row["description"];
+			       	$pric = $row["price"];
+			       	echo '
+					<tr>
+					<td>'.$date.'</td>
+					<td>'.$desc.' </td>
+					<td>$'.$pric.'</td>
+					</tr>';
+	       		}
+
 	       }
+	       
 		
 		?>
 	</table>
