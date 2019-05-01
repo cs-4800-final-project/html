@@ -140,8 +140,7 @@ if(isset($_GET['ID']))
   $sql = "SELECT * FROM account WHERE username = '".$fusid."'";
   $resultc = $link->query($sql);
  
-  while($resultc->num_rows > 0)
-  {  
+      $row = $resultc->fetch_assoc()
       $friendfind = $row["id"];
       $profile = $row["profile"];
       $user = $row["username"];
@@ -166,8 +165,9 @@ if(isset($_GET['ID']))
                            </div>
                         </div>
                         <!-- end col-6 -->
-                        ';}
+                        ';
   }
+}
   else
   {
     echo '<h1>No one with that username!</h1>';
