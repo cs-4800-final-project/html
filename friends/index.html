@@ -50,8 +50,16 @@ error_reporting(E_ALL ^ E_WARNING);
 if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
 include('../header.php');
 ?>
-<!--Friendslist -->
 
+<!--Friendslist -->
+<script>
+window.onload = function(){
+    document.getElementsByName("unfri-button").onclick = function(){
+        document.getElementsByName("postvar")[0].value = this.value;
+        document.forms.myform.submit();
+    }
+};
+</script>
 <div class="container">
    <div class="row">
       <div class="col-md-12">
@@ -100,8 +108,9 @@ include('../header.php');
                                     <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
                                  </div>
                                  <div class="media-body valign-middle text-right overflow-visible">
-                                    <form method="POST">
-                                       <h1> <button type="submit" class="btn btn-outline-success" name="unfri-button" style="margin:-1px;"> Unfriend</button> </h1>
+                                    <form action="" method="POST">
+                                       <h1> <button type="submit" class="btn btn-outline-success" name="unfri-button" style="margin:-1px;" value ="'.$friend.'"> Unfriend</button> </h1>
+                                       <input type="hidden" name="id" value="'.$friend.'"/>
                                     </form>
                                 </div>
                               </div>
@@ -124,8 +133,51 @@ include('../header.php');
       </div>
    </div>
 </div>
-
-	
+<?php
+if(isset($_GET['ID']))
+{
+  $find = $_GET['ID'];
+  $findsql =  "SELECT * FROM `account` WHERE `username` = '".$find."'";
+  $fresult = $link->query($findsql);
+  if($fresult->num_rows>0)
+  {
+    $row = $fresult->fetch_assoc();
+    $profile = $row["profile"];
+    $user = $row["username"];
+    $friend = $row["id"];
+    $plink = "?ID=".$friend;
+    echo'
+    <hr>
+    <h1>Found User!</h1>
+    <!-- begin col-6 -->
+    <div class="col-md-6 m-b-2">
+       <div class="p-10 bg-white">
+          <div class="media media-xs overflow-visible">
+             <a class="media-left" href="javascript:;">
+             <img src="../profile/'.$profile.'" alt="" width="50" height="50">
+             </a>
+             <div class="media-body valign-middle">
+                <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
+             </div>
+             <div class="media-body valign-middle text-right overflow-visible">
+                <form action="" method="POST">
+                   <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;" value ="'.$friend.'"> Friend</button> </h1>
+                   <input type="hidden" name="id" value="'.$friend.'"/>
+                </form>
+            </div>
+          </div>
+       </div>
+    </div>
+    <!-- end col-6 -->
+    ';
+  }
+  else
+  {
+    echo'<h1>No one with that username!</h1>';
+  }
+  
+}
+?>
 	<!--- Footer -->
 	<div class="sticky-bottom" style="padding-top:300%;">
 		<footer id="footer">
@@ -165,12 +217,13 @@ include('../header.php');
 <?php
         if (isset($_POST['unfri-button']))
         {
-        if (isset($_GET['ID']))
+        if (isset($_POST['id']))
         {
         ini_set('display_errors', 1);
         require_once "../dbcon/config.php";
         $uid = $_SESSION['id'];
-        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
+        $delfid = $_POST['id'];
+        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $delfid";
 
         if ($link->query($sql) === true)
         {
@@ -185,7 +238,24 @@ include('../header.php');
         }
         }
         }
-      
+        
+        if (isset($_POST['fri-button']))
+        {
+	        if (isset($_GET['ID']))
+	        {
+		        ini_set('display_errors', 1);
+		        require_once "../dbcon/config.php";
+		        $uid = $_SESSION['id'];
+		        $friendID = $_POST['id'];
+		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$friendID,1)";
+
+		        if ($link->query($sql) === true)
+		        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
+
+		        else
+		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+	        }
+        }
       ?>
 
 

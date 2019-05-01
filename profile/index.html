@@ -27,7 +27,19 @@
       </script>
    </head>
    <?php
+
+       if (isset($_POST['friend-search']))
+        {
+			$searchq1 = $_POST['searchFriends'];
+			$baseurl2 = "http://danc.ddns.net/friends/?ID=";
+			$completeurl2 = $baseurl2.$searchq1;
+			header( "Location:".$completeurl2 ); 
+        }
+      
       include('../header.php');
+
+
+
       ?>
    <body>
       <?php
@@ -52,7 +64,7 @@
          $result = $link->query($sql);
          
          
-         if ($result->num_rows > 0 )   {
+         //if ($result->num_rows > 0 )   {
          // output data of each row
               $row = $result->fetch_assoc();
               $user = $row["username"];
@@ -80,26 +92,13 @@
          		<span class="navbar-toggler-icon"></span>
          	</button>
          	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-         		<ul class="navbar-nav">
-         			<li class="nav-item active">
-                        <a class="nav-link" href="./account/">| Edit Profile&nbsp; <i class="fas fa-pen"></i> | <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./payment">| Payment History |</a>
-                    </li>
-                    <form class="form-inline" method="POST">
-                            <div class="md-form my-0">
-                                <input type="text" class="form-control form-control-sm mr-3 w-80" name="search" placeholder="Search for Friends">
-                                <button type="submit" name="submit-search" style= "background-color:Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"><i class="fas fa-search" aria-hidden="true" style= "color:white;"></i></button>
-                            </div>
-                    </form>
-         		</ul>	';
+         		';
              
              
               if ($notmyaccount) {
                  $sqlb = "SELECT * FROM `friend` WHERE userID = $userid AND friendID = $fid";
                  $resultb = $link->query($sqlb);
-                 if ($result->num_rows > 0)
+                 if ($resultb->num_rows > 0)
                     {
                         echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unfri-button" style="margin:-1px;"> Unfriend</button> </h1></form>';
                     }
@@ -112,19 +111,23 @@
                     }
                 }
 
-              }
               else
               {
               echo '
               <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="./account/">| Edit Profile&nbsp; <i class="fas fa-pen"></i> | <span
-                    class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./payment">| Payment History |</a>
-              </li>
-              </ul> ';
+         			<li class="nav-item active">
+                        <a class="nav-link" href="./account/">| Edit Profile&nbsp; <i class="fas fa-pen"></i> | <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./payment">| Payment History |</a>
+                    </li>
+                    <form class="form-inline" method="POST">
+                            <div class="md-form my-0">
+                                <input type="text" class="form-control form-control-sm mr-3 w-80" name="searchFriends" placeholder="Search for Friends">
+                                <button type="submit" name="friend-search" style= "background-color:Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"><i class="fas fa-search" aria-hidden="true" style= "color:white;"></i></button>
+                            </div>
+                    </form>
+         		</ul>	';
 
               }
               
@@ -161,7 +164,7 @@
          </div>
          </div>
          
-         ';}
+         ';
          ?>
       <!--Friendlist-->
       <div class="box-profile2">
@@ -318,51 +321,38 @@
       <?php
         if (isset($_POST['fri-button']))
         {
-        if (isset($_GET['ID']))
-        {
-        ini_set('display_errors', 1);
-        require_once "../dbcon/config.php";
-        $uid = $_SESSION['id'];
-        $fid = $_GET['ID'];
-        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
+	        if (isset($_GET['ID']))
+	        {
+		        ini_set('display_errors', 1);
+		        require_once "../dbcon/config.php";
+		        $uid = $_SESSION['id'];
+		        $fid = $_GET['ID'];
+		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
 
-        if ($link->query($sql) === true)
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Added Friend\");</script>";
-        }
+		        if ($link->query($sql) === true)
+		        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
 
-        else
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
-        }
-        }
+		        else
+		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+	        }
         }
 
         if (isset($_POST['unfri-button']))
         {
-        if (isset($_GET['ID']))
-        {
-        ini_set('display_errors', 1);
-        require_once "../dbcon/config.php";
-        $uid = $_SESSION['id'];
-        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
+	        if (isset($_GET['ID']))
+	        {
+		        ini_set('display_errors', 1);
+		        require_once "../dbcon/config.php";
+		        $uid = $_SESSION['id'];
+		        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
 
-        if ($link->query($sql) === true)
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Unfriended\");</script>";
-        }
+		        if ($link->query($sql) === true)
+		        { echo "<script type='text/javascript'>alert(\"Unfriended\");</script>";}
 
-        else
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+		        else
+		        { echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+	        }
         }
-        }
-        }
-      
       ?>
       
       

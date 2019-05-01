@@ -67,7 +67,9 @@
            $pass = $_POST["password"];
            $emai = $_POST["email"];
            // Prepare an insert statement
-           $sql = "INSERT INTO `account`(`username`, `password`, `email`) VALUES ('$user','$pass','$emai')";
+
+           $sql = "INSERT INTO `account`(`username`, `password`, `email`,'profile','country') VALUES ('$user','$pass','$emai','male.png','Earth')";
+           var_dump($sql);
             
            if(mysqli_query($link, $sql))
             { 
