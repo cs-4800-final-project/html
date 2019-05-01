@@ -49,8 +49,11 @@ include('../../header.php');
 			<th>Payment</th>
 		</tr>
 		<?php
-		ini_set('display_errors', 1);
+		   ini_set('display_errors', 1);
 	       require_once "../../dbcon/config.php";
+	       
+	       setlocale(LC_MONETARY, 'en_US');
+
 	       $uid = $_SESSION['id'];
 	       $ptot = 0.00;
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
@@ -67,7 +70,7 @@ include('../../header.php');
 					<tr>
 					<td>'.$date.'</td>
 					<td>'.$desc.' </td>
-					<td>$ '.$pric.'</td>
+					<td>money_format('%(#n', $pric)</td>
 					</tr>';
 	       		}
 
@@ -77,7 +80,7 @@ include('../../header.php');
 	    	<tr>
 			<th></th>
 			<th>Total Ammount Due:</th>
-			<th>$ '.$ptot.'</th>
+			<th>money_format('%(#n', $ptot)</th>
 			</tr>';
 		
 		?>
