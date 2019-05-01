@@ -60,54 +60,7 @@ window.onload = function(){
     }
 };
 </script>
-<?php
-if(isset($_GET['ID']))
-{
-  $find = $_GET['ID'];
-  $findsql =  "SELECT * FROM `account` WHERE `username` LIKE '%$find%'";
-  $fresult = $link->query($findsql);
-  if($fresult->num_rows>0)
-  {
-    $row = $fresult->fetch_assoc();
-    $profile = $row["profile"];
-    $user = $row["username"];
-    $friend = $row["id"];
-    $plink = "?ID=".$friend;
-    echo'
-    <hr>
-    <h1>Found User!</h1>
-    <!-- begin col-6 -->
-    <div class="col-md-6 m-b-2">
-       <div class="p-10 bg-white">
-          <div class="media media-xs overflow-visible">
-             <a class="media-left" href="javascript:;">
-             <img src="../profile/'.$profile.'" alt="" width="50" height="50">
-             </a>
-             <div class="media-body valign-middle">
-                <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
-             </div>
-             <div class="media-body valign-middle text-right overflow-visible">
-                <form action="" method="POST">
-                   <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;" value ="'.$friend.'"> Friend</button> </h1>
-                   <input type="hidden" name="id" value="'.$friend.'"/>
-                </form>
-            </div>
-          </div>
-       </div>
-    </div>
-    <!-- end col-6 -->
-    ';
-  }
-  else
-  {
-    echo'<h1>No one with that username!</h1>';
-  }
-  
-}
-else
-{
- echo '
- <div class="container">
+<div class="container">
    <div class="row">
       <div class="col-md-12">
          <div id="content" class="content content-full-width">
@@ -117,8 +70,10 @@ else
                <div class="tab-content p-0">
                   <!-- begin #profile-friends tab -->
                   <div class="tab-pane fade in active show" id="profile-friends">
- ';
-  //ini_set('display_errors', 1);
+                     <?php
+                     
+                         
+                         //ini_set('display_errors', 1);
                         require_once "../dbcon/config.php";
                          
                         $uid = $_SESSION["id"];
@@ -166,7 +121,7 @@ else
                         };
 
                         ?>
-                     echo '</div>
+                     </div>
                      <!-- end row -->
                   </div>
                   <!-- end #profile-friends tab -->
@@ -177,13 +132,51 @@ else
          </div>
       </div>
    </div>
-</div>';
-
+</div>
+<?php
+if(isset($_GET['ID']))
+{
+  $find = $_GET['ID'];
+  $findsql =  "SELECT * FROM `account` WHERE `username` LIKE '%$find%'";
+  $fresult = $link->query($findsql);
+  if($fresult->num_rows>0)
+  {
+    $row = $fresult->fetch_assoc();
+    $profile = $row["profile"];
+    $user = $row["username"];
+    $friend = $row["id"];
+    $plink = "?ID=".$friend;
+    echo'
+    <hr>
+    <h1>Found User!</h1>
+    <!-- begin col-6 -->
+    <div class="col-md-6 m-b-2">
+       <div class="p-10 bg-white">
+          <div class="media media-xs overflow-visible">
+             <a class="media-left" href="javascript:;">
+             <img src="../profile/'.$profile.'" alt="" width="50" height="50">
+             </a>
+             <div class="media-body valign-middle">
+                <a href="../profile/'.$plink.'"><b class="text-inverse">'.$user.'</b></a>
+             </div>
+             <div class="media-body valign-middle text-right overflow-visible">
+                <form action="" method="POST">
+                   <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;" value ="'.$friend.'"> Friend</button> </h1>
+                   <input type="hidden" name="id" value="'.$friend.'"/>
+                </form>
+            </div>
+          </div>
+       </div>
+    </div>
+    <!-- end col-6 -->
+    ';
+  }
+  else
+  {
+    echo'<h1>No one with that username!</h1>';
+  }
+  
 }
-
-                     
-                     
-
 ?>
 	<!--- Footer -->
 	<div class="sticky-bottom" style="padding-top:300%;">
