@@ -70,7 +70,9 @@ include('../../header.php');
 					<tr>
 					<td>'.$date.'</td>
 					<td>'.$desc.' </td>
-					<td>money_format('%(#n', $pric)</td>
+					<td>';
+					echo money_format('%(#n', $pric)';
+					echo'</td>
 					</tr>';
 	       		}
 
@@ -80,7 +82,9 @@ include('../../header.php');
 	    	<tr>
 			<th></th>
 			<th>Total Ammount Due:</th>
-			<th>money_format('%(#n', $ptot)</th>
+			<th>';
+			echo money_format('%(#n', $ptot)';
+			echo'</th>
 			</tr>';
 		
 		?>
