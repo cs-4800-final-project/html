@@ -137,7 +137,7 @@ window.onload = function(){
 if(isset($_GET['ID']))
 {
   $find = $_GET['ID'];
-  $findsql =  "SELECT * FROM `account` WHERE `username` LIKE '%$ID%'";
+  $findsql =  "SELECT * FROM `account` WHERE `username` LIKE '%$find%'";
   $fresult = $link->query($findsql);
   if($fresult->num_rows>0)
   {
