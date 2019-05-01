@@ -52,10 +52,10 @@ include('../../header.php');
 		   ini_set('display_errors', 1);
 	       require_once "../../dbcon/config.php";
 	       
-	       setlocale(LC_MONETARY, 'en_US');
+	       setlocale(LC_MONETARY, 'en_US.UTF-8');
 
 	       $uid = $_SESSION['id'];
-	       $ptot = 100.10;
+	       $ptot = 0.00;
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
 	       $result = $link->query($sql);
 	       if($result->num_rows > 0 )
@@ -65,14 +65,12 @@ include('../../header.php');
 			       	$date = $row["date"];
 			       	$desc = $row["description"];
 			       	$pric = $row["price"];
-			       	
+              $ptot = $ptot + $pric;
 			       	echo '
 					<tr>
 					<td>'.$date.'</td>
 					<td>'.$desc.' </td>
-					<td> $';
-					echo money_format('%.2', $pric);
-					echo'</td>
+					<td> $ '.$pric.'</td>
 					</tr>';
 	       		}
 
