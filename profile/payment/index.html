@@ -52,6 +52,7 @@ include('../../header.php');
 		ini_set('display_errors', 1);
 	       require_once "../../dbcon/config.php";
 	       $uid = $_SESSION['id'];
+	       $ptot = 0.00;
 	       $sql = "SELECT * FROM payment WHERE id = '".$uid."'";
 	       $result = $link->query($sql);
 	       if($result->num_rows > 0 )
@@ -61,6 +62,7 @@ include('../../header.php');
 			       	$date = $row["date"];
 			       	$desc = $row["description"];
 			       	$pric = $row["price"];
+			       	$ptot += $pric;
 			       	echo '
 					<tr>
 					<td>'.$date.'</td>
@@ -73,6 +75,11 @@ include('../../header.php');
 	       
 		
 		?>
+		<tr>
+			<th></th>
+			<th>Total Ammount Due:</th>
+			<th>$'.$ptot.'</th>
+		</tr>
 	</table>
 </div>
 
