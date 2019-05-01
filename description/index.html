@@ -130,12 +130,36 @@
               ini_set('display_errors', 1);
               require_once "../dbcon/config.php";
               $uid = $_SESSION['id'];
+              $sql1 = "SELECT * FROM `subscription` WHERE `uid` = '".$uid."'";
+              $result = $link->query($sql1);
+              if ($result->num_rows > 10 )
+              {
+                //add slot
+                $sql2 = "SELECT * FROM `account` WHERE `id` = '".$uid."'";
+                $result2 = $link->query($sql2);
+                $rows = $result2->fetch_assoc();
+                $subslot = rows["subslots"];
+                $subslot = $subslot + 1;
+                
+                $sql3 = "Update 'account' set 'subslots'= $subslot where `id` = '".$uid."'";
+                $link->query($sql3);
+               
+                
+                $today = date("Y-m-d");
+                $desc = "Subscription Slot Added";
+                $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,$desc,1.5)";
+                $link->query($sqla);
+              }
+              else
+              {
+                //enough slots
+              }
+              
               $sql = "INSERT INTO subscription (cid,uid,days_left) VALUES ($ID,$uid,30)";
-
               if ($link->query($sql) === true)
               {
-                 echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";
-               }
+                    echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";;                    
+              }
 
               else
               {
@@ -179,15 +203,10 @@
                   $today = date("Y-m-d");
                   $desc = "Movie Rented: ".$title;
                   $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,$desc,0.5)";
-                  if(mysqli_query($sqla,$link))
+                  if($link->query($sqla) === true)
                   { 
                     echo "<script type='text/javascript'>alert(\"Added to Rentals\");</script>";
-                  } 
-                  
-                 
-                  
-
-                  
+                  }                   
               }
 
               else
