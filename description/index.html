@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -176,7 +176,7 @@
 
               if ($link->query($sql) === true)
               {
-                  date_default_timezone_set('America/Los_Angeles');
+                  
                   $today = date("Y-m-d");
                   $desc = "Movie Rented: ".$title;
                   $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,$desc,0.5)";
