@@ -110,6 +110,7 @@ window.onload = function(){
                                  <div class="media-body valign-middle text-right overflow-visible">
                                     <form action="" method="POST">
                                        <h1> <button type="submit" class="btn btn-outline-success" name="unfri-button" style="margin:-1px;" value ="'.$friend.'"> Unfriend</button> </h1>
+                                       <input type="hidden" name="id" value="'.$friend.'"/>
                                     </form>
                                 </div>
                               </div>
@@ -161,6 +162,7 @@ if(isset($_GET['ID']))
              <div class="media-body valign-middle text-right overflow-visible">
                 <form action="" method="POST">
                    <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;" value ="'.$friend.'"> Friend</button> </h1>
+                   <input type="hidden" name="id" value="'.$friend.'"/>
                 </form>
             </div>
           </div>
@@ -215,12 +217,12 @@ if(isset($_GET['ID']))
 <?php
         if (isset($_POST['unfri-button']))
         {
-        if (isset($_POST["postvar"]))
+        if (isset($_POST['id']))
         {
         ini_set('display_errors', 1);
         require_once "../dbcon/config.php";
         $uid = $_SESSION['id'];
-        $delfid = $_POST["postvar"];
+        $delfid = $_POST['id'];
         $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $delfid";
 
         if ($link->query($sql) === true)
@@ -244,7 +246,7 @@ if(isset($_GET['ID']))
 		        ini_set('display_errors', 1);
 		        require_once "../dbcon/config.php";
 		        $uid = $_SESSION['id'];
-		        $friendID = $_POST["postvar"];
+		        $friendID = $_POST['id'];
 		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$friendID,1)";
 
 		        if ($link->query($sql) === true)
