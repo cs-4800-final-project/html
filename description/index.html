@@ -177,9 +177,9 @@
               if ($link->query($sql) === true)
               {
 
-                  $today = date("Y-m-d");
-                  $desc = 'Movie Rented: '+'.$title.';
-                  $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,$desc,0.5)";
+                  
+                  $desc = "'"Movie Rented: ".$title;
+                  $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,CURDATE(),$desc,0.5)";
                   $link->query($sqla);
                   echo "<script type='text/javascript'>alert(\"Added to Rentals\");</script>";
 
