@@ -158,7 +158,8 @@
               $sql = "INSERT INTO subscription (cid,uid,days_left) VALUES ($ID,$uid,30)";
               if ($link->query($sql) === true)
               {
-                    echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";;                    
+                    echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";;
+                     echo "<meta http-equiv='refresh' content='0'>";                    
               }
 
               else
@@ -180,6 +181,7 @@
               if ($link->query($sql) === true)
               {
                   echo "<script type='text/javascript'>alert(\"Unsubscribed\");</script>";
+                  echo "<meta http-equiv='refresh' content='0'>";
               }
 
               else
@@ -208,6 +210,7 @@
                   if($link->query($sqla) === true)
                   { 
                     echo "<script type='text/javascript'>alert(\"Added to Rentals\");</script>";
+                    echo "<meta http-equiv='refresh' content='0'>";
                   }                   
               }
 
