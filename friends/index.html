@@ -12,8 +12,6 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="friend-page-style.css" rel="stylesheet">
 
-
-
 	<!--Change Navbar Color on Scroll & Pause video when you scroll down-->
 	<script>
 		$(window).scroll(function () {
@@ -46,9 +44,9 @@
 
 <body>
 <?php
-error_reporting(E_ALL ^ E_WARNING);
-if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
-include('../header.php');
+	error_reporting(E_ALL ^ E_WARNING);
+	if (session_status !== PHP_SESSION_ACTIVE) {session_start();}
+	include('../header.php');
 ?>
 
 <!--Friendslist -->
@@ -71,8 +69,6 @@ window.onload = function(){
                   <!-- begin #profile-friends tab -->
                   <div class="tab-pane fade in active show" id="profile-friends">
                      <?php
-
-
                          //ini_set('display_errors', 1);
                         require_once "../dbcon/config.php";
 
@@ -82,19 +78,18 @@ window.onload = function(){
                         $result = $link->query($sql);
                         $number = $result->num_rows;
 
-
                      echo '<h4 class="m-t-0 m-b-20">Friend List ('.$number.')</h4>
                      <!-- begin row -->
                      <div class="row row-space-2">';
                         while($row = $result->fetch_assoc()){
-                        $friend = $row["friendID"];
-                        $sql2 = "SELECT * FROM `account` WHERE id = $friend";
-                        $result2 = $link->query($sql2);
+                        	$friend = $row["friendID"];
+                        	$sql2 = "SELECT * FROM `account` WHERE id = $friend";
+                        	$result2 = $link->query($sql2);
 
-                        $row2 = $result2->fetch_assoc();
-                        $profile = $row2["profile"];
-                        $user = $row2["username"];
-                        $plink = "?ID=".$friend;
+                        	$row2 = $result2->fetch_assoc();
+                        	$profile = $row2["profile"];
+                        	$user = $row2["username"];
+                        	$plink = "?ID=".$friend;
 
                         echo '
                         <!-- begin col-6 -->
@@ -190,7 +185,6 @@ if(isset($_GET['ID']))
 					<h3><a href="#">Terms & Conditions</a></h3>
 				</div>
 
-
 				<div class="right-footer">
 
 					<h3> Follow us on Social Media!</h3>
@@ -199,9 +193,7 @@ if(isset($_GET['ID']))
 						<a href="#"><i class="fab fa-twitter-square"></i> </a>
 						<a href="#"><i class="fab fa-google-plus-square"></i> </a>
 
-
 					</h2>
-
 				</div>
 				<div class="center-footer">
 					<h3><a href="#">About Us</a></h3>
@@ -215,51 +207,47 @@ if(isset($_GET['ID']))
 	</div>
 
 <?php
-        if (isset($_POST['unfri-button']))
-        {
-        if (isset($_POST['id']))
-        {
+    if (isset($_POST['unfri-button']))
+    {
+    	if (isset($_POST['id']))
+    	{
+	    		ini_set('display_errors', 1);
+			    require_once "../dbcon/config.php";
+			    $uid = $_SESSION['id'];
+			    $delfid = $_POST['id'];
+			    $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $delfid";
+
+			    if ($link->query($sql) === true)
+			    {
+				    echo "
+				    <script type='text/javascript'>alert(\"Unfriended\");</script>";
+			    }
+			    else
+			    {
+				    echo "
+				    <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
+			    }
+	    }
+    }
+
+    if (isset($_POST['fri-button']))
+    {
+      if (isset($_GET['ID']))
+      {
         ini_set('display_errors', 1);
         require_once "../dbcon/config.php";
         $uid = $_SESSION['id'];
-        $delfid = $_POST['id'];
-        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $delfid";
+        $friendID = $_POST['id'];
+        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$friendID,1)";
 
         if ($link->query($sql) === true)
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Unfriended\");</script>";
-        }
+        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
 
         else
-        {
-        echo "
-        <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";
-        }
-        }
-        }
-
-        if (isset($_POST['fri-button']))
-        {
-	        if (isset($_GET['ID']))
-	        {
-		        ini_set('display_errors', 1);
-		        require_once "../dbcon/config.php";
-		        $uid = $_SESSION['id'];
-		        $friendID = $_POST['id'];
-		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$friendID,1)";
-
-		        if ($link->query($sql) === true)
-		        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
-
-		        else
-		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
-	        }
-        }
-      ?>
-
-
-
+        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
+      }
+    }
+	?>
 
 </body>
 
