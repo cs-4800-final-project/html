@@ -15,13 +15,13 @@
          $(window).scroll(function () {
          	var scroll = $(window).scrollTop();
          	var vid = document.getElementById("player");
-         
+
          	if (scroll < 300) {
          		$('.fixed-top').css('background', 'transparent');
          		$('#slides').carousel({ interval: 500 });
          	} else {
          		$('.fixed-top').css('background', 'rgba(22, 22, 22)');
-         
+
          	}
          });
       </script>
@@ -33,9 +33,9 @@
 			$searchq1 = $_POST['searchFriends'];
 			$baseurl2 = "http://danc.ddns.net/friends/?ID=";
 			$completeurl2 = $baseurl2.$searchq1;
-			header( "Location:".$completeurl2 ); 
+			header( "Location:".$completeurl2 );
         }
-      
+
       include('../header.php');
 
 
@@ -52,18 +52,18 @@
               $fid = $_GET['ID'];
               $userid = $_SESSION['id'];
               $notmyaccount =  TRUE;
-              
+
             }
             else
             {
              $uid = $_SESSION['id'];
              $notmyaccount = FALSE;
            }
-         
+
          $sql = "SELECT * FROM account WHERE id = '".$uid."'";
          $result = $link->query($sql);
-         
-         
+
+
          //if ($result->num_rows > 0 )   {
          // output data of each row
               $row = $result->fetch_assoc();
@@ -72,10 +72,10 @@
               $loc = $row["country"];
               $subtime = $row["subtime"];
               $pic = $row["profile"];
-         
+
          echo '<!--Timeline Cover Photo as well as Profile Image-->
          <div id="slides" class="carousel slide carousel-fade" data-ride="carousel">
-         
+
          <div id="myCarousel" class="carousel-inner-profile">
          <div class="carousel-item active">
          <img src="../img/background.png" style="z-index: -1;">
@@ -93,20 +93,20 @@
          	</button>
          	<div class="collapse navbar-collapse" id="navbarNavDropdown">
          		';
-             
-             
+
+
               if ($notmyaccount) {
                  $sqlb = "SELECT * FROM `friend` WHERE userID = $userid AND friendID = $fid";
                  $resultb = $link->query($sqlb);
                  if ($resultb->num_rows > 0)
                     {
-                        echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unfri-button" style="margin:-1px;"> Unfriend</button> </h1></form>';
+                        echo '<form method="POST"><h1> <button type="submit" class="btn btn-outline-danger" name="unfri-button" style="margin:-1px;"> Unfollow</button> </h1></form>';
                     }
                 else
                     {
                         echo '
                         <form method="POST">
-                            <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;"> Friend</button> </h1>
+                            <h1> <button type="submit" class="btn btn-outline-success" name="fri-button" style="margin:-1px;"> Follow</button> </h1>
                         </form>';
                     }
                 }
@@ -123,29 +123,29 @@
                     </li>
                     <form class="form-inline" method="POST">
                             <div class="md-form my-0">
-                                <input type="text" class="form-control form-control-sm mr-3 w-80" name="searchFriends" placeholder="Search for Friends">
+                                <input type="text" class="form-control form-control-sm mr-3 w-80" name="searchFriends" placeholder="Search for Users">
                                 <button type="submit" name="friend-search" style= "background-color:Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"><i class="fas fa-search" aria-hidden="true" style= "color:white;"></i></button>
                             </div>
                     </form>
          		</ul>	';
 
               }
-              
-         	echo '	
+
+         	echo '
          	</div>
          </nav>
 
          </div>
-         
+
          </div>
          </div>
          </div>
-         
-         
+
+
          <!--Left Box Contents-->
-         
+
          <div class="box-profile" style="margin: 50px,50px;">
-         
+
          <div class="panel panel-default">
          <div class="panel-body">
          <div class="media-body">
@@ -163,14 +163,14 @@
          </div>
          </div>
          </div>
-         
+
          ';
          ?>
       <!--Friendlist-->
       <div class="box-profile2">
          <div class="panel panel-default">
             <div class="panel-body">
-               <div class="media-body">                     
+               <div class="media-body">
 					<?php
 						ini_set('display_errors', 1);
                         require_once "../dbcon/config.php";
@@ -186,7 +186,7 @@
                         $result = $link->query($sql);
                         $number = $result->num_rows;
 
-						echo '<h3><strong>Friends &nbsp;· &nbsp;'.$number.'</strong></h3>
+						echo '<h3><strong>Followed Users: &nbsp;ï¿½ &nbsp;'.$number.'</strong></h3>
                   		<hr style="border: 1px solid gray; margin-left: 1%; margin-right: 1%; margin-top: 10px;" />
                  		 <div class="profile-pics">
                      		<div class= "profile-pics-container">';
@@ -207,12 +207,12 @@
                            </a>
                         </div>';
                     	};
-                    ?>   
-                    </div>    
+                    ?>
+                    </div>
                   </div>
                   <hr style="border: 1px solid gray;  margin-top: 10px;" />
                   <!--Line Divider-->
-                  <a href="../friends" style=" margin-right: 30%;"> Manage Friends</a>
+                  <a href="../friends" style=" margin-right: 30%;"> Manage Followed Users</a>
                </div>
             </div>
          </div>
@@ -224,8 +224,8 @@
             <div class="panel-body">
                <span>
                   <h1 class="panel-title pull-left" style="font-size:25px;">Your Subscriptions <small></small> </h1>
-                  
-                  <?php   
+
+                  <?php
                      ini_set('display_errors', 1);
                        require_once "../dbcon/config.php";
                        if(isset($_GET['ID']))
@@ -251,18 +251,18 @@
                                  <!-- begin row -->
                                  <div class="row row-space-2">
                                  ';
-                                while($row = $result->fetch_assoc()) 
+                                while($row = $result->fetch_assoc())
                                 {
                                   $title = $row["tittle"];
                                    $image = $row["image"];
                                    $cid = $row["cid"];
                                    $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-                     
+
                                    echo '<a href="'.$vlink.'"><img src="../img/'.$image.'" alt="" width="100" height="100" /> </a>
                                  ';
                                  }
                              echo '</div>';
-                     
+
                      ?>
                </div>
                <hr style="border: 1px solid gray;  margin-top: 10px;" />
@@ -278,12 +278,12 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<span>
-					<h1 class="panel-title pull-left" style="font-size:25px;">Your Movie Rentals <small></small> </h1> 
-					
+					<h1 class="panel-title pull-left" style="font-size:25px;">Your Movie Rentals <small></small> </h1>
+
 					<?php
 					$sql = "SELECT content.* FROM `content`, `rental` WHERE rental.uid = $uid AND content.cid = rental.cid";
                     $result = $link->query($sql);
-                    $number = $result->num_rows;  
+                    $number = $result->num_rows;
 
                     echo '
 					<h1 class="panel-title pull-left" style="font-size:12px; color: gray;"> '.$number.' movies currently rented</h1>
@@ -295,13 +295,13 @@
 					<h4 class="m-t-0 m-b-20"> Rentals ('.$number.') </h4>
                                  <!-- begin row -->
                     <div class="row row-space-2">';
-				        while($row = $result->fetch_assoc()) 
+				        while($row = $result->fetch_assoc())
 	                    {
 	                      $title = $row["tittle"];
 	                       $image = $row["image"];
 	                       $cid = $row["cid"];
 	                       $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-	         
+
 	                       echo '<a href="'.$vlink.'"><img src="../img/'.$image.'" alt="" width="100" height="100" /> </a>';
 	                    }
                              echo '</div>';
@@ -313,11 +313,11 @@
 			</div>
 		</div>
     </div>
-    
+
      <!--END COPY AND PASTE -->
- 
-      
-      
+
+
+
       <?php
         if (isset($_POST['fri-button']))
         {
@@ -330,7 +330,7 @@
 		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
 
 		        if ($link->query($sql) === true)
-		        { echo "<script type='text/javascript'>alert(\"Added Friend\");</script>";}
+		        { echo "<script type='text/javascript'>alert(\"Followed\");</script>";}
 
 		        else
 		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
@@ -347,21 +347,21 @@
 		        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
 
 		        if ($link->query($sql) === true)
-		        { echo "<script type='text/javascript'>alert(\"Unfriended\");</script>";}
+		        { echo "<script type='text/javascript'>alert(\"Unfollowed\");</script>";}
 
 		        else
 		        { echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
 	        }
         }
       ?>
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
       <!--- Footer -->
      <?php
       include('../footer.php');
