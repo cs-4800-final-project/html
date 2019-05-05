@@ -78,7 +78,7 @@ window.onload = function(){
                         $result = $link->query($sql);
                         $number = $result->num_rows;
 
-                     echo '<h4 class="m-t-0 m-b-20">Friend List ('.$number.')</h4>
+                     echo '<h4 class="m-t-0 m-b-20">Followed Users ('.$number.')</h4>
                      <!-- begin row -->
                      <div class="row row-space-2">';
                         while($row = $result->fetch_assoc()){

@@ -1,15 +1,15 @@
 
 <?php
-	 require_once "../../dbcon/config.php";		
+	 require_once "../../dbcon/config.php";
 ?>
 
 <?php
   session_start();
   //Create a query
-  
+
   $uid = $_SESSION['id'];
   $sql = "SELECT * FROM account WHERE id = '".$uid."'";
-  
+
   $result = $link->query($sql) or die(mysql_error());
 	$row = $result->fetch_assoc();
      if(isset($_POST['Submit'])){
@@ -28,20 +28,20 @@
     $sec = $_POST['updateSecC'];
 
     $update = "UPDATE account SET username = '$username', password = '$password', email='$email', creditnumber ='$cred', expdate='$exp', seccode='$sec', bio='$bio', country = '$loc' WHERE id = '".$uid."'";
-  	
+
 
   	//profile = '$profile',
   	if(mysqli_query($link, $update))
-    { 
-      echo "Record was updated successfully."; 
+    {
+      echo "Record was updated successfully.";
       // Redirect user to welcome page
         header("location: ..");
-    } 
-    else 
-    { 
-        echo "ERROR: Could not able to execute $sql. "  
-                                . mysqli_error($link); 
-    } 
+    }
+    else
+    {
+        echo "ERROR: Could not able to execute $sql. "
+                                . mysqli_error($link);
+    }
    }
    if(isset($_POST['Return'])){
    header("location: ..");
@@ -91,14 +91,14 @@
                     <input class="form-control" type="text" name="updateEmail" value="<?php echo $row['email']; ?>"></div>
                 </div>
             </div>
-        </dix>
+        </div>
         <div id="biography">
             <hr><label>Profile Biography</label>
             <div class="form-row">
                 <div class="col"><textarea class="form-control" name="updateBio"><?php echo $row['bio']; ?></textarea></div>
             </div>
         </div>
-        
+
         <div id="payment">
             <hr><label>Payment and Subscription Information</label>
             <div class="form-row">
@@ -138,7 +138,7 @@
         </div>
     </div>
     </form>
-     
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
