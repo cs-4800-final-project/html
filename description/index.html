@@ -147,7 +147,7 @@
                 
                 $today = date("Y-m-d");
                 $desc = "Subscription Slot Added";
-                $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,$desc,1.5)";
+                $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,'$desc',1.5)";
                 $link->query($sqla);
               }
               else

@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(225,225,225);
+  background-color: #141414;
+}
+/*--- Navbar ---*/
+
+.navbar {
+  background:transparent;
+}
+
+.navbar h1 {
+  color: rgb(110, 8, 5)
+}
+
+.bg-gray {
+  /*background-color: rgb(20, 20, 20);*/
+  transition: 1000ms ease;
+  background: transparent;
+}  
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+/*--Star Rating--*/ 
+.star-rating {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.checked {
+  color: orange;
+}
+
+/*--Pick a Star---*/
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+
+/*--Video Description Page--*/
+
+.box-description {
+    float: left;
+    width: 65%;
+    margin-left: 45px;
+    margin-top: -5px;
+    padding: 15px;
+    border: 2px solid gray;
+    background: rgb(50,50,50);
+
+}
+
+.box-description img {
+  width: 305px;
+  height: 431px;
+}
+
+.box-description p {
+  font-size: 12px;
+  color: #FFFFFF;
+  
+}
+
+/*---Title of Movie----*/
+.box-description h1 { 
+  color: rgb(255,188,26);
+  font-size: 20px;
+}
+
+.box-description h2 {
+  color: white;
+  font-size: 12px;
+
+}
+
+.box-description h3 {
+    color: rgb(255,188,26);
+    font-size: 20px;
+
+}
+
+/*--Head Font Color--*/
+.box-description h4 { 
+  color: rgb(255,188,26);
+  font-size: 25px;
+  text-align: center;
+
+}
+
+/*---Changes color for "genre, release, studio,etc..." --*/ 
+.box-description span { 
+  color: green;
+}
+
+.box-description a {
+ 
+  font-size: 12px;
+}
+
+.btn {
+  margin-right:1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+/*--Comment box--*/
+.box-comments {
+  float: left;
+  width: 100%;
+  height: 1000px;
+  padding-top: 40%;
+  padding-left: 5%;
+  background: rgb(50,50,50);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+.karma-system h1{
+
+  color: gray;
+  transform: translateY(-2300%);
+}
+
+/*---The box on the right---*/
+.box-suggested {
+    
+    position:relative;
+    float: right;
+    height: 100%;
+    width: 25%;
+    padding-left:3%;
+    margin-left: 1%;
+    margin-right: 3%;
+    padding: 0px;
+    border: 2px solid gray;
+    background: rgb(50,50,50);
+    border: 1px solid rgb(255,255,255);
+    overflow: auto;
+}
+
+.box-suggested img{
+  margin-top:10px;
+  margin-left: 3%;
+  width: 100px;
+  height: 61px;
+}
+
+.box-suggested h1{ /*--Header--*/
+  color: rgb(255,188,26);
+  font-size: 20px;
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.box-suggested p {
+  color: white;
+  font-size: 12px;
+  padding-top: -10px;
+
+}
+
+.box-suggested a {
+
+  margin-left: 3%;
+  margin-right: -2%;
+  font-size: 12px;
+  text-decoration:none;
+  color: rgb(255,188,26);
+}
+
+/*--COMMENT SECTION IN VIDEO DESCRIPTION--*/                                                         
+#post-list li{ /*--Gets rid of bullet points in list---*/
+  list-style-type: none;
+
+}
+
+.post-list img {
+  margin-left: -5%;
+  height: 60px; 
+  width: 60px; 
+  transform: translateY(-560%);
+}
+
+.post-list h1 { /*--Name, Score, Post Date--*/
+  font-size:15px;
+  color: gray;
+  margin-left: 3%;
+  margin-right: 10%;
+  transform: translate(20px,-400px);
+ 
+  
+}
+.post-list h2 { /*--Parent Comment--*/
+  font-size: 15px;
+  color: white;
+  margin-left: 3%;
+  transform: translate(20px,-400px);
+
+}
+
+
+/*--CSS used in other pages, but altered ---*/
+
+.unstyled-button {
+    border: none;
+    padding: 0;
+    background: none;
+    color:white;
+    font-size: 12px;
+    margin-right: 1%;
+    margin-left: 1%;
+
+    
+  }
+
+
+  /*---Pop-up Stuff----*/
+
+
+  #box {
+    width: 500px; 
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0  0 20px black;
+    border-radius: 8px; 
+    position: absolute;
+    top:50%;
+    left:50%;
+    padding:10px;
+    text-align: left;
+    display: none;
+  }
+
+  #box h1 {
+    color: #333;
+    font-size: 20px;
+    
+  }
+  
+  .close{
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    cursor:pointer;
+    background :orangered;
+    display:inline-block;
+
+    border-radius: 4px;
+  }
+  
+
+/*----CUSTOM SCROLLBAR---*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+a { /*--- Link color override-----*/
+  text-decoration:none;
+  color: rgb(128,128,128);
+}
+
+/*--- Footer stuff---*/ 
+#footer h3{
+  font-size: 12px;
+  text-shadow: 1px 1px 15px #000;
+  color : rgb(128,128,128);
+}
+#footer h2 {
+  font-size: 20px;
+}
+#footer{
+  position: relative;
+  overflow: hidden;
+  bottom: 0;
+  text-align: left ;
+  font-family: 'Poppins', sans-serif;
+  background-color: #222 ;
+}
+.wrap{
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.left-footer {
+  float: left;
+  width:33%;
+}
+.right-footer {
+  float: right;
+  width: 33%;
+}
+.center-footer{
+  overflow:hidden;
+}
+
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+}
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+
