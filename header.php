@@ -18,6 +18,10 @@
   				header('Location: ../');
   				exit();
 			}
+			if (isset($_SESSION["loggedin"])) {
+  				header('Location: ../home');
+  				exit();
+			}
 			if ( isset($_POST['submit-search']) )
 			{
 				$searchq = $_POST['search'];
