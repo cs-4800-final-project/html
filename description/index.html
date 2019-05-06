@@ -202,7 +202,7 @@
 
               if ($link->query($sql) === true)
               {
-                  $today = date('y-m-d', strtotime($data[24]));
+                  $today = date("Y-m-d");
                   $desc = "Movie Rented: ".$title;
                   $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,'$desc',0.5)";
 
