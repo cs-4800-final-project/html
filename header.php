@@ -10,7 +10,7 @@
 			<?php
 			session_start();
 			if (!isset($_SESSION["loggedin"])) {
-  				header("'Location: ../'");
+  				header('Location: ../');
   				exit();
 			}
 			if ( isset($_POST['submit-search']) )
