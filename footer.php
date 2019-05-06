@@ -6,7 +6,6 @@
                         <h3>NUFU is an academic Project and not a real service</h3>
                         <h3>NUFU does not have real social media pages</h3>
                         <h3>NUFU is not a real company, do not contact us</h3>
-
                 </div>
 
             </div>
