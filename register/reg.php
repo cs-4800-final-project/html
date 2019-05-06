@@ -70,10 +70,23 @@
 
            $sql = "INSERT INTO `account`(`username`, `password`, `email`,`profile`,`country`) VALUES ('$user','$pass','$emai','male.png','Earth')";
            var_dump($sql);
+           
             
            if(mysqli_query($link, $sql))
             { 
             echo "Account register successfully."; 
+            $today = date("Y-m-d");
+            $sqlb = "SELECT * FROM `account` WHERE username = '".$user."'";
+            $resultb = $link->query($sqlb);
+            if ($resultb->num_rows > 0 )   {
+         
+              $row = $result->fetch_assoc();
+              $usid = $row["id"];
+
+              $sqla = "INSERT INTO `payment`(`id`, `date`, `description`, `price`) VALUES ($usid,$today,"Nufu Monthly Subscription",10)";
+              $resulta = $link->query($sqla);
+            }
+            
             // Redirect user to welcome page
             header("location: ../login");
              } 
