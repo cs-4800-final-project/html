@@ -9,6 +9,7 @@
 
 			<?php
 			session_start();
+			ini_set('display_errors',0);
 			if (!isset($_SESSION["loggedin"])) {
   				header('Location: ../');
   				exit();
