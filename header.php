@@ -8,7 +8,7 @@
 				<ul class="navbar-nav ml-auto">
 
 			<?php
-			if (!isset($_SESSION) {
+			if (!isset($_SESSION)) {
   				header("'Location: ../'");
 			}
 			if ( isset($_POST['submit-search']) )
