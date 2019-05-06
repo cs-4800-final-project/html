@@ -8,8 +8,8 @@
 				<ul class="navbar-nav ml-auto">
 
 			<?php
-			if (session_status() == PHP_SESSION_DISABLED) {
-  				header("'Location: http://danc.ddns.net/'");
+			if (!isset($_SESSION) {
+  				header("'Location: ../'");
 			}
 			if ( isset($_POST['submit-search']) )
 			{
