@@ -9,7 +9,7 @@
 
 			<?php
 			if (session_status() == PHP_SESSION_DISABLED) {
-  				header("location: ..");
+  				header("'Location: http://danc.ddns.net/'");
 			}
 			if ( isset($_POST['submit-search']) )
 			{
