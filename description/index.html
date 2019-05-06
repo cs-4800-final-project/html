@@ -63,10 +63,10 @@
          </div>
          <hr style="border: 1px solid gray;  margin-left: 2%; margin-right: 2%; margin-top: -10px;" />
          <div class="row">
-             <div class="col-md-5"> 
-                  <img src="<?php echo $imglin; ?>" alt="test" style="margin-left: 5%;"> 
+             <div class="col-md-5">
+                  <img src="<?php echo $imglin; ?>" alt="test" style="margin-left: 5%;">
              </div>
-         
+
             <!--All the Movie/Show's Info-->
             <div class="col-md-7">
                 <h1> <?php echo $title; ?> </h1>
@@ -116,7 +116,7 @@
 
          <div class="row">
                 <div class="col-md-12">
-                   <h3> <?php echo $title; ?> </h3>                
+                   <h3> <?php echo $title; ?> </h3>
                </div>
          </div>
         <hr style="border: 1px solid gray; margin-left: 3%; margin-right: 3%;" />
@@ -140,11 +140,11 @@
                 $rows = $result2->fetch_assoc();
                 $subslot = rows["subslots"];
                 $subslot = $subslot + 1;
-                
+
                 $sql3 = "Update 'account' set 'subslots'= $subslot where `id` = '".$uid."'";
                 $link->query($sql3);
-               
-                
+
+
                 $today = date("Y-m-d");
                 $desc = "Subscription Slot Added";
                 $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,'$desc',1.5)";
@@ -154,12 +154,12 @@
               {
                 //enough slots
               }
-              
+
               $sql = "INSERT INTO subscription (cid,uid,days_left) VALUES ($ID,$uid,30)";
               if ($link->query($sql) === true)
               {
                     echo "<script type='text/javascript'>alert(\"Added to subscription\");</script>";;
-                     echo "<meta http-equiv='refresh' content='0'>";                    
+                     echo "<meta http-equiv='refresh' content='0'>";
               }
 
               else
@@ -205,13 +205,13 @@
                   $today = date("Y-m-d");
                   $desc = "Movie Rented: ".$title;
                   $sqla = "INSERT INTO payment (id,date,description,price) VALUES ($uid,$today,'$desc',0.5)";
-                  
+
                   var_dump($sqla);
                   if($link->query($sqla) === true)
-                  { 
+                  {
                     echo "<script type='text/javascript'>alert(\"Added to Rentals\");</script>";
                     echo "<meta http-equiv='refresh' content='0'>";
-                  }                   
+                  }
               }
 
               else
@@ -319,7 +319,7 @@
               <button type="submit" name="comment-button" class="btn btn-warning" style="float:right;">Submit</button>
           </div>
       </form>
-      
+
 
 
 
@@ -334,7 +334,7 @@
                            <?php
                               if (isset($_GET['ID']))
                               {
-                                 $ID = $_GET['ID'];                              
+                                 $ID = $_GET['ID'];
                                  $sql = "SELECT comments.body as co, account.username as us FROM `comments`, `account` WHERE comments.contentID = $ID AND comments.userID = account.id ORDER BY comments.commentID DESC";
                                  $result = $link->query($sql);
 
@@ -353,9 +353,9 @@
                               }
                            ?>
 
-                          
 
-                        
+
+
                         </div>
                      </ul>
                   </div>
@@ -363,7 +363,7 @@
          </div>
 
     </div>
-   
+
 
 
 
@@ -402,7 +402,7 @@
     </div>
     <!--- Footer -->
      <?php
-      include('../footer.php');
+      include('../footer_inside.php');
       ?>
 </body>
 </html>
