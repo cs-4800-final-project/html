@@ -15,13 +15,13 @@
          $(window).scroll(function () {
              var scroll = $(window).scrollTop();
              var vid = document.getElementById("player");
-         
+
              if (scroll < 100) {
                  $('.fixed-top').css('background', 'transparent');
                  $('#slides').carousel({ interval: 500 });
              } else {
                  $('.fixed-top').css('background', 'rgba(39, 39, 39)');
-         
+
              }
          });
       </script>
@@ -39,9 +39,9 @@
          }
       </script>
    </head>
-   <?php 
-      session_start(); 
-      
+   <?php
+      session_start();
+
       include('../header.php');
       ?>
    <body>
@@ -57,7 +57,7 @@
                         <!-- begin #profile-friends tab -->
                         <div class="tab-pane fade in active show" id="profile-friends">
                            <!-- begin col-6 -->
-                           <?php   
+                           <?php
                               ini_set('display_errors', 1);
                                 require_once "../dbcon/config.php";
                                 $uid = $_SESSION['id'];
@@ -68,13 +68,13 @@
                               <!-- begin row -->
                               <div class="row row-space-2">
                               ';
-                              while($row = $result->fetch_assoc()) 
+                              while($row = $result->fetch_assoc())
                               {
                                $title = $row["tittle"];
                                 $image = $row["image"];
                                 $cid = $row["cid"];
                                 $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-                              
+
                                 echo '
                               <div class="col-md-6 m-b-2">
                                   <div class="p-10 bg-white">
@@ -86,13 +86,13 @@
                                           <div class="media-body valign-middle">
                                               <a href=" '.$vlink.' "><b class="text-inverse">'.$title.'</b></a>
                                           </div>
-                          
+
                                       </div>
                                   </div>
                               </div>
                               ';
                               }
-                              
+
                               ?>
                            <!-- end col-6 -->
                         </div>
@@ -125,20 +125,20 @@
                                 $uid = $_SESSION['id'];
                                 $sql = "SELECT content.* FROM `content`, `rental` WHERE rental.uid = $uid AND content.cid = rental.cid";
                                 $result = $link->query($sql);
-                              
+
                                 $number = $result->num_rows;
                                  echo '<h4 class="m-t-0 m-b-20"> Rented Movies ('.$number.')</h4>
                                   <!-- begin row -->
                                   <div class="row row-space-2">
                                  ';
-                                 while($row = $result->fetch_assoc()) 
+                                 while($row = $result->fetch_assoc())
                                  {
                                     $title = $row["tittle"];
                                     $image = $row["image"];
                                     $cid = $row["cid"];
                                     $vlink = "http://danc.ddns.net/description/?ID=".$cid;
-                              
-                                 
+
+
                                  echo'
                                   <div class="col-md-6 m-b-2">
                                       <div class="p-10 bg-white">
@@ -154,7 +154,7 @@
                                       </div>
                                   </div>
                                   ';
-                              
+
                                   }
                                   ?>
                         </div>
@@ -169,7 +169,7 @@
          </div>
       </div>
       </div>
-    
+
       <!-- Navigation -->
       <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
          <div class="container-fluid">
@@ -207,6 +207,9 @@
          </div>
       </nav>
       <!--- Footer -->
-  
+      <?php
+       include('../footer.php');
+       ?>
+
    </body>
 </html>
