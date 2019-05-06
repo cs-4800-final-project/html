@@ -8,6 +8,9 @@
 				<ul class="navbar-nav ml-auto">
 
 			<?php
+			if (session_status() == PHP_SESSION_DISABLED) {
+  				header("location: ..");
+			}
 			if ( isset($_POST['submit-search']) )
 			{
 				$searchq = $_POST['search'];
