@@ -8,8 +8,12 @@
 				<ul class="navbar-nav ml-auto">
 
 			<?php
-			session_start();
-			ini_set('display_errors',0);
+			
+		    if(!isset($_SESSION)) 
+		    { 
+		        session_start(); 
+		    } 
+
 			if (!isset($_SESSION["loggedin"])) {
   				header('Location: ../');
   				exit();
