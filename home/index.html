@@ -16,15 +16,15 @@
          $(window).scroll(function () {
              var scroll = $(window).scrollTop();
              var vid = document.getElementById("player");
-         
+
              if (scroll < 700) {
                  $('.fixed-top').css('background', 'transparent');
                  vid.play();
              } else {
                  $('.fixed-top').css('background', 'rgba(22, 22, 22)');
-         
+
                  vid.pause();
-         
+
              }
          });
       </script>
@@ -43,7 +43,7 @@
                  if (!this.paused) {
                      this.pause();
                      var pauseTime = mediaElement.currentTime;
-         
+
                  }
              });
          });
@@ -114,7 +114,7 @@
               $result = $link->query($sql);
               if ($result->num_rows > 0)   {
                 // output data of each row
-                while($row = $result->fetch_assoc()) 
+                while($row = $result->fetch_assoc())
                 {
                     $tittle = $row["tittle"];
                     $imgsrc = $row["image"];
@@ -125,9 +125,9 @@
                     $vlink = "http://danc.ddns.net/description/?ID=".$cid;
                     $desc = $row["description"];
                     $baseurl = "http://danc.ddns.net/search/?ID=";
-                    $completeurlstu = $baseurl.$studio;   
-                    $completeurlgenr = $baseurl.$genre;                    
-                 
+                    $completeurlstu = $baseurl.$studio;
+                    $completeurlgenr = $baseurl.$genre;
+
                     echo '
                   <div class="videoItem">
                   <a href=" '.$vlink.' " class="thumbnail">
@@ -139,17 +139,17 @@
                   <p class="author"><a href="'.$completeurlgenr.'">'.$genre.'</a></p>
 
                   </div>';
-                   
+
                 }
-              } 
+              }
                else
               {
                     echo "<p>0 results</p>";
               }
-            
+
             ?>
 
-            
+
          </div>
       </div>
       <!--End Light-Box-->
@@ -170,7 +170,7 @@
               $result = $link->query($sql);
               if ($result->num_rows > 0)   {
                 // output data of each row
-                while($row = $result->fetch_assoc()) 
+                while($row = $result->fetch_assoc())
                 {
                     $tittle = $row["tittle"];
                     $imgsrc = $row["image"];
@@ -181,9 +181,9 @@
                     $vlink = "http://danc.ddns.net/description/?ID=".$cid;
                     $desc = $row["description"];
                     $baseurl = "http://danc.ddns.net/search/?ID=";
-                    $completeurlstu = $baseurl.$studio;   
-                    $completeurlgenr = $baseurl.$genre;                    
-                 
+                    $completeurlstu = $baseurl.$studio;
+                    $completeurlgenr = $baseurl.$genre;
+
                     echo '
                   <div class="videoItem">
                   <a href=" '.$vlink.' " class="thumbnail">
@@ -194,21 +194,22 @@
                   <p class="author"><a href="'.$completeurlstu.'">'.$studio.'</a></p>
                   <p class="author"><a href="'.$completeurlgenr.'">'.$genre.'</a></p>
                   </div>';
-                   
+
                 }
-              } 
+              }
                else
               {
                     echo "<p>0 results</p>";
               }
-            
+
             ?>
          </div>
       </div>
       <!--End Dark-Box-->
       <!--- Footer -->
-      <?php
-      include('../footer.php');
-      ?>
+
    </body>
+   <?php
+    include('../footer.php');
+    ?>
 </html>
