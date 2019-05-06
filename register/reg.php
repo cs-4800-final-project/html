@@ -83,7 +83,7 @@
               $row = $result->fetch_assoc();
               $usid = $row["id"];
 
-              $sqla = "INSERT INTO `payment`(`id`, `date`, `description`, `price`) VALUES ($usid,$today,"Nufu Monthly Subscription",10)";
+              $sqla = "INSERT INTO `payment`(`id`, `date`, `description`, `price`) VALUES ($usid,$today,'Nufu Monthly Subscription',10)";
               $resulta = $link->query($sqla);
             }
             
