@@ -14,10 +14,21 @@
       <link rel="stylesheet" href="../assets/css/Registration-Form-with-Photo.css">
       <link rel="stylesheet" href="../assets/css/styles.css">
    </head>
+
+   <nav class="navbar navbar-expand-md navbar-dark bg-gray fixed-top ">
+   		<div class="container-fluid">
+   			<a class="navbar-brand" href="http://danc.ddns.net"> <img src="http://danc.ddns.net/img/white_logo.png" style = "width:200px;height:80px;"></a>
+   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+   				<span class="navbar-toggler-icon"> <span>
+   			</button>
+
+   		</div>
+   	</nav>
+
    <body>
       <div class="register-photo">
          <div class="form-container">
-            <div class="image-holder"></div>
+
             <form action = "reg.php" method="post">
                <h2 class="text-center"><strong>Create</strong> an account.</h2>
                <div class="form-group"><input class="form-control" type="username" name="username" placeholder="Username"></div>
@@ -34,5 +45,10 @@
       </div>
       <script src="../assets/js/jquery.min.js"></script>
       <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+      
+      <?php
+       include('../footer.php');
+       ?>
+
    </body>
 </html>
