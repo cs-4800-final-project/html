@@ -68,8 +68,8 @@
            $emai = $_POST["email"];
            // Prepare an insert statement
 
-           $sql = "INSERT INTO `account`(`username`, `password`, `email`,`profile`,`country`) VALUES ('$user','$pass','$emai','male.png','Earth')";
-           var_dump($sql);
+           $sql = "INSERT INTO `account`(`username`, `password`, `email`,`profile`,`country`,'subtime') VALUES ('$user','$pass','$emai','male.png','Earth','30')";
+           
             
            if(mysqli_query($link, $sql))
             { 
