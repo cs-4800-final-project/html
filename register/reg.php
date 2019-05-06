@@ -80,7 +80,7 @@
             $resultb = $link->query($sqlb);
             if ($resultb->num_rows > 0 )   {
          
-              $row = $result->fetch_assoc();
+              $row = $resultb->fetch_assoc();
               $usid = $row["id"];
 
               $sqla = "INSERT INTO `payment`(`id`, `date`, `description`, `price`) VALUES ($usid,$today,'Nufu Monthly Subscription',10)";
