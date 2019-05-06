@@ -40,18 +40,18 @@
 #menubar a:hover
 {
 	color: #505050;
-	background: white; 
+	background: white;
 }
 /*****OLD FOOTER STUFF****/
-/*#footer 
-{	
+/*#footer
+{
 	width: 94%
 	padding: 3%;
 	background-color: #505050;
 	font-size: 30px;
 }*/
 
-/*--- Footer---*/ 
+/*--- Footer---*/
 #footer h3{
   font-size: 12px;
   text-shadow: 1px 1px 15px #000;
@@ -125,7 +125,7 @@ table, th, td {
 }
 th, td {
   padding: 5px;
-  text-align: left;    
+  text-align: left;
 }
 
 html, body {
@@ -161,10 +161,10 @@ html, body {
 
   }
 @media (max-width: 768px) {
-  
+
 }
 @media (max-width: 576px) {
-  
+
 }
 
 
