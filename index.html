@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
+<?php
+    if (isset($_SESSION["loggedin"])) {
+                header('Location: ../home');
+                exit();
+            }
+?>
 <body>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">

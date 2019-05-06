@@ -18,6 +18,7 @@
   				header('Location: ../');
   				exit();
 			}
+			
 			if ( isset($_POST['submit-search']) )
 			{
 				$searchq = $_POST['search'];
