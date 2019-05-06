@@ -330,7 +330,7 @@
 		        $sql = "INSERT INTO friend (userID,friendID,follow) VALUES ($uid,$fid,1)";
 
 		        if ($link->query($sql) === true)
-		        { echo "<script type='text/javascript'>alert(\"Followed\");</script>";}
+		        {echo "<meta http-equiv='refresh' content='0'>";}
 
 		        else
 		        { echo " <script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
@@ -347,7 +347,7 @@
 		        $sql = "DELETE FROM friend WHERE userID = $uid AND friendID = $fid";
 
 		        if ($link->query($sql) === true)
-		        { echo "<script type='text/javascript'>alert(\"Unfollowed\");</script>";}
+		        { echo "<meta http-equiv='refresh' content='0'>";}
 
 		        else
 		        { echo "<script type='text/javascript'>alert(\"Erorr.$sql\");</script>";}
