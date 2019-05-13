@@ -21,6 +21,7 @@ Search for:
   - Genre
   - Studio
   - Friends (seperate search bar)  
+  
 Dynamic Pages  
 Custom Tailored Information  
 Reactive Components  
